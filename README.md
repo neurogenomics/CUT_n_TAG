@@ -11,3 +11,6 @@
 
 ### [CUTTAG_tutorial](https://yezhengstat.github.io/CUTTag_tutorial/)  
 - Platform: workflowr (R + CLI)  
+
+### [CUT&RUNTools](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1802-4)  
+- Platform: CLI- 
