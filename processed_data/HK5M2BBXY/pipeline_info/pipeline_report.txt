@@ -1,0 +1,96 @@
+----------------------------------------------------
+                                        ,--./,-.
+        ___     __   __   __   ___     /,-._.--~\
+  |\ | |__  __ /  ` /  \ |__) |__         }  {
+  | \| |       \__, \__/ |  \ |___     \`-._,-`-,
+                                        `._,._,'
+  nf-core/atacseq v1.2.1
+----------------------------------------------------
+
+Run Name: serene_spence
+
+####################################################
+## nf-core/atacseq execution completed unsuccessfully! ##
+####################################################
+The exit status of the task that caused the workflow execution to fail was: 32.
+The full error message was:
+
+Error executing process > 'TRIMGALORE (control_R2_T1)'
+
+Caused by:
+  Failed to submit process to grid scheduler for execution
+
+Command executed:
+
+  qsub -N nf-TRIMGALORE_c .command.run
+
+Command exit status:
+  32
+
+Command output:
+  qsub: 
+   Job resource selection does not match any permitted configuration.
+   Please review the job sizing guidance on:
+   https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/computing/
+  
+
+Work dir:
+  /rds/general/user/bms20/ephemeral/tmp/bf/3f4ae635d9181ceac399dd9b8cc1a1
+
+Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
+
+
+The workflow was completed at 2020-12-17T22:22:55.696Z (duration: 2m 29s)
+
+The command used to launch the workflow was as follows:
+
+  nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv --genome GRCh37 --narrow_peak --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -c /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config -r 1.2.1
+
+
+Pipeline Configuration:
+-----------------------
+ - Run Name: serene_spence
+ - Data Type: Paired-End
+ - Design File: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv
+ - Genome: GRCh37
+ - Fasta File: s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Sequence/WholeGenomeFasta/genome.fa
+ - GTF File: s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.gtf
+ - Gene BED File: s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.bed
+ - BWA Index: s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Sequence/BWAIndex/genome.fa
+ - Blacklist BED: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/assets/blacklists/GRCh37-blacklist.bed
+ - Mitochondrial Contig: MT
+ - MACS2 Genome Size: 2.7e9
+ - Min Consensus Reps: 1
+ - MACS2 Narrow Peaks: Yes
+ - Trim R1: 0 bp
+ - Trim R2: 0 bp
+ - Trim 3' R1: 0 bp
+ - Trim 3' R2: 0 bp
+ - NextSeq Trim: 0 bp
+ - Fingerprint Bins: 500000
+ - Save Genome Index: No
+ - Max Resources: 640 GB memory, 32 cpus, 7d time per job
+ - Container: singularity - /rds/general/user/bms20/home/atacseq_latest.sif
+ - Output Dir: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY
+ - Launch Dir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG
+ - Working Dir: /rds/general/user/bms20/ephemeral/tmp
+ - Script Dir: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq
+ - User: bms20
+ - Config Profile: standard
+ - Config Description: Imperial College London - DRI - HPC Profile -- provided by nf-core/configs.
+ - Config Contact: Combiz Khozoie (c.khozoie@imperial.ac.uk)
+ - Config URL: http://www.github.com/combiz/scFlow
+ - Date Started: 2020-12-17T22:20:26.494Z
+ - Date Completed: 2020-12-17T22:22:55.696Z
+ - Pipeline script file path: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/main.nf
+ - Pipeline script hash ID: 3404d0d86da8fdab9fa85fbe02152fcc
+ - Pipeline repository Git URL: https://github.com/nf-core/atacseq
+ - Pipeline repository Git Commit: 1b3a832db5a53c92c2c89a4d6d79455e860461ad
+ - Pipeline Git branch/tag: 1.2.1
+ - Nextflow Version: 20.10.0
+ - Nextflow Build: 5430
+ - Nextflow Compile Timestamp: 01-11-2020 15:14 UTC
+
+--
+nf-core/atacseq
+https://github.com/nf-core/atacseq
