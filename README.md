@@ -1,7 +1,7 @@
 # CUT_n_TAG
 
 
-## Results
+## [Results](https://neurogenomics.github.io/CUT_n_TAG/scripts/nf-core_atacseq_results.html)  
 
 - All results of CUT&TAG data processing can be found through the links found [here](https://neurogenomics.github.io/CUT_n_TAG/scripts/nf-core_atacseq_results.html).  
 
