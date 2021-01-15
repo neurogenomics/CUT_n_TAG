@@ -1,0 +1,127 @@
+---
+title: "nf-core_atacseq_results"
+author: "Brian M. Schilder"
+date: "Most recent update:<br> `r Sys.Date()`"
+output: 
+  rmarkdown::html_document: 
+    theme: spacelab
+    highlight: zenburn 
+    code_folding: hide 
+    toc: true 
+    toc_float: true
+    smooth_scroll: true
+    number_sections: false 
+    self_contained: true 
+runtime: shiny_prerendered
+---
+
+```{r setup, include=F, root.dir="/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG"}
+root.dir <- "/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG"
+
+knitr::opts_chunk$set(echo = T, root.dir = root.dir)
+knitr::opts_knit$set(
+  root.dir = root.dir
+  )
+setwd(root.dir)
+
+source("./scripts/functions.R")
+# devtools::build_site()
+# pkgdown::build_site()
+# siteymlgen::init(dir = "web")
+# 
+# 
+# dir.create(paste0(getwd(), "/test"))
+# file.copy(system.file("extdata", package="siteymlgen"), paste0(getwd(), "/test"), recursive = TRUE)
+# init(dir = "test", file="_site.yml")
+library(dplyr)
+library(shiny)
+```
+
+# Construct website 
+
+Construct website from [nf-core/atacseq](https://nf-co.re/atacseq) results run on CUT&TAG data.  
+
+## Gather html files
+
+Copy over to web/ folder (as this folder is not gitignored). 
+
+```{r} 
+resources <- list.files(path = c("processed_data","raw_data"), 
+                        pattern="*.*html$", 
+                        full.names = T, recursive = T)
+
+new_paths <- lapply(resources, function(x){
+  path <- file.path("web",x)
+  # print(paste(x,"==>",path))
+  dir.create(dirname(path), showWarnings = F, recursive = T)
+  file.copy(x, path)
+  return(path)
+}) %>% unlist()
+```
+
+Construct the actual github.io links.  
+
+```{r Gather html files}
+pages <- GITHUB.find_pages(creator = "neurogenomics", 
+                           repo = "CUT_n_TAG", 
+                           local_repo = "./web", 
+                           return_table = T) 
+ 
+```
+
+# Table of contents
+
+```{r toc, results="asis"}
+for(i in 1:nrow(pages)){ 
+  ROW <- pages[i,]
+  txt <-  paste(gsub(".html$","",as.character(ROW$url)))
+  cat(paste0("<h5>",ROW$link,"</h5>"))
+}
+
+```
+
+
+```{r toc_nest, results="asis", eval=F, echo=F}
+
+for(d1 in unique(pages$dir1)){
+  cat("<h2>",d1,"</h2>")
+  d1_sub <- subset(pages, dir1==d1) 
+  
+  for(d2 in unique(d1_sub$dir2)){
+    cat("<h3>+",d2,"</h3>")
+    d2_sub <- subset(d1_sub, dir2==d2) 
+    
+    for(d3 in unique(d2_sub$dir3)){
+       cat("<h4>+",d3,"</h4>")
+       d3_sub <- subset(d2_sub, dir3==d3) 
+       
+       if(endsWith(d3,".html") | is.na(d3)){
+         for(u in d3_sub$url){
+            item <- subset(d3_sub, url==u)
+            txt <-  paste("-",gsub(".html$","",basename(as.character(item$url))))
+            cat(paste0("[<h5>*",txt,"</h5>](",item$url,")"))
+          }   
+       } else {
+          for(d4 in d3_sub$url){
+            cat("<h5>+",d3,"</h5>")
+            d4_sub <- subset(d3_sub, dir4==d4) 
+              for(u in d4_sub$url){
+                item <- subset(d4_sub, url==u)
+                txt <-  paste("-",gsub(".html$","",basename(as.character(item$url))))
+                cat(paste0("[<h6>*",txt,"</h6>](",item$url,")"))
+              }   
+          }  
+       }
+      
+     
+    }
+    
+    
+  }  
+}
+
+```
+
+
+
+

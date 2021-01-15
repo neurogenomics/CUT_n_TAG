@@ -3,3 +3,4 @@ raw_data/*
 processed_data/**/bwa/*
 processed_data/**/genome/*
 .nextflow/*
+.Rproj.user
