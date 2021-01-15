@@ -78,14 +78,20 @@ function c0(index) { return "#9c9c9c"; }
 function c1(index) { return "#bdbdbd"; }
 function c2(index) { return colors[index % 16]; } // <-- note: uses only the first 16 colors
 
-var elapsed="6m 42s"
-var beginningMillis=1608242848006;
-var endingMillis=1608243249636;
+var elapsed="1h 8m 59s"
+var beginningMillis=1610620495746;
+var endingMillis=1610624634629;
 var data=[
-{"label": "CHECK_DESIGN (design_noindex2.csv)", "times": [{"starting_time": 1608242950901, "ending_time": 1608243010911, "color":c1(0)}, {"starting_time": 1608243010911, "ending_time": 1608243011131, "color":c2(0), "label": "1m \/ 12.3 MB"}]},
-{"label": "FASTQC (control_R1_T1)", "times": [{"starting_time": 1608243016397, "ending_time": 1608243081010, "color":c1(1)}, {"starting_time": 1608243081010, "ending_time": 1608243227141, "color":c2(1), "label": "3m 15s \/ 1.1 GB"}]},
-{"label": "FASTQC (control_R2_T1)", "times": [{"starting_time": 1608243018297, "ending_time": 1608243081521, "color":c1(1)}]},
-{"label": "TRIMGALORE (control_R2_T1)", "times": []}
+{"label": "CHECK_DESIGN (design_noindex2.csv)", "times": [{"starting_time": 1610620709322, "ending_time": 1610620785101, "color":c1(0)}, {"starting_time": 1610620785101, "ending_time": 1610620997308, "color":c2(0), "label": "17m 39s \/ 12.1 MB"}, {"starting_time": 1610620997308, "ending_time": 1610621768390, "color":c1(0)}]},
+{"label": "FASTQC (control_R2_T1)", "times": [{"starting_time": 1610621770102, "ending_time": 1610621838520, "color":c1(1)}, {"starting_time": 1610621838520, "ending_time": 1610622606770, "color":c2(1), "label": "13m 57s \/ -"}]},
+{"label": "FASTQC (control_R1_T1)", "times": [{"starting_time": 1610621770815, "ending_time": 1610621838529, "color":c1(1)}, {"starting_time": 1610621838529, "ending_time": 1610624119964, "color":c2(1), "label": "39m 9s \/ -"}]},
+{"label": "TRIMGALORE (control_R1_T1)", "times": [{"starting_time": 1610621771231, "ending_time": 1610622216409, "color":c1(2)}]},
+{"label": "TRIMGALORE (control_R2_T1)", "times": [{"starting_time": 1610621771808, "ending_time": 1610623326003, "color":c1(2)}]},
+{"label": "get_software_versions", "times": [{"starting_time": 1610621772672, "ending_time": 1610621838537, "color":c1(3)}]},
+{"label": "output_documentation", "times": [{"starting_time": 1610621775835, "ending_time": 1610621838545, "color":c1(4)}, {"starting_time": 1610621838545, "ending_time": 1610622851841, "color":c2(4), "label": "17m 56s \/ -"}]},
+{"label": "MAKE_TSS_BED (genes.bed)", "times": [{"starting_time": 1610621787589, "ending_time": 1610621838552, "color":c1(5)}, {"starting_time": 1610621838552, "ending_time": 1610621867402, "color":c2(5), "label": "6m 43s \/ 7.8 MB"}, {"starting_time": 1610621867402, "ending_time": 1610622190094, "color":c1(5)}]},
+{"label": "MAKE_GENOME_FILTER (genome.fa)", "times": [{"starting_time": 1610621790254, "ending_time": 1610621838559, "color":c1(6)}, {"starting_time": 1610621838559, "ending_time": 1610623071574, "color":c2(6), "label": "26m 43s \/ 15.2 MB"}, {"starting_time": 1610623071574, "ending_time": 1610623393396, "color":c1(6)}]},
+{"label": "FASTQC (control_R2_T1)", "times": []}
 ]
 
 

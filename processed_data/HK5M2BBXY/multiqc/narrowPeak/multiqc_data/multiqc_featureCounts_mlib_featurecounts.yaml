@@ -1,0 +1,34 @@
+control_R1:
+  Assigned: 74789
+  Total: 2953315
+  Unassigned_Ambiguity: 0
+  Unassigned_Chimera: 0
+  Unassigned_Duplicate: 0
+  Unassigned_FragmentLength: 0
+  Unassigned_MappingQuality: 0
+  Unassigned_MultiMapping: 0
+  Unassigned_NoFeatures: 2869405
+  Unassigned_NonSplit: 0
+  Unassigned_Overlapping_Length: 9121
+  Unassigned_Read_Type: 0
+  Unassigned_Secondary: 0
+  Unassigned_Singleton: 0
+  Unassigned_Unmapped: 0
+  percent_assigned: 2.532374636637135
+control_R2:
+  Assigned: 78538
+  Total: 3650627
+  Unassigned_Ambiguity: 0
+  Unassigned_Chimera: 0
+  Unassigned_Duplicate: 0
+  Unassigned_FragmentLength: 0
+  Unassigned_MappingQuality: 0
+  Unassigned_MultiMapping: 0
+  Unassigned_NoFeatures: 3560952
+  Unassigned_NonSplit: 0
+  Unassigned_Overlapping_Length: 11137
+  Unassigned_Read_Type: 0
+  Unassigned_Secondary: 0
+  Unassigned_Singleton: 0
+  Unassigned_Unmapped: 0
+  percent_assigned: 2.1513564656153585

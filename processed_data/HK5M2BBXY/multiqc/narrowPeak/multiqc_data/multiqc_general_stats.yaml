@@ -1,0 +1,124 @@
+control:
+  'MERGED REP: Picard_mqc-generalstats-merged_rep_picard-PERCENT_DUPLICATION': 0.0
+  'MERGED REP: SAMTools_mqc-generalstats-merged_rep_samtools-error_rate': 0.001980472
+  'MERGED REP: SAMTools_mqc-generalstats-merged_rep_samtools-flagstat_total': 13207884
+  'MERGED REP: SAMTools_mqc-generalstats-merged_rep_samtools-mapped_passed': 13207884
+  'MERGED REP: SAMTools_mqc-generalstats-merged_rep_samtools-non_primary_alignments': 0.0
+  'MERGED REP: SAMTools_mqc-generalstats-merged_rep_samtools-raw_total_sequences': 13207884.0
+  'MERGED REP: SAMTools_mqc-generalstats-merged_rep_samtools-reads_MQ0_percent': 0.0
+  'MERGED REP: SAMTools_mqc-generalstats-merged_rep_samtools-reads_mapped': 13207884.0
+  'MERGED REP: SAMTools_mqc-generalstats-merged_rep_samtools-reads_mapped_percent': 100.0
+  'MERGED REP: SAMTools_mqc-generalstats-merged_rep_samtools-reads_properly_paired_percent': 99.50605259707005
+control_R1:
+  'MERGED LIB: Picard_mqc-generalstats-merged_lib_picard-PCT_PF_READS_ALIGNED': 1.0
+  'MERGED LIB: Picard_mqc-generalstats-merged_lib_picard-summed_mean': 194.059442
+  'MERGED LIB: Picard_mqc-generalstats-merged_lib_picard-summed_median': 186
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-error_rate': 0.001972101
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-flagstat_total': 5906630
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-mapped_passed': 5906630
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-non_primary_alignments': 0.0
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-raw_total_sequences': 5906630.0
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-reads_MQ0_percent': 0.0
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-reads_mapped': 5906630.0
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-reads_mapped_percent': 100.0
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-reads_properly_paired_percent': 99.71364382058805
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-error_rate': 0.004496795
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-flagstat_total': 15822606
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-mapped_passed': 15795012
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-non_primary_alignments': 0.0
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-raw_total_sequences': 15822606.0
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-reads_MQ0_percent': 4.41069568438979
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-reads_mapped': 15795012.0
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-reads_mapped_percent': 99.82560394918511
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-reads_properly_paired_percent': 99.09724099810107
+  'MERGED LIB: featureCounts_mqc-generalstats-merged_lib_featurecounts-Assigned': 74789
+  'MERGED LIB: featureCounts_mqc-generalstats-merged_lib_featurecounts-percent_assigned': 2.532374636637135
+control_R1_T1:
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-error_rate': 0.004496795
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-flagstat_total': 15822606
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-mapped_passed': 15795012
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-non_primary_alignments': 0.0
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-raw_total_sequences': 15822606.0
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-reads_MQ0_percent': 4.41069568438979
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-reads_mapped': 15795012.0
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-reads_mapped_percent': 99.82560394918511
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-reads_properly_paired_percent': 99.09724099810107
+  'MERGED LIB: Picard_mqc-generalstats-merged_lib_picard-PERCENT_DUPLICATION': 0.557676
+control_R1_T1_1:
+  'LIB: Cutadapt (trimmed)_mqc-generalstats-lib_cutadapt_trimmed-percent_trimmed': 16.4488053283014
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-avg_sequence_length': 148.8522485025429
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-percent_duplicates': 54.71984057091974
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-percent_fails': 27.27272727272727
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-percent_gc': 50.0
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-total_sequences': 7930945.0
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-avg_sequence_length': 124.3962999521065
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-percent_duplicates': 54.41966758935108
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-percent_fails': 18.181818181818183
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-percent_gc': 51.0
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-total_sequences': 7911303.0
+control_R1_T1_2:
+  'LIB: Cutadapt (trimmed)_mqc-generalstats-lib_cutadapt_trimmed-percent_trimmed': 16.867757181127665
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-avg_sequence_length': 148.84256882376565
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-percent_duplicates': 52.73392890136292
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-percent_fails': 27.27272727272727
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-percent_gc': 50.0
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-total_sequences': 7930945.0
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-avg_sequence_length': 123.95357136491928
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-percent_duplicates': 52.526162190230245
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-percent_fails': 18.181818181818183
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-percent_gc': 51.0
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-total_sequences': 7911303.0
+control_R2:
+  'MERGED LIB: Picard_mqc-generalstats-merged_lib_picard-PCT_PF_READS_ALIGNED': 1.0
+  'MERGED LIB: Picard_mqc-generalstats-merged_lib_picard-summed_mean': 196.078157
+  'MERGED LIB: Picard_mqc-generalstats-merged_lib_picard-summed_median': 189
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-error_rate': 0.001987061
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-flagstat_total': 7301254
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-mapped_passed': 7301254
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-non_primary_alignments': 0.0
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-raw_total_sequences': 7301254.0
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-reads_MQ0_percent': 0.0
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-reads_mapped': 7301254.0
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-reads_mapped_percent': 100.0
+  'MERGED LIB: SAMTools (filtered)_mqc-generalstats-merged_lib_samtools_filtered-reads_properly_paired_percent': 99.33811369937274
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-error_rate': 0.004080156
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-flagstat_total': 19824226
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-mapped_passed': 19786586
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-non_primary_alignments': 0.0
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-raw_total_sequences': 19824226.0
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-reads_MQ0_percent': 4.338671280281005
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-reads_mapped': 19786586.0
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-reads_mapped_percent': 99.81013130096478
+  'MERGED LIB: SAMTools (unfiltered)_mqc-generalstats-merged_lib_samtools_unfiltered-reads_properly_paired_percent': 99.04909276155347
+  'MERGED LIB: featureCounts_mqc-generalstats-merged_lib_featurecounts-Assigned': 78538
+  'MERGED LIB: featureCounts_mqc-generalstats-merged_lib_featurecounts-percent_assigned': 2.1513564656153585
+control_R2_T1:
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-error_rate': 0.004080156
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-flagstat_total': 19824226
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-mapped_passed': 19786586
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-non_primary_alignments': 0.0
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-raw_total_sequences': 19824226.0
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-reads_MQ0_percent': 4.338671280281005
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-reads_mapped': 19786586.0
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-reads_mapped_percent': 99.81013130096478
+  'LIB: SAMTools_mqc-generalstats-lib_samtools-reads_properly_paired_percent': 99.04909276155347
+  'MERGED LIB: Picard_mqc-generalstats-merged_lib_picard-PERCENT_DUPLICATION': 0.573006
+control_R2_T1_1:
+  'LIB: Cutadapt (trimmed)_mqc-generalstats-lib_cutadapt_trimmed-percent_trimmed': 13.802410465876406
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-avg_sequence_length': 148.93917423002094
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-percent_duplicates': 56.85004475663664
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-percent_fails': 27.27272727272727
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-percent_gc': 51.0
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-total_sequences': 9931991.0
+control_R2_T1_2:
+  'LIB: Cutadapt (trimmed)_mqc-generalstats-lib_cutadapt_trimmed-percent_trimmed': 14.210258635242583
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-avg_sequence_length': 148.87837242301165
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-percent_duplicates': 55.22139024435276
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-percent_fails': 27.27272727272727
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-percent_gc': 51.0
+  'LIB: FastQC (raw)_mqc-generalstats-lib_fastqc_raw-total_sequences': 9931991.0
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-avg_sequence_length': 127.83509005597494
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-percent_duplicates': 54.92942510988135
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-percent_fails': 18.181818181818183
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-percent_gc': 52.0
+  'LIB: FastQC (trimmed)_mqc-generalstats-lib_fastqc_trimmed-total_sequences': 9912113.0

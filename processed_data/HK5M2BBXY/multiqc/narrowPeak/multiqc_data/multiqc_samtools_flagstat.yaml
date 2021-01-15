@@ -1,0 +1,68 @@
+control_R1_T1:
+  duplicates_failed: 0
+  duplicates_passed: 0
+  flagstat_total: 15822606
+  mapped_failed: 0
+  mapped_failed_pct: .nan
+  mapped_passed: 15795012
+  mapped_passed_pct: 99.83
+  paired in sequencing_failed: 0
+  paired in sequencing_passed: 15822606
+  properly paired_failed: 0
+  properly paired_failed_pct: .nan
+  properly paired_passed: 15679766
+  properly paired_passed_pct: 99.1
+  read1_failed: 0
+  read1_passed: 7911303
+  read2_failed: 0
+  read2_passed: 7911303
+  secondary_failed: 0
+  secondary_passed: 0
+  singletons_failed: 0
+  singletons_failed_pct: .nan
+  singletons_passed: 8306
+  singletons_passed_pct: 0.05
+  supplementary_failed: 0
+  supplementary_passed: 0
+  total_failed: 0
+  total_passed: 15822606
+  with itself and mate mapped_failed: 0
+  with itself and mate mapped_passed: 15786706
+  with mate mapped to a different chr (mapQ >= 5)_failed: 0
+  with mate mapped to a different chr (mapQ >= 5)_passed: 36936
+  with mate mapped to a different chr_failed: 0
+  with mate mapped to a different chr_passed: 67072
+control_R2_T1:
+  duplicates_failed: 0
+  duplicates_passed: 0
+  flagstat_total: 19824226
+  mapped_failed: 0
+  mapped_failed_pct: .nan
+  mapped_passed: 19786586
+  mapped_passed_pct: 99.81
+  paired in sequencing_failed: 0
+  paired in sequencing_passed: 19824226
+  properly paired_failed: 0
+  properly paired_failed_pct: .nan
+  properly paired_passed: 19635716
+  properly paired_passed_pct: 99.05
+  read1_failed: 0
+  read1_passed: 9912113
+  read2_failed: 0
+  read2_passed: 9912113
+  secondary_failed: 0
+  secondary_passed: 0
+  singletons_failed: 0
+  singletons_failed_pct: .nan
+  singletons_passed: 10260
+  singletons_passed_pct: 0.05
+  supplementary_failed: 0
+  supplementary_passed: 0
+  total_failed: 0
+  total_passed: 19824226
+  with itself and mate mapped_failed: 0
+  with itself and mate mapped_passed: 19776326
+  with mate mapped to a different chr (mapQ >= 5)_failed: 0
+  with mate mapped to a different chr (mapQ >= 5)_passed: 30566
+  with mate mapped to a different chr_failed: 0
+  with mate mapped to a different chr_passed: 58950

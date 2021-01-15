@@ -1,11 +1,254 @@
-Dec-17 22:18:15.308 [main] DEBUG nextflow.cli.Launcher - $> nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv --genome GRCh37 --narrow_peak
-Dec-17 22:18:17.797 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 20.10.0
-Dec-17 22:18:33.600 [main] DEBUG nextflow.scm.AssetManager - Git config: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/atacseq.git
-Dec-17 22:18:33.803 [main] DEBUG nextflow.scm.AssetManager - Git config: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/atacseq.git
-Dec-17 22:18:35.505 [main] DEBUG nextflow.cli.Launcher - Operation aborted
-nextflow.exception.AbortOperationException: Project `nf-core/atacseq` currently is sticked on revision: 1.2.1 -- you need to specify explicitly a revision with the option `-r` to use it
-	at nextflow.scm.AssetManager.checkout(AssetManager.groovy:903)
-	at nextflow.cli.CmdRun.getScriptFile(CmdRun.groovy:350)
-	at nextflow.cli.CmdRun.run(CmdRun.groovy:249)
-	at nextflow.cli.Launcher.run(Launcher.groovy:466)
-	at nextflow.cli.Launcher.main(Launcher.groovy:648)
+Jan-14 11:46:46.440 [main] DEBUG nextflow.cli.Launcher - $> nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv --genome GRCh37 --narrow_peak --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -r 1.2.1
+Jan-14 11:46:47.012 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 20.10.0
+Jan-14 11:46:50.165 [main] DEBUG nextflow.scm.AssetManager - Git config: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/atacseq.git
+Jan-14 11:46:50.340 [main] DEBUG nextflow.scm.AssetManager - Git config: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/atacseq.git
+Jan-14 11:47:04.281 [main] INFO  nextflow.cli.CmdRun - Launching `nf-core/atacseq` [festering_carlsson] - revision: 1b3a832db5 [1.2.1]
+Jan-14 11:47:06.076 [main] DEBUG nextflow.config.ConfigBuilder - Found config home: /rds/general/user/bms20/home/.nextflow/config
+Jan-14 11:47:06.077 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/nextflow.config
+Jan-14 11:47:06.105 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /apps/nextflow/20.01.0/bin/nextflow.config
+Jan-14 11:47:06.106 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /rds/general/user/bms20/home/.nextflow/config
+Jan-14 11:47:06.106 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/nextflow.config
+Jan-14 11:47:06.107 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /apps/nextflow/20.01.0/bin/nextflow.config
+Jan-14 11:47:06.126 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jan-14 11:47:06.349 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jan-14 11:47:08.587 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jan-14 11:47:08.724 [main] DEBUG nextflow.config.ConfigBuilder - Enabling execution in Singularity container as requested by cli option `-with-singularity null`
+Jan-14 11:47:08.919 [main] DEBUG nextflow.Session - Session uuid: 0b5c0a4a-fca2-46bf-b6a8-9718a5431726
+Jan-14 11:47:08.920 [main] DEBUG nextflow.Session - Run name: festering_carlsson
+Jan-14 11:47:08.921 [main] DEBUG nextflow.Session - Executor pool size: 24
+Jan-14 11:47:09.055 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 20.10.0 build 5430
+  Created: 01-11-2020 15:14 UTC (15:14 BST)
+  System: Linux 3.10.0-1127.19.1.el7.x86_64
+  Runtime: Groovy 3.0.5 on Java HotSpot(TM) 64-Bit Server VM 1.8.0_144-b01
+  Encoding: UTF-8 (UTF-8)
+  Process: 30475@login-7 [146.179.60.57]
+  CPUs: 24 - Mem: 188.9 GB (1 GB) - Swap: 0 (0)
+Jan-14 11:47:09.138 [main] DEBUG nextflow.Session - Work-dir: /rds/general/user/bms20/ephemeral/tmp [nfs]
+Jan-14 11:47:09.585 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Jan-14 11:47:09.589 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jan-14 11:47:12.417 [main] DEBUG nextflow.Session - Session start invoked
+Jan-14 11:47:12.481 [main] DEBUG nextflow.trace.TraceFileObserver - Flow starting -- trace file: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY/pipeline_info/execution_trace.txt
+Jan-14 11:47:38.427 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jan-14 11:47:38.496 [main] DEBUG nextflow.Session - Workflow process names [dsl1]: FASTQC, MERGED_LIB_MACS2_QC, MERGED_LIB_CONSENSUS_ANNOTATE, output_documentation, MERGED_LIB_BIGWIG, MERGED_LIB_PLOTPROFILE, MULTIQC, SORT_BAM, MERGED_LIB_CONSENSUS_DESEQ2, MERGED_REP_CONSENSUS, MERGED_LIB_PICARD_METRICS, BWA_MEM, MERGED_REP_BIGWIG, MERGED_REP_MACS2, MERGED_REP_MACS2_QC, MERGED_LIB_CONSENSUS, MERGED_REP_MACS2_ANNOTATE, MERGED_REP_CONSENSUS_COUNTS, BWA_INDEX, get_software_versions, CHECK_DESIGN, MERGED_LIB_BAM, MERGED_LIB_ATAQV_MKARV, MAKE_GENE_BED, MERGED_LIB_PRESEQ, MERGED_LIB_MACS2, MERGED_LIB_BAM_FILTER, MERGED_LIB_CONSENSUS_COUNTS, MERGED_LIB_ATAQV, MERGED_LIB_MACS2_ANNOTATE, TRIMGALORE, MERGED_REP_BAM, MERGED_REP_CONSENSUS_DESEQ2, MERGED_LIB_BAM_REMOVE_ORPHAN, MERGED_REP_CONSENSUS_ANNOTATE, MAKE_TSS_BED, IGV, MERGED_LIB_PLOTFINGERPRINT, MAKE_GENOME_FILTER
+Jan-14 11:47:38.788 [main] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider
+Jan-14 11:47:38.807 [main] DEBUG nextflow.file.FileHelper - AWS S3 config details: {}
+Jan-14 11:48:25.976 [main] INFO  nextflow.Nextflow - -[2m--------------------------------------------------[0m-
+                                        [0;32m,--.[0;30m/[0;32m,-.[0m
+[0;34m        ___     __   __   __   ___     [0;32m/,-._.--~'[0m
+[0;34m  |\ | |__  __ /  ` /  \ |__) |__         [0;33m}  {[0m
+[0;34m  | \| |       \__, \__/ |  \ |___     [0;32m\`-._,-`-,[0m
+                                        [0;32m`._,._,'[0m
+[0;35m  nf-core/atacseq v1.2.1[0m
+-[2m--------------------------------------------------[0m-
+
+Jan-14 11:48:25.988 [main] INFO  nextflow.Nextflow - Run Name             : festering_carlsson
+Data Type            : Paired-End
+Design File          : /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv
+Genome               : GRCh37
+Fasta File           : s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Sequence/WholeGenomeFasta/genome.fa
+GTF File             : s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.gtf
+Gene BED File        : s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.bed
+BWA Index            : s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Sequence/BWAIndex/genome.fa
+Blacklist BED        : /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/assets/blacklists/GRCh37-blacklist.bed
+Mitochondrial Contig : MT
+MACS2 Genome Size    : 2.7e9
+Min Consensus Reps   : 1
+MACS2 Narrow Peaks   : Yes
+Trim R1              : 0 bp
+Trim R2              : 0 bp
+Trim 3' R1           : 0 bp
+Trim 3' R2           : 0 bp
+NextSeq Trim         : 0 bp
+Fingerprint Bins     : 500000
+Save Genome Index    : No
+Max Resources        : 128 GB memory, 16 cpus, 10d time per job
+Container            : singularity - /rds/general/user/bms20/home/atacseq_latest.sif
+Output Dir           : /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY
+Launch Dir           : /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG
+Working Dir          : /rds/general/user/bms20/ephemeral/tmp
+Script Dir           : /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq
+User                 : bms20
+Config Profile       : standard
+Jan-14 11:48:25.989 [main] INFO  nextflow.Nextflow - -[2m--------------------------------------------------[0m-
+Jan-14 11:48:29.485 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:48:29.571 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:48:29.588 [main] DEBUG nextflow.executor.Executor - [warm up] executor > pbspro
+Jan-14 11:48:29.598 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'pbspro' > capacity: 50; pollInterval: 5s; dumpInterval: 5m 
+Jan-14 11:48:29.606 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'pbspro' > queue-stat-interval: 1m
+Jan-14 11:48:35.301 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process CHECK_DESIGN (design_noindex2.csv) > jobId: 2942206.pbs; workDir: /rds/general/user/bms20/ephemeral/tmp/57/a22311b1f566e89601fb9e18e5fd99
+Jan-14 11:48:35.314 [Task submitter] INFO  nextflow.Session - [57/a22311] Submitted process > CHECK_DESIGN (design_noindex2.csv)
+Jan-14 11:49:50.033 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 2942206.pbs; id: 1; name: CHECK_DESIGN (design_noindex2.csv); status: COMPLETED; exit: 0; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/57/a22311b1f566e89601fb9e18e5fd99 started: 1610624990001; exited: 2021-01-14T11:49:48Z; ]
+Jan-14 11:49:50.469 [Task monitor] DEBUG n.util.BlockingThreadExecutorFactory - Thread pool name=FileTransfer; maxThreads=72; maxQueueSize=216; keepAlive=1m
+Jan-14 11:49:50.570 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:50.570 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:50.610 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:50.610 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:50.651 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name FASTQC
+Jan-14 11:49:50.652 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:50.652 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:50.838 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name TRIMGALORE
+Jan-14 11:49:50.839 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:50.839 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:50.939 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name BWA_MEM
+Jan-14 11:49:50.940 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:50.940 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:50.954 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name SORT_BAM
+Jan-14 11:49:50.956 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:50.956 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:50.986 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BAM
+Jan-14 11:49:50.988 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:50.988 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.007 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BAM_FILTER
+Jan-14 11:49:51.009 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.009 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.026 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BAM_REMOVE_ORPHAN
+Jan-14 11:49:51.027 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.027 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.039 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches label `process_low` for process with name MERGED_LIB_PRESEQ
+Jan-14 11:49:51.040 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:error_ignore` matches label `error_ignore` for process with name MERGED_LIB_PRESEQ
+Jan-14 11:49:51.041 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.041 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.058 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_PICARD_METRICS
+Jan-14 11:49:51.060 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.060 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.093 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BIGWIG
+Jan-14 11:49:51.094 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.094 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.103 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name MERGED_LIB_PLOTPROFILE
+Jan-14 11:49:51.104 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.105 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.126 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name MERGED_LIB_PLOTFINGERPRINT
+Jan-14 11:49:51.128 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.128 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.170 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_MACS2
+Jan-14 11:49:51.172 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.172 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.205 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_MACS2_ANNOTATE
+Jan-14 11:49:51.207 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.207 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.226 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_MACS2_QC
+Jan-14 11:49:51.227 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.227 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.238 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_long` matches label `process_long` for process with name MERGED_LIB_CONSENSUS
+Jan-14 11:49:51.240 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.240 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.252 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_CONSENSUS_ANNOTATE
+Jan-14 11:49:51.254 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.254 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.272 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_CONSENSUS_COUNTS
+Jan-14 11:49:51.273 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.273 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.289 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_CONSENSUS_DESEQ2
+Jan-14 11:49:51.292 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.292 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.345 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_ATAQV
+Jan-14 11:49:51.347 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.347 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.365 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_ATAQV_MKARV
+Jan-14 11:49:51.372 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.372 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.398 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_BAM
+Jan-14 11:49:51.400 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.400 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.426 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_BIGWIG
+Jan-14 11:49:51.427 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.428 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.449 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_MACS2
+Jan-14 11:49:51.451 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.451 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.469 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_MACS2_ANNOTATE
+Jan-14 11:49:51.472 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.472 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.495 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_MACS2_QC
+Jan-14 11:49:51.497 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.497 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.514 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_long` matches label `process_long` for process with name MERGED_REP_CONSENSUS
+Jan-14 11:49:51.515 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.515 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.527 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_CONSENSUS_ANNOTATE
+Jan-14 11:49:51.528 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.529 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.544 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_CONSENSUS_COUNTS
+Jan-14 11:49:51.546 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.546 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.561 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_CONSENSUS_DESEQ2
+Jan-14 11:49:51.563 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.563 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.631 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.631 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.744 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:get_software_versions` matches process get_software_versions
+Jan-14 11:49:51.746 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.747 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:51.995 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:51.996 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:52.013 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-14 11:49:52.013 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-14 11:49:52.031 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Jan-14 11:49:52.031 [main] DEBUG nextflow.Session - Session await
+Jan-14 11:49:52.268 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process FASTQC (control_R2_T1) > jobId: 2942209.pbs; workDir: /rds/general/user/bms20/ephemeral/tmp/a5/67746474e1af96180bac395cf33903
+Jan-14 11:49:52.269 [Task submitter] INFO  nextflow.Session - [a5/677464] Submitted process > FASTQC (control_R2_T1)
+Jan-14 11:49:57.894 [Actor Thread 10] DEBUG nextflow.sort.BigSort - Sort completed -- entries: 1; slices: 1; internal sort time: 0.226 s; external sort time: 0.169 s; total time: 0.395 s
+Jan-14 11:49:58.901 [Actor Thread 10] DEBUG nextflow.file.FileCollector - Saved collect-files list to: /rds/general/ephemeral/user/bms20/ephemeral/7071d81cdfd1821d1766fffbedb52350.collect-file
+Jan-14 11:49:58.958 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process FASTQC (control_R1_T1) > jobId: 2942210.pbs; workDir: /rds/general/user/bms20/ephemeral/tmp/df/45a2068b474406cf511a2f7a00824f
+Jan-14 11:49:58.958 [Task submitter] INFO  nextflow.Session - [df/45a206] Submitted process > FASTQC (control_R1_T1)
+Jan-14 11:49:59.801 [FileTransfer-thread-2] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.bed at /rds/general/user/bms20/ephemeral/tmp/stage/d8/9f97fe9aa877bda1f7898b6e1236db/genes.bed
+Jan-14 11:50:00.465 [Actor Thread 10] DEBUG nextflow.file.FileCollector - Deleting file collector temp dir: /rds/general/ephemeral/user/bms20/ephemeral/nxf-1207042245444384577
+Jan-14 11:50:00.741 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - Failed to submit process TRIMGALORE (control_R2_T1) > exit: 32; workDir: /rds/general/user/bms20/ephemeral/tmp/f4/7b7908c4ab230ce46e04cfac9c35ab
+qsub: 
+ Job resource selection does not match any permitted configuration.
+ Please review the job sizing guidance on:
+ https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/computing/
+
+
+
+Jan-14 11:50:00.767 [Task submitter] DEBUG nextflow.processor.TaskRun - Unable to dump error of process 'TRIMGALORE (control_R2_T1)' -- Cause: java.nio.file.NoSuchFileException: /rds/general/user/bms20/ephemeral/tmp/f4/7b7908c4ab230ce46e04cfac9c35ab/.command.log
+Jan-14 11:50:00.769 [Task submitter] ERROR nextflow.processor.TaskProcessor - Error executing process > 'TRIMGALORE (control_R2_T1)'
+
+Caused by:
+  Failed to submit process to grid scheduler for execution
+
+Command executed:
+
+  qsub -N nf-TRIMGALORE_c .command.run
+
+Command exit status:
+  32
+
+Command output:
+  qsub: 
+   Job resource selection does not match any permitted configuration.
+   Please review the job sizing guidance on:
+   https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/computing/
+  
+
+Work dir:
+  /rds/general/user/bms20/ephemeral/tmp/f4/7b7908c4ab230ce46e04cfac9c35ab
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+Jan-14 11:50:00.776 [Task submitter] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Jan-14 11:50:00.841 [main] DEBUG nextflow.Session - Session await > all process finished
+Jan-14 11:50:02.699 [FileTransfer-thread-3] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Sequence/WholeGenomeFasta/genome.fa at /rds/general/user/bms20/ephemeral/tmp/stage/91/57b7b2258c682d5f4421207bdf467a/genome.fa
+Jan-14 11:52:47.483 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 2942209.pbs; id: 5; name: FASTQC (control_R2_T1); status: COMPLETED; exit: 134; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/a5/67746474e1af96180bac395cf33903 started: 1610625100864; exited: 2021-01-14T11:52:44Z; ]
+Jan-14 11:52:47.531 [Task monitor] INFO  nextflow.processor.TaskProcessor - [a5/677464] NOTE: Process `FASTQC (control_R2_T1)` terminated with an error exit status (134) -- Execution is retried (1)
+Jan-14 11:53:37.781 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 2942210.pbs; id: 4; name: FASTQC (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/df/45a2068b474406cf511a2f7a00824f started: 1610625100896; exited: -; ]
+Jan-14 11:55:12.437 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor pbspro > tasks in the submission queue: 6 -- tasks to be submitted are shown below
+~> TaskHandler[jobId: null; id: 6; name: TRIMGALORE (control_R1_T1); status: NEW; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/19/da9bec5b1b47cf6546268754d2d9c0 started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 8; name: get_software_versions; status: NEW; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/70/402177a58636fdd4d342eb8735cce7 started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 9; name: output_documentation; status: NEW; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/02/ef14ede92c9d8f719a37ce4c0b3f4d started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 2; name: MAKE_TSS_BED (genes.bed); status: NEW; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/b9/2b0849eb9731277e3c3997f0a0d2a9 started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 3; name: MAKE_GENOME_FILTER (genome.fa); status: NEW; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/bf/a55ed2508a799dac164ce4e7762cea started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 10; name: FASTQC (control_R2_T1); status: NEW; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/1c/158a8e052962fc9877d34cf784b0cf started: -; exited: -; ]
+Jan-14 11:55:23.036 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 2942210.pbs; id: 4; name: FASTQC (control_R1_T1); status: COMPLETED; exit: 0; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/df/45a2068b474406cf511a2f7a00824f started: 1610625100896; exited: 2021-01-14T11:55:20Z; ]
+Jan-14 11:58:37.999 [Task monitor] DEBUG n.processor.TaskPollingMonitor - No more task to compute -- Execution may be stalled
+Jan-14 12:00:06.032 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor pbspro > tasks in the submission queue: 6 -- tasks to be submitted are shown below
+~> TaskHandler[jobId: null; id: 6; name: TRIMGALORE (control_R1_T1); status: NEW; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/19/da9bec5b1b47cf6546268754d2d9c0 started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 8; name: get_software_versions; status: NEW; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/70/402177a58636fdd4d342eb8735cce7 started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 9; name: output_documentation; status: NEW; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/02/ef14ede92c9d8f719a37ce4c0b3f4d started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 2; name: MAKE_TSS_BED (genes.bed); status: NEW; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/b9/2b0849eb9731277e3c3997f0a0d2a9 started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 3; name: MAKE_GENOME_FILTER (genome.fa); status: NEW; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/bf/a55ed2508a799dac164ce4e7762cea started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 10; name: FASTQC (control_R2_T1); status: NEW; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/1c/158a8e052962fc9877d34cf784b0cf started: -; exited: -; ]
+Jan-14 12:00:25.333 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
+Jan-14 12:00:28.649 [SIGINT handler] INFO  nextflow.Session - Adieu
+Jan-14 12:00:42.278 [main] DEBUG nextflow.Session - Session await > all barriers passed

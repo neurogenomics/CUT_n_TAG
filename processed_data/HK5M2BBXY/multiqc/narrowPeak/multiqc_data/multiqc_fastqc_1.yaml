@@ -1,0 +1,63 @@
+control_R1_T1_1:
+  '%GC': 51.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: control_R1_T1_1_val_1.fq.gz
+  Sequence length: 20-150
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 7911303.0
+  adapter_content: pass
+  avg_sequence_length: 124.3962999521065
+  basic_statistics: pass
+  overrepresented_sequences: pass
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: pass
+  per_sequence_quality_scores: pass
+  per_tile_sequence_quality: warn
+  sequence_duplication_levels: fail
+  sequence_length_distribution: warn
+  total_deduplicated_percentage: 45.58033241064892
+control_R1_T1_2:
+  '%GC': 51.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: control_R1_T1_2_val_2.fq.gz
+  Sequence length: 20-150
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 7911303.0
+  adapter_content: pass
+  avg_sequence_length: 123.95357136491928
+  basic_statistics: pass
+  overrepresented_sequences: pass
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: pass
+  per_sequence_quality_scores: pass
+  per_tile_sequence_quality: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: warn
+  total_deduplicated_percentage: 47.473837809769755
+control_R2_T1_2:
+  '%GC': 52.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: control_R2_T1_2_val_2.fq.gz
+  Sequence length: 20-150
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 9912113.0
+  adapter_content: pass
+  avg_sequence_length: 127.83509005597494
+  basic_statistics: pass
+  overrepresented_sequences: pass
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: pass
+  per_sequence_quality_scores: pass
+  per_tile_sequence_quality: warn
+  sequence_duplication_levels: fail
+  sequence_length_distribution: warn
+  total_deduplicated_percentage: 45.07057489011865

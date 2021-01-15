@@ -1,0 +1,68 @@
+control_R1:
+  duplicates_failed: 0
+  duplicates_passed: 0
+  flagstat_total: 5906630
+  mapped_failed: 0
+  mapped_failed_pct: .nan
+  mapped_passed: 5906630
+  mapped_passed_pct: 100.0
+  paired in sequencing_failed: 0
+  paired in sequencing_passed: 5906630
+  properly paired_failed: 0
+  properly paired_failed_pct: .nan
+  properly paired_passed: 5889716
+  properly paired_passed_pct: 99.71
+  read1_failed: 0
+  read1_passed: 2953315
+  read2_failed: 0
+  read2_passed: 2953315
+  secondary_failed: 0
+  secondary_passed: 0
+  singletons_failed: 0
+  singletons_failed_pct: .nan
+  singletons_passed: 0
+  singletons_passed_pct: 0.0
+  supplementary_failed: 0
+  supplementary_passed: 0
+  total_failed: 0
+  total_passed: 5906630
+  with itself and mate mapped_failed: 0
+  with itself and mate mapped_passed: 5906630
+  with mate mapped to a different chr (mapQ >= 5)_failed: 0
+  with mate mapped to a different chr (mapQ >= 5)_passed: 0
+  with mate mapped to a different chr_failed: 0
+  with mate mapped to a different chr_passed: 0
+control_R2:
+  duplicates_failed: 0
+  duplicates_passed: 0
+  flagstat_total: 7301254
+  mapped_failed: 0
+  mapped_failed_pct: .nan
+  mapped_passed: 7301254
+  mapped_passed_pct: 100.0
+  paired in sequencing_failed: 0
+  paired in sequencing_passed: 7301254
+  properly paired_failed: 0
+  properly paired_failed_pct: .nan
+  properly paired_passed: 7252928
+  properly paired_passed_pct: 99.34
+  read1_failed: 0
+  read1_passed: 3650627
+  read2_failed: 0
+  read2_passed: 3650627
+  secondary_failed: 0
+  secondary_passed: 0
+  singletons_failed: 0
+  singletons_failed_pct: .nan
+  singletons_passed: 0
+  singletons_passed_pct: 0.0
+  supplementary_failed: 0
+  supplementary_passed: 0
+  total_failed: 0
+  total_passed: 7301254
+  with itself and mate mapped_failed: 0
+  with itself and mate mapped_passed: 7301254
+  with mate mapped to a different chr (mapQ >= 5)_failed: 0
+  with mate mapped to a different chr (mapQ >= 5)_passed: 0
+  with mate mapped to a different chr_failed: 0
+  with mate mapped to a different chr_passed: 0

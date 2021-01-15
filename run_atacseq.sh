@@ -14,5 +14,5 @@ nextflow run nf-core/atacseq \
     --narrow_peak \
     --outdir $repo_dir/processed_data/$project_id \
     -with-singularity $HOME/atacseq_latest.sif \
-    -c $repo_dir/hpc_config \
-    -r 1.2.1
+    -r 1.2.1 \
+#   -c $repo_dir/hpc_config

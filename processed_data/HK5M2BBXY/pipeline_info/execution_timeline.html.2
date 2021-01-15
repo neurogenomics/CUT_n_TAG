@@ -78,11 +78,14 @@ function c0(index) { return "#9c9c9c"; }
 function c1(index) { return "#bdbdbd"; }
 function c2(index) { return colors[index % 16]; } // <-- note: uses only the first 16 colors
 
-var elapsed="13m 58s"
-var beginningMillis=1608229909686;
-var endingMillis=1608230747221;
+var elapsed="4m 11s"
+var beginningMillis=1610619201737;
+var endingMillis=1610619452625;
 var data=[
-{"label": "CHECK_DESIGN (design_noindex.csv)", "times": [{"starting_time": 1608230469496, "ending_time": 1608230493246, "color":c1(0)}, {"starting_time": 1608230493246, "ending_time": 1608230609977, "color":c2(0), "label": "2m 20s \/ -"}]}
+{"label": "CHECK_DESIGN (design_noindex2.csv)", "times": [{"starting_time": 1610619258079, "ending_time": 1610619356926, "color":c1(0)}, {"starting_time": 1610619356926, "ending_time": 1610619357526, "color":c2(0), "label": "1m 39s \/ 10.4 MB"}]},
+{"label": "FASTQC (control_R1_T1)", "times": [{"starting_time": 1610619357702, "ending_time": 1610619423355, "color":c1(1)}]},
+{"label": "FASTQC (control_R2_T1)", "times": [{"starting_time": 1610619358052, "ending_time": 1610619423379, "color":c1(1)}]},
+{"label": "TRIMGALORE (control_R2_T1)", "times": []}
 ]
 
 

@@ -1,0 +1,44 @@
+control_R1_R1:
+  cycle_count: 150
+  mean_pct_a: 24.800345433333334
+  mean_pct_c: 25.173850739999995
+  mean_pct_g: 25.17735821333335
+  mean_pct_t: 24.844979140000014
+  sum_pct_a: 3720.051815
+  sum_pct_c: 3776.0776109999993
+  sum_pct_g: 3776.6037320000023
+  sum_pct_n: 0.519964
+  sum_pct_t: 3726.746871000002
+control_R1_R2:
+  cycle_count: 150
+  mean_pct_a: 24.81502134
+  mean_pct_c: 25.154087826666665
+  mean_pct_g: 25.164730459999983
+  mean_pct_t: 24.86169178666666
+  sum_pct_a: 3722.2532010000004
+  sum_pct_c: 3773.1131739999996
+  sum_pct_g: 3774.7095689999974
+  sum_pct_n: 0.670288
+  sum_pct_t: 3729.253767999999
+control_R2_R1:
+  cycle_count: 150
+  mean_pct_a: 24.2739894
+  mean_pct_c: 25.701065720000003
+  mean_pct_g: 25.69874999999999
+  mean_pct_t: 24.32306242
+  sum_pct_a: 3641.09841
+  sum_pct_c: 3855.1598580000004
+  sum_pct_g: 3854.8124999999986
+  sum_pct_n: 0.4698840000000001
+  sum_pct_t: 3648.459363
+control_R2_R2:
+  cycle_count: 150
+  mean_pct_a: 24.277245753333336
+  mean_pct_c: 25.695849879999987
+  mean_pct_g: 25.690737919999993
+  mean_pct_t: 24.332120406666675
+  sum_pct_a: 3641.5868630000004
+  sum_pct_c: 3854.377481999998
+  sum_pct_g: 3853.610687999999
+  sum_pct_n: 0.6069150000000001
+  sum_pct_t: 3649.8180610000013

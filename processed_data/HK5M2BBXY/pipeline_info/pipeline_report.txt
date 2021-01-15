@@ -7,49 +7,20 @@
   nf-core/atacseq v1.2.1
 ----------------------------------------------------
 
-Run Name: serene_spence
+Run Name: mad_mayer
 
-####################################################
-## nf-core/atacseq execution completed unsuccessfully! ##
-####################################################
-The exit status of the task that caused the workflow execution to fail was: 32.
-The full error message was:
+## nf-core/atacseq execution completed successfully! ##
 
-Error executing process > 'TRIMGALORE (control_R2_T1)'
-
-Caused by:
-  Failed to submit process to grid scheduler for execution
-
-Command executed:
-
-  qsub -N nf-TRIMGALORE_c .command.run
-
-Command exit status:
-  32
-
-Command output:
-  qsub: 
-   Job resource selection does not match any permitted configuration.
-   Please review the job sizing guidance on:
-   https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/computing/
-  
-
-Work dir:
-  /rds/general/user/bms20/ephemeral/tmp/bf/3f4ae635d9181ceac399dd9b8cc1a1
-
-Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
-
-
-The workflow was completed at 2020-12-17T22:22:55.696Z (duration: 2m 29s)
+The workflow was completed at 2021-01-14T20:39:00.353Z (duration: 7h 5m 5s)
 
 The command used to launch the workflow was as follows:
 
-  nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv --genome GRCh37 --narrow_peak --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -c /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config -r 1.2.1
+  nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv --genome GRCh37 --narrow_peak --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -r 1.2.1
 
 
 Pipeline Configuration:
 -----------------------
- - Run Name: serene_spence
+ - Run Name: mad_mayer
  - Data Type: Paired-End
  - Design File: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv
  - Genome: GRCh37
@@ -69,7 +40,7 @@ Pipeline Configuration:
  - NextSeq Trim: 0 bp
  - Fingerprint Bins: 500000
  - Save Genome Index: No
- - Max Resources: 640 GB memory, 32 cpus, 7d time per job
+ - Max Resources: 128 GB memory, 16 cpus, 10d time per job
  - Container: singularity - /rds/general/user/bms20/home/atacseq_latest.sif
  - Output Dir: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY
  - Launch Dir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG
@@ -77,11 +48,8 @@ Pipeline Configuration:
  - Script Dir: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq
  - User: bms20
  - Config Profile: standard
- - Config Description: Imperial College London - DRI - HPC Profile -- provided by nf-core/configs.
- - Config Contact: Combiz Khozoie (c.khozoie@imperial.ac.uk)
- - Config URL: http://www.github.com/combiz/scFlow
- - Date Started: 2020-12-17T22:20:26.494Z
- - Date Completed: 2020-12-17T22:22:55.696Z
+ - Date Started: 2021-01-14T13:33:55.525Z
+ - Date Completed: 2021-01-14T20:39:00.353Z
  - Pipeline script file path: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/main.nf
  - Pipeline script hash ID: 3404d0d86da8fdab9fa85fbe02152fcc
  - Pipeline repository Git URL: https://github.com/nf-core/atacseq
