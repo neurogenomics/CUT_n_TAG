@@ -380,6 +380,8 @@ div.tocify {
 </div>
 <div id="section-table-of-contents" class="section level1">
 <h1>Table of contents</h1>
+<p>All results are organized in a hierarchical folder structure, such that:<br />
+<em><code>&lt;web/&lt;processed_or_raw&gt;/&lt;project_name&gt;/&lt;pipeline_step&gt;/**/&lt;results_report&gt;</code></em></p>
 <div class="sourceCode" id="section-cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(pages)){ </span>
 <span id="cb3-2"><a href="#cb3-2"></a>  ROW &lt;-<span class="st"> </span>pages[i,]</span>
 <span id="cb3-3"><a href="#cb3-3"></a>  txt &lt;-<span class="st">  </span><span class="kw">paste</span>(<span class="kw">gsub</span>(<span class="st">&quot;.html$&quot;</span>,<span class="st">&quot;&quot;</span>,<span class="kw">as.character</span>(ROW<span class="op">$</span>url)))</span>
@@ -427,6 +429,10 @@ div.tocify {
 <h5>
 <a href='https://neurogenomics.github.io/CUT_n_TAG/web/raw_data/HK5M2BBXY/IGFQ001098_hu_26-11-2020_cut-tag_4_16_2020-12-02_laneBarcode.html' target='blank'>web/raw_data/HK5M2BBXY/IGFQ001098_hu_26-11-2020_cut-tag_4_16_2020-12-02_laneBarcode.html</a>
 </h5>
+<p><br></p>
+</div>
+<div id="section-github-pages-link" class="section level1">
+<h1><a href="https://neurogenomics.github.io/CUT_n_TAG/scripts/nf-core_atacseq_results.html">GitHub Pages Link</a></h1>
 
 <script type="application/shiny-prerendered" data-context="server-start">
 root.dir <- "/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG"

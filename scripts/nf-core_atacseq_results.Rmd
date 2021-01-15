@@ -71,6 +71,9 @@ pages <- GITHUB.find_pages(creator = "neurogenomics",
 
 # Table of contents
 
+All results are organized in a hierarchical folder structure, such that:  
+*`<web/<processed_or_raw>/<project_name>/<pipeline_step>/**/<results_report>`*  
+
 ```{r toc, results="asis"}
 for(i in 1:nrow(pages)){ 
   ROW <- pages[i,]
@@ -119,8 +122,16 @@ for(d1 in unique(pages$dir1)){
     
   }  
 }
-
 ```
+
+<br> 
+
+# [GitHub Pages Link](https://neurogenomics.github.io/CUT_n_TAG/scripts/nf-core_atacseq_results.html)  
+
+
+
+
+
 
 
 
