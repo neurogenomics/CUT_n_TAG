@@ -11,8 +11,7 @@ output:
     toc_float: true
     smooth_scroll: true
     number_sections: false 
-    self_contained: true 
-runtime: shiny_prerendered
+    self_contained: true  
 ---
 
 ```{r setup, include=F, root.dir="/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG"}
