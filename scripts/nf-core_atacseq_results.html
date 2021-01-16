@@ -1756,9 +1756,17 @@ div.tocify {
 <span id="cb1-6"><a href="#cb1-6"></a>  path &lt;-<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">file.path</span>(root.dir,<span class="st">&quot;web&quot;</span>),x)</span>
 <span id="cb1-7"><a href="#cb1-7"></a>  <span class="co"># print(paste(x,&quot;==&gt;&quot;,path))</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a>  <span class="kw">dir.create</span>(<span class="kw">dirname</span>(path), <span class="dt">showWarnings =</span> F, <span class="dt">recursive =</span> T)</span>
-<span id="cb1-9"><a href="#cb1-9"></a>  <span class="kw">file.copy</span>(x, path)</span>
-<span id="cb1-10"><a href="#cb1-10"></a>  <span class="kw">return</span>(path)</span>
-<span id="cb1-11"><a href="#cb1-11"></a>}) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>()</span></code></pre></div>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="co"># Some html files have their resources saved separately. Copy those too.</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>  recursive &lt;-<span class="st"> </span><span class="kw">basename</span>(<span class="kw">dirname</span>(path))<span class="op">==</span><span class="st">&quot;html&quot;</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>  path_or_folder &lt;-<span class="st"> </span><span class="cf">if</span>(recursive) <span class="kw">dirname</span>(path) <span class="cf">else</span> path</span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="kw">file.copy</span>(x, path_or_folder, <span class="dt">recursive =</span> recursive, <span class="dt">overwrite =</span> F)</span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="kw">return</span>(path)</span>
+<span id="cb1-14"><a href="#cb1-14"></a>}) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>()</span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="co"># file.copy(&quot;processed_data/HK5M2BBXY/bwa/mergedLibrary/ataqv/narrowPeak/html/&quot;,</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="co">#           &quot;web/processed_data/HK5M2BBXY/bwa/mergedLibrary/ataqv/narrowPeak/html/&quot;, </span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="co">#           recursive = T)</span></span></code></pre></div>
 <p>Construct the actual github.io links.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>pages &lt;-<span class="st"> </span><span class="kw">GITHUB.find_pages</span>(<span class="dt">creator =</span> <span class="st">&quot;neurogenomics&quot;</span>, </span>
 <span id="cb2-2"><a href="#cb2-2"></a>                           <span class="dt">repo =</span> <span class="st">&quot;CUT_n_TAG&quot;</span>, </span>
@@ -1775,6 +1783,9 @@ div.tocify {
 <span id="cb3-3"><a href="#cb3-3"></a>  txt &lt;-<span class="st">  </span><span class="kw">paste</span>(<span class="kw">gsub</span>(<span class="st">&quot;.html$&quot;</span>,<span class="st">&quot;&quot;</span>,<span class="kw">as.character</span>(ROW<span class="op">$</span>url)))</span>
 <span id="cb3-4"><a href="#cb3-4"></a>  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&quot;&lt;h5&gt;&quot;</span>,ROW<span class="op">$</span>link,<span class="st">&quot;&lt;/h5&gt;&quot;</span>))</span>
 <span id="cb3-5"><a href="#cb3-5"></a>}</span></code></pre></div>
+<h5>
+<a href="https://neurogenomics.github.io/CUT_n_TAG/web/processed_data/HK5M2BBXY/bwa/mergedLibrary/ataqv/narrowPeak/html/html/index.html" target="blank">web/processed_data/HK5M2BBXY/bwa/mergedLibrary/ataqv/narrowPeak/html/html/index.html</a>
+</h5>
 <h5>
 <a href="https://neurogenomics.github.io/CUT_n_TAG/web/processed_data/HK5M2BBXY/bwa/mergedLibrary/ataqv/narrowPeak/html/index.html" target="blank">web/processed_data/HK5M2BBXY/bwa/mergedLibrary/ataqv/narrowPeak/html/index.html</a>
 </h5>

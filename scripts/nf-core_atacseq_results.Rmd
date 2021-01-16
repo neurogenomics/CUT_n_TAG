@@ -53,9 +53,17 @@ new_paths <- lapply(resources, function(x){
   path <- file.path(file.path(root.dir,"web"),x)
   # print(paste(x,"==>",path))
   dir.create(dirname(path), showWarnings = F, recursive = T)
-  file.copy(x, path)
+  # Some html files have their resources saved separately. Copy those too.
+  recursive <- basename(dirname(path))=="html"
+  path_or_folder <- if(recursive) dirname(path) else path
+  file.copy(x, path_or_folder, recursive = recursive, overwrite = F)
   return(path)
 }) %>% unlist()
+
+
+# file.copy("processed_data/HK5M2BBXY/bwa/mergedLibrary/ataqv/narrowPeak/html/",
+#           "web/processed_data/HK5M2BBXY/bwa/mergedLibrary/ataqv/narrowPeak/html/", 
+#           recursive = T)
 ```
 
 Construct the actual github.io links.  
