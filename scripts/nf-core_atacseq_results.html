@@ -1759,14 +1759,17 @@ div.tocify {
 <span id="cb1-9"><a href="#cb1-9"></a>  <span class="co"># Some html files have their resources saved separately. Copy those too.</span></span>
 <span id="cb1-10"><a href="#cb1-10"></a>  recursive &lt;-<span class="st"> </span><span class="kw">basename</span>(<span class="kw">dirname</span>(path))<span class="op">==</span><span class="st">&quot;html&quot;</span></span>
 <span id="cb1-11"><a href="#cb1-11"></a>  path_or_folder &lt;-<span class="st"> </span><span class="cf">if</span>(recursive) <span class="kw">dirname</span>(path) <span class="cf">else</span> path</span>
-<span id="cb1-12"><a href="#cb1-12"></a>  <span class="kw">file.copy</span>(x, path_or_folder, <span class="dt">recursive =</span> recursive, <span class="dt">overwrite =</span> F)</span>
-<span id="cb1-13"><a href="#cb1-13"></a>  <span class="kw">return</span>(path)</span>
-<span id="cb1-14"><a href="#cb1-14"></a>}) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>()</span>
-<span id="cb1-15"><a href="#cb1-15"></a></span>
-<span id="cb1-16"><a href="#cb1-16"></a></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="co"># file.copy(&quot;processed_data/HK5M2BBXY/bwa/mergedLibrary/ataqv/narrowPeak/html/&quot;,</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="co">#           &quot;web/processed_data/HK5M2BBXY/bwa/mergedLibrary/ataqv/narrowPeak/html/&quot;, </span></span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="co">#           recursive = T)</span></span></code></pre></div>
+<span id="cb1-12"><a href="#cb1-12"></a>  path_or_folder_x &lt;-<span class="st"> </span><span class="cf">if</span>(recursive) <span class="kw">dirname</span>(x) <span class="cf">else</span> x</span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="kw">file.copy</span>(path_or_folder_x,</span>
+<span id="cb1-14"><a href="#cb1-14"></a>            path_or_folder, </span>
+<span id="cb1-15"><a href="#cb1-15"></a>            <span class="dt">recursive =</span> recursive, <span class="dt">overwrite =</span> F)</span>
+<span id="cb1-16"><a href="#cb1-16"></a>  <span class="kw">return</span>(path)</span>
+<span id="cb1-17"><a href="#cb1-17"></a>}) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>()</span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="co"># file.copy(&quot;processed_data/HK5M2BBXY/bwa/mergedLibrary/ataqv/narrowPeak/html/&quot;,</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="co">#           &quot;web/processed_data/HK5M2BBXY/bwa/mergedLibrary/ataqv/narrowPeak/html/&quot;, </span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="co">#           recursive = T)</span></span></code></pre></div>
 <p>Construct the actual github.io links.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>pages &lt;-<span class="st"> </span><span class="kw">GITHUB.find_pages</span>(<span class="dt">creator =</span> <span class="st">&quot;neurogenomics&quot;</span>, </span>
 <span id="cb2-2"><a href="#cb2-2"></a>                           <span class="dt">repo =</span> <span class="st">&quot;CUT_n_TAG&quot;</span>, </span>

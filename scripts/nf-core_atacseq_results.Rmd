@@ -56,7 +56,10 @@ new_paths <- lapply(resources, function(x){
   # Some html files have their resources saved separately. Copy those too.
   recursive <- basename(dirname(path))=="html"
   path_or_folder <- if(recursive) dirname(path) else path
-  file.copy(x, path_or_folder, recursive = recursive, overwrite = F)
+  path_or_folder_x <- if(recursive) dirname(x) else x
+  file.copy(path_or_folder_x,
+            path_or_folder, 
+            recursive = recursive, overwrite = F)
   return(path)
 }) %>% unlist()
 
