@@ -69,7 +69,7 @@ GITHUB.find_pages <- function(creator="RajLabMSSM",
                                   query="*.*.html",
                                   return_download_api=F)
   } else {
-    filelist <- gsub("^[.][/]","",list.files(path = local_repo, pattern="*.*.html", full.names=T, recursive=T))
+    filelist <- gsub("^[.][/]","",list.files(path = local_repo, pattern="*.*\\.html", full.names=T, recursive=T))
   }
   gh_pages_url <- file.path(paste0("https://",creator,".github.io"),repo)
   gh_pages_links <- file.path(gh_pages_url, filelist)

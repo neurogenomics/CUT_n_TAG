@@ -74,7 +74,7 @@ Construct the actual github.io links.
 ```{r Gather html files}
 pages <- GITHUB.find_pages(creator = "neurogenomics", 
                            repo = "CUT_n_TAG", 
-                           local_repo = "./web", 
+                           local_repo = "web", 
                            return_table = T) 
  
 ```
