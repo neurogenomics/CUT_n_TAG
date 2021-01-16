@@ -365,7 +365,7 @@ div.tocify {
 <span id="cb1-3"><a href="#cb1-3"></a>                        <span class="dt">full.names =</span> T, <span class="dt">recursive =</span> T)</span>
 <span id="cb1-4"><a href="#cb1-4"></a></span>
 <span id="cb1-5"><a href="#cb1-5"></a>new_paths &lt;-<span class="st"> </span><span class="kw">lapply</span>(resources, <span class="cf">function</span>(x){</span>
-<span id="cb1-6"><a href="#cb1-6"></a>  path &lt;-<span class="st"> </span><span class="kw">file.path</span>(<span class="st">&quot;web&quot;</span>,x)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>  path &lt;-<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">file.path</span>(root.dir,<span class="st">&quot;web&quot;</span>),x)</span>
 <span id="cb1-7"><a href="#cb1-7"></a>  <span class="co"># print(paste(x,&quot;==&gt;&quot;,path))</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a>  <span class="kw">dir.create</span>(<span class="kw">dirname</span>(path), <span class="dt">showWarnings =</span> F, <span class="dt">recursive =</span> T)</span>
 <span id="cb1-9"><a href="#cb1-9"></a>  <span class="kw">file.copy</span>(x, path)</span>

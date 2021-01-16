@@ -51,7 +51,7 @@ resources <- list.files(path = c("processed_data","raw_data"),
                         full.names = T, recursive = T)
 
 new_paths <- lapply(resources, function(x){
-  path <- file.path("web",x)
+  path <- file.path(file.path(root.dir,"web"),x)
   # print(paste(x,"==>",path))
   dir.create(dirname(path), showWarnings = F, recursive = T)
   file.copy(x, path)
