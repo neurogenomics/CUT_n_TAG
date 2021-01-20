@@ -92,3 +92,92 @@ GITHUB.find_pages <- function(creator="RajLabMSSM",
     return(gh_pages_links)
   }
 }
+
+
+
+message_parallel <- function(...){
+  system(sprintf('echo "%s"', paste0(..., collapse="")))
+}
+
+
+
+# Extension of echolocatoR::import.bw.filt
+import.bw.parallel <- function(bw.file,
+                               gr.dat,
+                               parallel_chrom=T,
+                               nThread=parallel::detectCores()){
+  if(parallel_chrom){ 
+    # It's muuuch faster to just iterate over each chromosome, 
+    ## Get all ranges within min/max POS, 
+    #and then filter to just the relevant ranges within your ranges.
+    if(nThread>1) print(paste("Parallelizing queries across",nThread,"cores"))
+    chroms <- unique(GenomicRanges::seqnames(gr.dat))
+    gr.list <- parallel::mclapply(chroms, function(chrom){
+      message_parallel(paste("Querying chrom =",chrom))
+      gr.chr <-  gr.dat[GenomicRanges::seqnames(gr.dat)==chrom,] 
+      bw.chr <- rtracklayer::import.bw(con = bw.file,
+                                       selection = gr.chr) 
+      hits <- GenomicRanges::findOverlaps(query = gr.chr, subject = bw.chr)
+      bw.chr <- bw.chr[S4Vectors::subjectHits(hits), ] 
+      return(bw.chr)
+    }, mc.cores = nThread) %>%
+      GenomicRanges::GRangesList(compress = F)
+    GenomicRanges::sort(gr.bind)
+    gr.bind <- GenomicRanges::sort(unlist(gr.list))
+    return(gr.bind)
+  
+  } else {
+    # Otherwise, just use the score for the exact values 
+    # Tends to be farrrr slower
+    bw.filt <- rtracklayer::import.bw(con = bw.file,
+                                      selection = gr.dat)
+    # bw.dat <- rtracklayer::BigWigSelection(ranges = gr.dat,  colnames = "score")
+    return(bw.filt)
+  } 
+}
+
+
+
+#### 
+
+prepare_tagMatrix <- function(peaks_list,
+                              nThread=parallel::detectCores()-1){
+  library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+  library(ChIPseeker)
+  TxDb <- TxDb.Hsapiens.UCSC.hg19.knownGene
+  tagMatrix_list <- parallel::mclapply(names(peaks_list), function(x){
+    message_parallel(x) 
+    gr <- peaks_list[[x]]
+    suppressWarnings(GenomeInfoDb::seqlevelsStyle(gr) <- "UCSC")
+    promoter <- ChIPseeker::getPromoters(TxDb=TxDb,
+                             upstream=3000, 
+                             downstream=3000)
+    tagMatrix <- ChIPseeker::getTagMatrix(peak = gr,
+                              windows=promoter)
+    return(tagMatrix)
+  }, mc.cores = nThread) %>% `names<-`(names(peaks_list))
+  return(tagMatrix_list)
+}
+
+
+
+
+prepare_annotatePeak <- function(peaks_list,
+                                 nThread=parallel::detectCores()-1){
+  parallel::mclapply(names(peaks_list), function(x){
+    library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+    message_parallel(x)
+    gr <- peaks_list[[x]] 
+    suppressWarnings(GenomeInfoDb::seqlevelsStyle(gr) <- "UCSC") 
+    peakAnno <- ChIPseeker::annotatePeak(peak = gr,
+                                         tssRegion=c(-3000, 3000),
+                                         TxDb=TxDb.Hsapiens.UCSC.hg19.knownGene,
+                                         annoDb="org.Hs.eg.db")
+    return(peakAnno)
+  }, mc.cores = nThread) %>% `names<-`(names(peaks_list))
+}
+
+
+
+
+
