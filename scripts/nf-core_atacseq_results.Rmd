@@ -23,7 +23,7 @@ knitr::opts_knit$set(
   )
 setwd(root.dir)
 
-source("./scripts/functions.R")
+# source("./scripts/functions.R")
 # devtools::build_site()
 # pkgdown::build_site()
 # siteymlgen::init(dir = "web")
@@ -32,8 +32,8 @@ source("./scripts/functions.R")
 # dir.create(paste0(getwd(), "/test"))
 # file.copy(system.file("extdata", package="siteymlgen"), paste0(getwd(), "/test"), recursive = TRUE)
 # init(dir = "test", file="_site.yml")
-library(dplyr)
-library(shiny)
+library(echolocatoR)
+library(dplyr) 
 ```
 
 # Construct website 

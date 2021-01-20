@@ -1,0 +1,199 @@
+---
+title: "visualize_peaks"
+author: "Brian M. Schilder"
+date: "Most recent update:<br> `r Sys.Date()`"
+output: 
+  rmarkdown::html_document: 
+    theme: spacelab
+    highlight: zenburn 
+    code_folding: hide 
+    toc: true 
+    toc_float: true
+    smooth_scroll: true
+    number_sections: false 
+    self_contained: true  
+---
+```{r setup, include=T, root.dir="/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG"}
+root.dir <- "/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG"
+knitr::opts_chunk$set(echo = T, root.dir = root.dir)
+knitr::opts_knit$set(
+  root.dir = root.dir
+  )
+setwd(root.dir)
+# source(file.path(root.dir,"scripts/functions.R"))
+
+library(dplyr) 
+library(ggbio) # BiocManager::install("ggbio")
+
+```
+
+For general info on file formats (BED, narrowPeak, broadPeak) see [UCSC Genome Browser documentation](https://genome.ucsc.edu/FAQ/FAQformat.html).
+
+# Import query data  
+
+Import a `GRanges` object from the [echolocatoR Fine-mapping Portal](https://rajlab.shinyapps.io/Fine_Mapping_Shiny/) to use for querying a small subset of the CUT&TAG data.  
+
+```{r Import query data}
+file_names <- echolocatoR::GITHUB.list_files(creator = "RajLabMSSM", 
+                                repo = "Fine_Mapping_Shiny",
+                                query = "*Nalls23andMe_2019.*BST1.UKB.multi_finemap.csv.gz")
+gr.dat <- GenomicRanges::makeGRangesFromDataFrame(data.table::fread(file_names), 
+                                                  keep.extra.columns = T, 
+                                                  seqnames.field = "CHR", 
+                                                  start.field = "POS",
+                                                  end.field = "POS")
+# ! IMPORTANT !: Needs to be in same chromosome format as bigwig in order to query!
+suppressWarnings(GenomeInfoDb::seqlevelsStyle(gr.dat) <- "NCBI")
+```
+
+
+# ENCODE
+
+## Query ENCODE peaks
+
+Naming conventions for broadPeak come from [UCSC](https://genome.ucsc.edu/FAQ/FAQformat.html#format13). 
+
+```{r}
+ENCODE.broadPeaks <- data.table::fread("http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeBroadHistone/wgEncodeBroadHistoneK562H3k27acStdPk.broadPeak.gz", nThread=4,  
+                                       col.names = c("seqnames","start","end","name","score",
+                                                     "strand","signalValue","neglog_pValue","neglog_qValue")) %>%
+  GenomicRanges::makeGRangesFromDataFrame(keep.extra.columns = T) 
+ 
+```
+
+## Query ENCODE bigwig
+
+* ENCODE bigwig and peaks data is hosted on the [UCSC Genome Browser here](http://genome.ucsc.edu/cgi-bin/hgTracks?tsCurTab=advancedTab&tsGroup=Any&tsType=Any&hgt_mdbVar1=dccAccession&hgt_tSearch=search&hgt_tsDelRow=&hgt_tsAddRow=&hgt_tsPage=&tsSimple=&tsName=&tsDescr=&db=hg19&hgt_mdbVal1=wgEncodeEH000043). 
+* Specifcally, we'll be querying the H3K27ac ChIP-seq data from K562 cell-lines, to best match up with the CUT&TAG assay being used here.
+
+```{r Query ENCODE bigwig}
+ENCODE.bw_filt <- echolocatoR::import.bw.filt(bw.file = "http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeBroadHistone/wgEncodeBroadHistoneK562H3k27acStdSig.bigWig",
+                          gr.dat = ENCODE.broadPeaks)
+  
+```
+
+# CUT&TAG
+
+## Query CUT&TAG bigwig  
+
+Import a subset of a bigwig file based on the coordinates in the `GRanges` object (ENCODE broadPeaks`).
+
+```{r Query CUT&TAG bigwig} 
+# Switch formats
+suppressWarnings(GenomeInfoDb::seqlevelsStyle(ENCODE.broadPeaks) <- "NCBI")
+CT.bw_filt <- echolocatoR::import.bw.filt(bw.file = file.path(root.dir,"processed_data/HK5M2BBXY/bwa/mergedReplicate/bigwig/control.mRp.clN.bigWig"),
+                          gr.dat = ENCODE.broadPeaks)
+  
+```
+
+## Query CUT&TAG peaks  
+
+* The nf-core/atacseq pipeline produces of number of peaks-related files.
+
+### .annotatePeaks  
+
+This file contains additional informaton like which gene each peak is closest to.  
+
+```{r .annotatePeaks} 
+peaks_dir <- "processed_data/HK5M2BBXY/bwa/mergedReplicate/macs/narrowPeak"
+
+# Narrow peaks
+CT.annotatePeaks <- data.table::fread(file.path(root.dir,peaks_dir,"control.mRp.clN_peaks.annotatePeaks.txt")) %>%
+  dplyr::mutate(peak_score=`Peak Score`) %>%
+  GenomicRanges::makeGRangesFromDataFrame(seqnames.field = "Chr", 
+                                          start.field = "Start", end.field = "End",strand.field = "Strand",
+                                          keep.extra.columns = T) 
+CT.annotatePeaks$width <- GenomicRanges::width(CT.annotatePeaks) 
+summary(CT.annotatePeaks$width)
+```
+
+## .narrowPeaks  
+
+Column names derived from [UCSC documentation](https://genome.ucsc.edu/FAQ/FAQformat.html#format12).
+
+```{r .narrowPeaks}
+CT.narrowPeaks <- data.table::fread(file.path(root.dir,peaks_dir,"control.mRp.clN_peaks.narrowPeak")) 
+
+```
+
+## Import CUT&TAG summits
+
+Summits are especially the peaks of the peaks, all of which extend only 2bp. 
+
+```{r Import CUT&TAG summits}
+CT.summits <- data.table::fread(file.path(root.dir,peaks_dir,"control.mRp.clN_summits.bed"), 
+                                col.names = c("seqnames","start","end","peak_id","summit_height")) %>%
+  GenomicRanges::makeGRangesFromDataFrame(keep.extra.columns = T)
+CT.summits$width <- GenomicRanges::width(CT.summits)
+summary(CT.summits$width)
+```
+
+## Discover CUT&TAGmotifs
+
+From the genomatic [documentation](https://compgenomr.github.io/book/motif-discovery.html#motif-comparison). 
+
+```{r Discover CUT&TAG motifs}
+# order the peaks by qvalue, and take top 250 peaks
+CT.narrowPeaks = CT.narrowPeaks[order(CT.narrowPeaks$)]
+ctcf_peaks = head(ctcf_peaks, n = 500)
+```
+
+
+# ENCODE vs. CUT&TAG
+
+## Compare bigwig scores
+
+### Range overlaps
+
+First, let's check how many peaks 
+
+```{r}
+ENCODE.bw_filt$score
+CT.bw_filt$score
+```
+
+## Compare peaks
+
+```{r Compare peaks}
+hits <- GenomicRanges::findOverlaps(query = gr.dat, 
+                                    subject = CT.narrowPeaks)
+CT.narrowPeaks_filt <- CT.narrowPeaks[S4Vectors::subjectHits(hits)]
+```
+
+
+
+# Visualize
+
+```{r Visualize} 
+geom <- "histogram"
+gg_hist <- ggbio::autoplot(CT.bw_filt, 
+                geom=geom, 
+                aes(fill=score),
+                adjust=.2,
+                binwidth=1000
+                ) +
+  theme_classic() 
+  
+max_height <- echolocatoR::PLOT.get_max_histogram_height(gg=gg_hist)
+rect_height <- max_height / if(geom=="density") 8 else 10
+CT_narrowPeaks_filt$y <- 0 - rect_height
+
+gg <- gg_hist +
+ggbio::geom_rect(CT_narrowPeaks_filt,
+                       stat="identity", 
+                        rect.height= rect_height,
+                       aes(y=y, fill=peak_score, label=Annotation),
+                       alpha = .7, inherit.aes = F,
+                       color="transparent",
+                       hjust=1) +
+  theme_classic() +
+  ggbio::zoom_in(fac = 1/20) +
+  ggbio::scale_x_sequnit(unit = "Mb")
+gg
+
+```
+
+
+
+
+
