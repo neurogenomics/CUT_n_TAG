@@ -1,0 +1,38 @@
+tower {
+  accessToken = "$TOWER_ACCESS_TOKEN"
+  enabled = true
+}
+
+singularity {
+  cacheDir = "/rds/general/user/$USER/projects/ukdrmultiomicsproject/live/.singularity-cache"
+  runOptions = "-B /rds/,/rdsgpfs/,/rds/general/user/$USER/ephemeral/tmp/:/tmp,/rds/general/user/$USER/ephemeral/tmp/:/var/tmp"
+}
+
+process {
+	// Reassign the labels from the atacseq pipeine: https://github.com/nf-core/atacseq/blob/master/conf/base.config
+	withLabel:process_low {
+    		cpus = { check_max( 2 * task.attempt, 'cpus' ) }
+    		memory = { check_max( 12.GB * task.attempt, 'memory' ) }
+    		time = { check_max( 6.h * task.attempt, 'time' ) }
+  	}
+	// FASTQC uses medium: https://github.com/nf-core/atacseq/blob/master/main.nf
+  	withLabel:process_medium {
+    		cpus = { check_max( 32 * task.attempt, 'cpus' ) }
+    		memory = { check_max( 62.GB * task.attempt, 'memory' ) }
+    		time = { check_max( 72.h * task.attempt, 'time' ) }
+ 	 }
+	withLabel:process_high {
+		cpus = { check_max( 32 * task.attempt, 'cpus' ) }
+    		memory = { check_max( 62.GB * task.attempt, 'memory' ) }
+   		 time = { check_max( 72.h * task.attempt, 'time' ) }
+  	}
+  	withLabel:process_long {
+    		time = { check_max( 60.h * task.attempt, 'time' ) }
+ 	 }
+		
+	withName:TRIMGALORE {
+	    cpus = 32
+	    memory = 62.GB
+	    time = 72.h
+ 	 }
+}

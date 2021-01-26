@@ -1,0 +1,32 @@
+control_R1_T1_1:
+  bp_processed: 1185551103
+  bp_written: 990542110
+  percent_trimmed: 16.4488053283014
+  quality_trimmed: 20023682
+  r_processed: 7930945
+  r_with_adapters: 5253727
+  r_written: 7930945
+control_R1_T1_2:
+  bp_processed: 1185564043
+  bp_written: 985585979
+  percent_trimmed: 16.867757181127665
+  quality_trimmed: 23841021
+  r_processed: 7930945
+  r_with_adapters: 5287112
+  r_written: 7930945
+control_R2_T1_1:
+  bp_processed: 1485005880
+  bp_written: 1280039273
+  percent_trimmed: 13.802410465876406
+  quality_trimmed: 24294128
+  r_processed: 9931991
+  r_with_adapters: 6375044
+  r_written: 9931991
+control_R2_T1_2:
+  bp_processed: 1484835501
+  bp_written: 1273836536
+  percent_trimmed: 14.210258635242583
+  quality_trimmed: 26032711
+  r_processed: 9931991
+  r_with_adapters: 6407252
+  r_written: 9931991

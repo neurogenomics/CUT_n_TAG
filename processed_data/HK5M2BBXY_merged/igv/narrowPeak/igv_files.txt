@@ -1,0 +1,7 @@
+bwa/mergedLibrary/macs/narrowPeak/consensus/consensus_peaks.mLb.clN.bed	0,0,0
+bwa/mergedReplicate/bigwig/control.mRp.clN.bigWig	0,0,178
+bwa/mergedReplicate/macs/narrowPeak/control.mRp.clN_peaks.narrowPeak	0,0,178
+bwa/mergedLibrary/bigwig/control_R1.mLb.clN.bigWig	0,0,178
+bwa/mergedLibrary/macs/narrowPeak/control_R1.mLb.clN_peaks.narrowPeak	0,0,178
+bwa/mergedLibrary/bigwig/control_R2.mLb.clN.bigWig	0,0,178
+bwa/mergedLibrary/macs/narrowPeak/control_R2.mLb.clN_peaks.narrowPeak	0,0,178

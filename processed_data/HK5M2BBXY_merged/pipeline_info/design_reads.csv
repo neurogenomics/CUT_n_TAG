@@ -1,0 +1,3 @@
+sample_id,fastq_1,fastq_2
+control_R1_T1,/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/IGFQ001098_hu_26-11-2020_cut-tag/IGF117051/Di-AC_S1_L004_R1_001.fastq.gz,/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/IGFQ001098_hu_26-11-2020_cut-tag/IGF117051/Di-AC_S1_L004_R2_001.fastq.gz
+control_R2_T1,/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/IGFQ001098_hu_26-11-2020_cut-tag/IGF117052/Di-C_S2_L004_R1_001.fastq.gz,/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/IGFQ001098_hu_26-11-2020_cut-tag/IGF117052/Di-C_S2_L004_R2_001.fastq.gz

@@ -78,14 +78,12 @@ function c0(index) { return "#9c9c9c"; }
 function c1(index) { return "#bdbdbd"; }
 function c2(index) { return colors[index % 16]; } // <-- note: uses only the first 16 colors
 
-var elapsed="2m 45s"
-var beginningMillis=1608243630108;
-var endingMillis=1608243795138;
+var elapsed="22m 4s"
+var beginningMillis=1611582214193;
+var endingMillis=1611583537972;
 var data=[
-{"label": "CHECK_DESIGN (design_noindex2.csv)", "times": [{"starting_time": 1608243729795, "ending_time": 1608243752810, "color":c1(0)}, {"starting_time": 1608243752810, "ending_time": 1608243753082, "color":c2(0), "label": "28.1s \/ 0"}, {"starting_time": 1608243753082, "ending_time": 1608243757892, "color":c1(0)}]},
-{"label": "FASTQC (control_R1_T1)", "times": []},
-{"label": "FASTQC (control_R2_T1)", "times": []},
-{"label": "TRIMGALORE (control_R2_T1)", "times": []}
+{"label": "CHECK_DESIGN (design_assays.csv)", "times": [{"starting_time": 1611582264241, "ending_time": 1611582448482, "color":c1(0)}, {"starting_time": 1611582448482, "ending_time": 1611582449044, "color":c2(0), "label": "3m 4s \/ 9.3 MB"}]},
+{"label": "FASTQC (H3K27me3_R1_T1)", "times": [{"starting_time": 1611582448963, "ending_time": 1611582543863, "color":c1(1)}, {"starting_time": 1611582543863, "ending_time": 1611582840402, "color":c2(1), "label": "6m 45s \/ 1.1 GB"}, {"starting_time": 1611582840402, "ending_time": 1611582854422, "color":c1(1)}]}
 ]
 
 

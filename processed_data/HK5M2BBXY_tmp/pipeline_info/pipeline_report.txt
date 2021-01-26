@@ -1,0 +1,110 @@
+----------------------------------------------------
+                                        ,--./,-.
+        ___     __   __   __   ___     /,-._.--~\
+  |\ | |__  __ /  ` /  \ |__) |__         }  {
+  | \| |       \__, \__/ |  \ |___     \`-._,-`-,
+                                        `._,._,'
+  nf-core/atacseq v1.2.1
+----------------------------------------------------
+
+Run Name: friendly_jones
+
+####################################################
+## nf-core/atacseq execution completed unsuccessfully! ##
+####################################################
+The exit status of the task that caused the workflow execution to fail was: 255.
+The full error message was:
+
+Error executing process > 'get_software_versions'
+
+Caused by:
+  Process `get_software_versions` terminated with an error exit status (255)
+
+Command executed:
+
+  echo 1.2.1 > v_pipeline.txt
+  echo 20.10.0 > v_nextflow.txt
+  fastqc --version > v_fastqc.txt
+  trim_galore --version > v_trim_galore.txt
+  echo $(bwa 2>&1) > v_bwa.txt
+  samtools --version > v_samtools.txt
+  bedtools --version > v_bedtools.txt
+  echo $(bamtools --version 2>&1) > v_bamtools.txt
+  echo $(plotFingerprint --version 2>&1) > v_deeptools.txt || true
+  picard MarkDuplicates --version &> v_picard.txt  || true
+  echo $(R --version 2>&1) > v_R.txt
+  python -c "import pysam; print(pysam.__version__)" > v_pysam.txt
+  echo $(macs2 --version 2>&1) > v_macs2.txt
+  touch v_homer.txt
+  echo $(ataqv --version 2>&1) > v_ataqv.txt
+  echo $(featureCounts -v 2>&1) > v_featurecounts.txt
+  preseq &> v_preseq.txt
+  multiqc --version > v_multiqc.txt
+  scrape_software_versions.py &> software_versions_mqc.yaml
+
+Command exit status:
+  255
+
+Command output:
+  (empty)
+
+Command error:
+  FATAL:   container creation failed: mount /rds/general/user/bms20/ephemeral/tmp/ee/436566582d00488f4648ee83dbccd7->/rds/general/user/bms20/ephemeral/tmp/ee/436566582d00488f4648ee83dbccd7 error: while mounting /rds/general/user/bms20/ephemeral/tmp/ee/436566582d00488f4648ee83dbccd7: destination /rds/general/user/bms20/ephemeral/tmp/ee/436566582d00488f4648ee83dbccd7 doesn't exist in container
+
+Work dir:
+  /rds/general/user/bms20/ephemeral/tmp/ee/436566582d00488f4648ee83dbccd7
+
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`
+
+
+The workflow was completed at 2021-01-21T01:12:54.239Z (duration: 1h 15m 54s)
+
+The command used to launch the workflow was as follows:
+
+  nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_assays.csv --genome GRCh37 --narrow_peak --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -r 1.2.1
+
+
+Pipeline Configuration:
+-----------------------
+ - Run Name: friendly_jones
+ - Data Type: Paired-End
+ - Design File: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_assays.csv
+ - Genome: GRCh37
+ - Fasta File: s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Sequence/WholeGenomeFasta/genome.fa
+ - GTF File: s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.gtf
+ - Gene BED File: s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.bed
+ - BWA Index: s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Sequence/BWAIndex/genome.fa
+ - Blacklist BED: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/assets/blacklists/GRCh37-blacklist.bed
+ - Mitochondrial Contig: MT
+ - MACS2 Genome Size: 2.7e9
+ - Min Consensus Reps: 1
+ - MACS2 Narrow Peaks: Yes
+ - Trim R1: 0 bp
+ - Trim R2: 0 bp
+ - Trim 3' R1: 0 bp
+ - Trim 3' R2: 0 bp
+ - NextSeq Trim: 0 bp
+ - Fingerprint Bins: 500000
+ - Save Genome Index: No
+ - Max Resources: 128 GB memory, 16 cpus, 10d time per job
+ - Container: singularity - /rds/general/user/bms20/home/atacseq_latest.sif
+ - Output Dir: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY
+ - Launch Dir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG
+ - Working Dir: /rds/general/user/bms20/ephemeral/tmp
+ - Script Dir: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq
+ - User: bms20
+ - Config Profile: standard
+ - Date Started: 2021-01-20T23:57:00.194Z
+ - Date Completed: 2021-01-21T01:12:54.239Z
+ - Pipeline script file path: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/main.nf
+ - Pipeline script hash ID: 3404d0d86da8fdab9fa85fbe02152fcc
+ - Pipeline repository Git URL: https://github.com/nf-core/atacseq
+ - Pipeline repository Git Commit: 1b3a832db5a53c92c2c89a4d6d79455e860461ad
+ - Pipeline Git branch/tag: 1.2.1
+ - Nextflow Version: 20.10.0
+ - Nextflow Build: 5430
+ - Nextflow Compile Timestamp: 01-11-2020 15:14 UTC
+
+--
+nf-core/atacseq
+https://github.com/nf-core/atacseq

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="../../genome/genome.fa" hasGeneTrack="true" hasSequenceTrack="true" locus="All" version="8">
+	<Resources>
+		<Resource path="../../bwa/mergedLibrary/macs/narrowPeak/consensus/consensus_peaks.mLb.clN.bed"/>
+		<Resource path="../../bwa/mergedReplicate/bigwig/control.mRp.clN.bigWig"/>
+		<Resource path="../../bwa/mergedReplicate/macs/narrowPeak/control.mRp.clN_peaks.narrowPeak"/>
+		<Resource path="../../bwa/mergedLibrary/bigwig/control_R1.mLb.clN.bigWig"/>
+		<Resource path="../../bwa/mergedLibrary/macs/narrowPeak/control_R1.mLb.clN_peaks.narrowPeak"/>
+		<Resource path="../../bwa/mergedLibrary/bigwig/control_R2.mLb.clN.bigWig"/>
+		<Resource path="../../bwa/mergedLibrary/macs/narrowPeak/control_R2.mLb.clN_peaks.narrowPeak"/>
+	</Resources>
+	<Panel height="1160" name="DataPanel" width="1897">
+		<Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,0,0" displayMode="SQUISHED" featureVisibilityWindow="-1" fontSize="10" height="20" id="../../bwa/mergedLibrary/macs/narrowPeak/consensus/consensus_peaks.mLb.clN.bed" name="consensus_peaks.mLb.clN.bed" renderer="BASIC_FEATURE" sortable="false" visible="true" windowFunction="count"/>
+		<Track altColor="0,0,178" autoScale="true" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="30" id="../../bwa/mergedReplicate/bigwig/control.mRp.clN.bigWig" name="control.mRp.clN.bigWig" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="mean">
+			<DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10" minimum="0.0" type="LINEAR"/>
+		</Track>
+		<Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,0,178" displayMode="SQUISHED" featureVisibilityWindow="-1" fontSize="10" height="20" id="../../bwa/mergedReplicate/macs/narrowPeak/control.mRp.clN_peaks.narrowPeak" name="control.mRp.clN_peaks.narrowPeak" renderer="BASIC_FEATURE" sortable="false" visible="true" windowFunction="count"/>
+		<Track altColor="0,0,178" autoScale="true" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="30" id="../../bwa/mergedLibrary/bigwig/control_R1.mLb.clN.bigWig" name="control_R1.mLb.clN.bigWig" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="mean">
+			<DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10" minimum="0.0" type="LINEAR"/>
+		</Track>
+		<Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,0,178" displayMode="SQUISHED" featureVisibilityWindow="-1" fontSize="10" height="20" id="../../bwa/mergedLibrary/macs/narrowPeak/control_R1.mLb.clN_peaks.narrowPeak" name="control_R1.mLb.clN_peaks.narrowPeak" renderer="BASIC_FEATURE" sortable="false" visible="true" windowFunction="count"/>
+		<Track altColor="0,0,178" autoScale="true" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="30" id="../../bwa/mergedLibrary/bigwig/control_R2.mLb.clN.bigWig" name="control_R2.mLb.clN.bigWig" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="mean">
+			<DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10" minimum="0.0" type="LINEAR"/>
+		</Track>
+		<Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,0,178" displayMode="SQUISHED" featureVisibilityWindow="-1" fontSize="10" height="20" id="../../bwa/mergedLibrary/macs/narrowPeak/control_R2.mLb.clN_peaks.narrowPeak" name="control_R2.mLb.clN_peaks.narrowPeak" renderer="BASIC_FEATURE" sortable="false" visible="true" windowFunction="count"/>
+	</Panel>
+</Session>

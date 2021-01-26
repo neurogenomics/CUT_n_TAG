@@ -1,5 +1,6 @@
 #!/bin/bash  
 
+# Must bashrc to load nextflow tower token
 source ~/.bashrc  
 module load nextflow  
 
@@ -9,10 +10,12 @@ mkdir -p $repo_dir/processed_data/$project_id
 
 
 nextflow run nf-core/atacseq \
-    --input $repo_dir/raw_data/$project_id/design_noindex2.csv \
-    --genome GRCh37 \
-    --narrow_peak \
-    --outdir $repo_dir/processed_data/$project_id \
-    -with-singularity $HOME/atacseq_latest.sif \
-    -r 1.2.1 \
-#   -c $repo_dir/hpc_config
+	--input $repo_dir/raw_data/$project_id/design_assays.csv \
+	--genome GRCh37 \
+	--outdir $repo_dir/processed_data/$project_id \
+	-with-singularity $HOME/atacseq_latest.sif \
+	-with-tower \
+	-r 1.2.1 \
+	-profile imperial \
+	-c $repo_dir/hpc_config2 
+#   --narrow_peak

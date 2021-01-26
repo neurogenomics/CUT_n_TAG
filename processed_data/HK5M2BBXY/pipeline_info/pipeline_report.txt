@@ -7,22 +7,49 @@
   nf-core/atacseq v1.2.1
 ----------------------------------------------------
 
-Run Name: mad_mayer
+Run Name: silly_aryabhata
 
-## nf-core/atacseq execution completed successfully! ##
+####################################################
+## nf-core/atacseq execution completed unsuccessfully! ##
+####################################################
+The exit status of the task that caused the workflow execution to fail was: null.
+The full error message was:
 
-The workflow was completed at 2021-01-14T20:39:00.353Z (duration: 7h 5m 5s)
+Error executing process > 'FASTQC (H3K27ac_R1_T1)'
+
+Caused by:
+  No signature of method: Script_cf1875fb.check_max() is applicable for argument types: (Integer, String) values: [32, cpus]
+
+Source block:
+  if (params.single_end) {
+          """
+          [ ! -f  ${name}.fastq.gz ] && ln -s $reads ${name}.fastq.gz
+          fastqc -q -t $task.cpus ${name}.fastq.gz
+          """
+      } else {
+          """
+          [ ! -f  ${name}_1.fastq.gz ] && ln -s ${reads[0]} ${name}_1.fastq.gz
+          [ ! -f  ${name}_2.fastq.gz ] && ln -s ${reads[1]} ${name}_2.fastq.gz
+          fastqc -q -t $task.cpus ${name}_1.fastq.gz
+          fastqc -q -t $task.cpus ${name}_2.fastq.gz
+          """
+      }
+
+Tip: you can replicate the issue by changing to the process work dir and entering the command `bash .command.run`
+
+
+The workflow was completed at 2021-01-26T19:15:58.827Z (duration: 5m 23s)
 
 The command used to launch the workflow was as follows:
 
-  nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv --genome GRCh37 --narrow_peak --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -r 1.2.1
+  nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_assays.csv --genome GRCh37 --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -with-tower -r 1.2.1 -profile imperial -c /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config2
 
 
 Pipeline Configuration:
 -----------------------
- - Run Name: mad_mayer
+ - Run Name: silly_aryabhata
  - Data Type: Paired-End
- - Design File: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv
+ - Design File: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_assays.csv
  - Genome: GRCh37
  - Fasta File: s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Sequence/WholeGenomeFasta/genome.fa
  - GTF File: s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.gtf
@@ -32,7 +59,8 @@ Pipeline Configuration:
  - Mitochondrial Contig: MT
  - MACS2 Genome Size: 2.7e9
  - Min Consensus Reps: 1
- - MACS2 Narrow Peaks: Yes
+ - MACS2 Narrow Peaks: No
+ - MACS2 Broad Cutoff: 0.1
  - Trim R1: 0 bp
  - Trim R2: 0 bp
  - Trim 3' R1: 0 bp
@@ -40,16 +68,19 @@ Pipeline Configuration:
  - NextSeq Trim: 0 bp
  - Fingerprint Bins: 500000
  - Save Genome Index: No
- - Max Resources: 128 GB memory, 16 cpus, 10d time per job
+ - Max Resources: 256 GB memory, 32 cpus, 3d time per job
  - Container: singularity - /rds/general/user/bms20/home/atacseq_latest.sif
  - Output Dir: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY
  - Launch Dir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG
- - Working Dir: /rds/general/user/bms20/ephemeral/tmp
+ - Working Dir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work
  - Script Dir: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq
  - User: bms20
- - Config Profile: standard
- - Date Started: 2021-01-14T13:33:55.525Z
- - Date Completed: 2021-01-14T20:39:00.353Z
+ - Config Profile: imperial
+ - Config Description: Imperial College London - HPC Profile -- provided by nf-core/configs.
+ - Config Contact: Combiz Khozoie (c.khozoie@imperial.ac.uk)
+ - Config URL: https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/
+ - Date Started: 2021-01-26T19:10:36.025Z
+ - Date Completed: 2021-01-26T19:15:58.827Z
  - Pipeline script file path: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/main.nf
  - Pipeline script hash ID: 3404d0d86da8fdab9fa85fbe02152fcc
  - Pipeline repository Git URL: https://github.com/nf-core/atacseq

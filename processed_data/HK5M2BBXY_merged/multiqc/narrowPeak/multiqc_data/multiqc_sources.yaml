@@ -1,0 +1,87 @@
+'LIB: Cutadapt (trimmed)':
+  all_sections:
+    control_R1_T1_1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/trimgalore/control_R1_T1_1.fastq.gz_trimming_report.txt
+    control_R1_T1_2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/trimgalore/control_R1_T1_2.fastq.gz_trimming_report.txt
+    control_R2_T1_1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/trimgalore/control_R2_T1_1.fastq.gz_trimming_report.txt
+    control_R2_T1_2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/trimgalore/control_R2_T1_2.fastq.gz_trimming_report.txt
+'LIB: FastQC (raw)':
+  all_sections:
+    control_R1_T1_1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/fastqc/control_R1_T1_1_fastqc.zip
+    control_R1_T1_2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/fastqc/control_R1_T1_2_fastqc.zip
+    control_R2_T1_1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/fastqc/control_R2_T1_1_fastqc.zip
+    control_R2_T1_2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/fastqc/control_R2_T1_2_fastqc.zip
+'LIB: FastQC (trimmed)':
+  all_sections:
+    control_R1_T1_1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/trimgalore/fastqc/control_R1_T1_1_val_1_fastqc.zip
+    control_R1_T1_2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/trimgalore/fastqc/control_R1_T1_2_val_2_fastqc.zip
+    control_R2_T1_2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/trimgalore/fastqc/control_R2_T1_2_val_2_fastqc.zip
+'LIB: SAMTools':
+  flagstat:
+    control_R1_T1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/library/control_R1_T1.Lb.sorted.bam.flagstat
+    control_R2_T1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/library/control_R2_T1.Lb.sorted.bam.flagstat
+  idxstats:
+    control_R1_T1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/library/control_R1_T1.Lb.sorted.bam.idxstats
+    control_R2_T1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/library/control_R2_T1.Lb.sorted.bam.idxstats
+  stats:
+    control_R1_T1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/library/control_R1_T1.Lb.sorted.bam.stats
+    control_R2_T1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/library/control_R2_T1.Lb.sorted.bam.stats
+'MERGED LIB: Picard':
+  AlignmentSummaryMetrics:
+    control_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/picard_metrics/control_R1.mLb.clN.CollectMultipleMetrics.alignment_summary_metrics
+    control_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/picard_metrics/control_R2.mLb.clN.CollectMultipleMetrics.alignment_summary_metrics
+  BaseDistributionByCycle:
+    control_R1_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/picard_metrics/control_R1.mLb.clN.CollectMultipleMetrics.base_distribution_by_cycle_metrics
+    control_R1_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/picard_metrics/control_R1.mLb.clN.CollectMultipleMetrics.base_distribution_by_cycle_metrics
+    control_R2_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/picard_metrics/control_R2.mLb.clN.CollectMultipleMetrics.base_distribution_by_cycle_metrics
+    control_R2_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/picard_metrics/control_R2.mLb.clN.CollectMultipleMetrics.base_distribution_by_cycle_metrics
+  DuplicationMetrics:
+    control_R1_T1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/picard_metrics/control_R1.mLb.mkD.MarkDuplicates.metrics.txt
+    control_R2_T1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/picard_metrics/control_R2.mLb.mkD.MarkDuplicates.metrics.txt
+  InsertSizeMetrics:
+    control_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/picard_metrics/control_R1.mLb.clN.CollectMultipleMetrics.insert_size_metrics
+    control_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/picard_metrics/control_R2.mLb.clN.CollectMultipleMetrics.insert_size_metrics
+'MERGED LIB: Preseq (unfiltered)':
+  all_sections:
+    control_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/preseq/control_R1.mLb.mkD.ccurve.txt
+    control_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/preseq/control_R2.mLb.mkD.ccurve.txt
+'MERGED LIB: SAMTools (filtered)':
+  flagstat:
+    control_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/control_R1.mLb.clN.sorted.bam.flagstat
+    control_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/control_R2.mLb.clN.sorted.bam.flagstat
+  idxstats:
+    control_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/control_R1.mLb.clN.sorted.bam.idxstats
+    control_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/control_R2.mLb.clN.sorted.bam.idxstats
+  stats:
+    control_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/control_R1.mLb.clN.sorted.bam.stats
+    control_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/control_R2.mLb.clN.sorted.bam.stats
+'MERGED LIB: SAMTools (unfiltered)':
+  flagstat:
+    control_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/control_R1.mLb.mkD.sorted.bam.flagstat
+    control_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/control_R2.mLb.mkD.sorted.bam.flagstat
+  idxstats:
+    control_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/control_R1.mLb.mkD.sorted.bam.idxstats
+    control_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/control_R2.mLb.mkD.sorted.bam.idxstats
+  stats:
+    control_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/control_R1.mLb.mkD.sorted.bam.stats
+    control_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedLibrary/control_R2.mLb.mkD.sorted.bam.stats
+'MERGED LIB: deepTools':
+  plotFingerprint:
+    control_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/deeptools/control_R1.mLb.clN.plotFingerprint.raw.txt
+    control_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/deeptools/control_R2.mLb.clN.plotFingerprint.raw.txt
+  plotProfile:
+    control_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/deeptools/control_R1.mLb.clN.plotProfile.tab
+    control_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/deeptools/control_R2.mLb.clN.plotProfile.tab
+'MERGED LIB: featureCounts':
+  all_sections:
+    control_R1: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/macs/mergedLibrary/consensus/consensus_peaks.mLb.clN.featureCounts.txt.summary
+    control_R2: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/macs/mergedLibrary/consensus/consensus_peaks.mLb.clN.featureCounts.txt.summary
+'MERGED REP: Picard':
+  DuplicationMetrics:
+    control: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedReplicate/control.mRp.clN.MarkDuplicates.metrics.txt
+'MERGED REP: SAMTools':
+  flagstat:
+    control: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedReplicate/control.mRp.clN.sorted.bam.flagstat
+  idxstats:
+    control: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedReplicate/control.mRp.clN.sorted.bam.idxstats
+  stats:
+    control: /rds/general/ephemeral/user/bms20/ephemeral/tmp/44/2c8e79e2012014cd82fbdd49c7a3f4/alignment/mergedReplicate/control.mRp.clN.sorted.bam.stats

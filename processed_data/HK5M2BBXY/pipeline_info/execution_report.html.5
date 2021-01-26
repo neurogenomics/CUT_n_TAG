@@ -18,11 +18,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Nextflow workflow report for run id [compassionate_kilby]">
+  <meta name="description" content="Nextflow workflow report for run id [nauseous_morse]">
   <meta name="author" content="Paolo Di Tommaso, Phil Ewels">
   <link rel="icon" type="image/png" href="https://www.nextflow.io/img/favicon.png" />
 
-  <title>[compassionate_kilby] Nextflow Workflow Report</title>
+  <title>[nauseous_morse] Nextflow Workflow Report</title>
 
   <style type="text/css">
   /*!
@@ -137,7 +137,7 @@ table.DTCR_clonedTable.dataTable{position:absolute !important;background-color:r
         <li class="nav-item"><a class="nav-link" href="#tasks">Tasks</a></li>
       </ul>
       <span class="navbar-text">
-        [compassionate_kilby]
+        [nauseous_morse]
       </span>
     </div>
   </nav>
@@ -146,44 +146,43 @@ table.DTCR_clonedTable.dataTable{position:absolute !important;background-color:r
     <div class="container">
 
       <h1 class="display-3">Nextflow workflow report</h1>
-      <h2 class="text-muted mb-4"><samp>[compassionate_kilby]</samp> </h2>
+      <h2 class="text-muted mb-4"><samp>[nauseous_morse]</samp> </h2>
 
       
           <div class="alert alert-danger mb-4">
               <h4>Workflow execution completed unsuccessfully!</h4>
-              <p>The exit status of the task that caused the workflow execution to fail was: <code>1</code>.</p>
+              <p>The exit status of the task that caused the workflow execution to fail was: <code>null</code>.</p>
               <p>The full error message was:</p>
-              <pre>Error executing process > 'CHECK_DESIGN (design_noindex.csv)'
+              <pre>Error executing process > 'TRIMGALORE (H3K27ac_R1_T1)'
 
 Caused by:
-  Process `CHECK_DESIGN (design_noindex.csv)` terminated with an error exit status (1)
+  No signature of method: Script_cf1875fb.check_max() is applicable for argument types: (Integer, String) values: [32, cpus]
 
-Command executed:
-
-  check_design.py design_noindex.csv design_reads.csv
-
-Command exit status:
-  1
-
-Command output:
-  ERROR: Please check design file header: ﻿group,replicate,fastq_1,fastq_2 != group,replicate,fastq_1,fastq_2
-
-Command wrapper:
-  singularity/default :: no need to load a module to use singularity
-  ERROR: Please check design file header: ﻿group,replicate,fastq_1,fastq_2 != group,replicate,fastq_1,fastq_2
-  
-  ============================================
-  
-          Job resource usage summary 
-  
-                   Memory (GB)    NCPUs
-   Requested  :         6             1
-   Used       :         0 (peak)   0.03 (ave)
-  
-  ============================================
-
-Work dir:
-  /rds/general/user/bms20/ephemeral/tmp/85/c22dbf8ebaeacccca5e0c85c41cfe1
+Source block:
+  def cores = 1
+  if (task.cpus) {
+              cores = (task.cpus as int) - 4
+              if (params.single_end) cores = (task.cpus as int) - 3
+              if (cores < 1) cores = 1
+              if (cores > 4) cores = 4
+          }
+  c_r1 = params.clip_r1 > 0 ? "--clip_r1 ${params.clip_r1}" : ''
+  c_r2 = params.clip_r2 > 0 ? "--clip_r2 ${params.clip_r2}" : ''
+  tpc_r1 = params.three_prime_clip_r1 > 0 ? "--three_prime_clip_r1 ${params.three_prime_clip_r1}" : ''
+  tpc_r2 = params.three_prime_clip_r2 > 0 ? "--three_prime_clip_r2 ${params.three_prime_clip_r2}" : ''
+  nextseq = params.trim_nextseq > 0 ? "--nextseq ${params.trim_nextseq}" : ''
+  if (params.single_end) {
+              """
+              [ ! -f  ${name}.fastq.gz ] && ln -s $reads ${name}.fastq.gz
+              trim_galore --cores $cores --fastqc --gzip $c_r1 $tpc_r1 $nextseq ${name}.fastq.gz
+              """
+          } else {
+              """
+              [ ! -f  ${name}_1.fastq.gz ] && ln -s ${reads[0]} ${name}_1.fastq.gz
+              [ ! -f  ${name}_2.fastq.gz ] && ln -s ${reads[1]} ${name}_2.fastq.gz
+              trim_galore --cores $cores --paired --fastqc --gzip $c_r1 $c_r2 $tpc_r1 $tpc_r2 $nextseq ${name}_1.fastq.gz ${name}_2.fastq.gz
+              """
+          }
 
 Tip: you can replicate the issue by changing to the process work dir and entering the command `bash .command.run`</pre>
           </div>
@@ -192,21 +191,21 @@ Tip: you can replicate the issue by changing to the process work dir and enterin
       <dl>
         <dt>Run times</dt>
         <dd>
-          <span id="workflow_start">17-Dec-2020 18:31:06</span> - <span id="workflow_complete">17-Dec-2020 18:44:40</span>
-          (<span id="completed_fromnow"></span>duration: <strong>13m 34s</strong>)
+          <span id="workflow_start">25-Jan-2021 13:04:19</span> - <span id="workflow_complete">25-Jan-2021 13:07:46</span>
+          (<span id="completed_fromnow"></span>duration: <strong>3m 26s</strong>)
         </dd>
 
         <dl>
           <div class="progress" style="height: 1.6rem; margin: 1.2rem auto; border-radius: 0.20rem;">
-            <div style="width: 0.0%" class="progress-bar bg-success" data-toggle="tooltip" data-placement="top" title="0 tasks succeeded"><span class="text-truncate">&nbsp; 0 succeeded &nbsp;</span></div>
+            <div style="width: 100.0%" class="progress-bar bg-success" data-toggle="tooltip" data-placement="top" title="1 tasks succeeded"><span class="text-truncate">&nbsp; 1 succeeded &nbsp;</span></div>
             <div style="width: 0.0%" class="progress-bar bg-secondary" data-toggle="tooltip" data-placement="top" title="0 tasks were cached"><span class="text-truncate">&nbsp; 0 cached &nbsp;</span></div>
             <div style="width: 0.0%" class="progress-bar bg-warning" data-toggle="tooltip" data-placement="top" title="0 tasks reported and error and were ignored"><span class="text-truncate">&nbsp; 0 ignored &nbsp;</span></div>
-            <div style="width: 100.0%" class="progress-bar bg-danger" data-toggle="tooltip" data-placement="top" title="1 tasks failed"><span class="text-truncate">&nbsp; 1 failed &nbsp;</span></div>
+            <div style="width: 0.0%" class="progress-bar bg-danger" data-toggle="tooltip" data-placement="top" title="0 tasks failed"><span class="text-truncate">&nbsp; 0 failed &nbsp;</span></div>
           </div>
         </dl>
 
         <dt>Nextflow command</dt>
-        <dd><pre class="nfcommand"><code>nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex.csv --genome GRCh37 --narrow_peak --mito_name false --skip_merge_replicates --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -c /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config -r 1.2.1</code></pre></dd>
+        <dd><pre class="nfcommand"><code>nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_assays.csv --genome GRCh37 --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -with-tower -r 1.2.1 -profile imperial -c /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config2</code></pre></dd>
       </dl>
 
       <dl class="row small">
@@ -217,7 +216,7 @@ Tip: you can replicate the issue by changing to the process work dir and enterin
         <dd class="col-sm-9"><samp>/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG</samp></dd>
 
         <dt class="col-sm-3">Work directory</dt>
-        <dd class="col-sm-9"><samp>/rds/general/user/bms20/ephemeral/tmp</samp></dd>
+        <dd class="col-sm-9"><samp>/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work</samp></dd>
 
         <dt class="col-sm-3">Project directory</dt>
         <dd class="col-sm-9"><samp>/rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq</samp></dd>
@@ -233,7 +232,7 @@ Tip: you can replicate the issue by changing to the process work dir and enterin
         
 
         <dt class="col-sm-3">Workflow session</dt>
-        <dd class="col-sm-9"><code>fb37054d-6402-4796-a81b-f8042ae34e7a</code></dd>
+        <dd class="col-sm-9"><code>4ca68ef5-109d-43d0-97d1-2e118231d10b</code></dd>
 
         
           <dt class="col-sm-3">Workflow repository</dt>
@@ -241,7 +240,7 @@ Tip: you can replicate the issue by changing to the process work dir and enterin
         
 
         <dt class="col-sm-3">Workflow profile</dt>
-        <dd class="col-sm-9">standard</dd>
+        <dd class="col-sm-9">imperial</dd>
 
         
         <dt class="col-sm-3">Workflow container</dt>
@@ -1064,7 +1063,7 @@ $(function() {
 
   // Nextflow report data
   window.data = { "trace":[
-{"task_id":"1","hash":"85\/c22dbf","native_id":"2720706.pbs","process":"CHECK_DESIGN","module":"-","container":"\/rds\/general\/user\/bms20\/home\/atacseq_latest.sif","tag":"design_noindex.csv","name":"CHECK_DESIGN (design_noindex.csv)","status":"FAILED","exit":"1","submit":"1608230469496","start":"1608230493246","complete":"1608230609977","duration":"140481","realtime":"116731","%cpu":"-","%mem":"-","rss":"-","vmem":"-","peak_rss":"-","peak_vmem":"-","rchar":"-","wchar":"-","syscr":"-","syscw":"-","read_bytes":"-","write_bytes":"-","attempt":"1","workdir":"\/rds\/general\/user\/bms20\/ephemeral\/tmp\/85\/c22dbf8ebaeacccca5e0c85c41cfe1","script":"\n    check_design.py design_noindex.csv design_reads.csv\n    ","scratch":"-","queue":"-","cpus":"1","memory":"6442450944","disk":"-","time":"14400000","env":"PYTHONNOUSERSITE=1\nR_PROFILE_USER=\/.Rprofile\nR_ENVIRON_USER=\/.Renviron\nPATH=\/rds\/general\/user\/bms20\/home\/.nextflow\/assets\/nf-core\/atacseq\/bin:$PATH\n","error_action":"FINISH","vol_ctxt":"-","inv_ctxt":"-"}], "summary":[{"cpuUsage":null,"process":"CHECK_DESIGN","mem":null,"memUsage":null,"timeUsage":{"mean":0.81,"min":0.81,"q1":0.81,"q2":0.81,"q3":0.81,"max":0.81,"minLabel":"CHECK_DESIGN (design_noindex.csv)","maxLabel":"CHECK_DESIGN (design_noindex.csv)","q1Label":"CHECK_DESIGN (design_noindex.csv)","q2Label":"CHECK_DESIGN (design_noindex.csv)","q3Label":"CHECK_DESIGN (design_noindex.csv)"},"vmem":null,"reads":null,"cpu":null,"time":{"mean":116731,"min":116731,"q1":116731,"q2":116731,"q3":116731,"max":116731,"minLabel":"CHECK_DESIGN (design_noindex.csv)","maxLabel":"CHECK_DESIGN (design_noindex.csv)","q1Label":"CHECK_DESIGN (design_noindex.csv)","q2Label":"CHECK_DESIGN (design_noindex.csv)","q3Label":"CHECK_DESIGN (design_noindex.csv)"},"writes":null}] };
+{"task_id":"1","hash":"f2\/3f68df","native_id":"2996708.pbs","process":"CHECK_DESIGN","module":"-","container":"\/rds\/general\/user\/bms20\/home\/atacseq_latest.sif","tag":"design_assays.csv","name":"CHECK_DESIGN (design_assays.csv)","status":"COMPLETED","exit":"0","submit":"1611579910318","start":"1611580004671","complete":"1611580004690","duration":"94372","realtime":"667","%cpu":"29.2","%mem":"0.0","rss":"10870784","vmem":"17276928","peak_rss":"10870784","peak_vmem":"17293312","rchar":"641044","wchar":"922","syscr":"221","syscw":"13","read_bytes":"3333120","write_bytes":"4096","attempt":"1","workdir":"\/rds\/general\/project\/neurogenomics-lab\/live\/GitRepos\/CUT_n_TAG\/work\/f2\/3f68df2bd433f36453eae118a899a3","script":"\n    check_design.py design_assays.csv design_reads.csv\n    ","scratch":"-","queue":"-","cpus":"1","memory":"6442450944","disk":"-","time":"14400000","env":"PYTHONNOUSERSITE=1\nR_PROFILE_USER=\/.Rprofile\nR_ENVIRON_USER=\/.Renviron\nPATH=\/rds\/general\/user\/bms20\/home\/.nextflow\/assets\/nf-core\/atacseq\/bin:$PATH\n","error_action":"-","vol_ctxt":"298","inv_ctxt":"72"},{"task_id":"5","hash":"e6\/e284ef","native_id":"2996713.pbs","process":"FASTQC","module":"-","container":"\/rds\/general\/user\/bms20\/home\/atacseq_latest.sif","tag":"H3K27me3_R1_T1","name":"FASTQC (H3K27me3_R1_T1)","status":"ABORTED","exit":"-","submit":"1611580005074","start":"1611580064996","complete":"-","duration":"-","realtime":"-","%cpu":"-","%mem":"-","rss":"-","vmem":"-","peak_rss":"-","peak_vmem":"-","rchar":"-","wchar":"-","syscr":"-","syscw":"-","read_bytes":"-","write_bytes":"-","attempt":"1","workdir":"\/rds\/general\/project\/neurogenomics-lab\/live\/GitRepos\/CUT_n_TAG\/work\/e6\/e284ef502da114c0b2d125ee41242d","script":"\n        [ ! -f  H3K27me3_R1_T1_1.fastq.gz ] && ln -s Di-C_S2_L004_R1_001.fastq.gz H3K27me3_R1_T1_1.fastq.gz\n        [ ! -f  H3K27me3_R1_T1_2.fastq.gz ] && ln -s Di-C_S2_L004_R2_001.fastq.gz H3K27me3_R1_T1_2.fastq.gz\n        fastqc -q -t 6 H3K27me3_R1_T1_1.fastq.gz\n        fastqc -q -t 6 H3K27me3_R1_T1_2.fastq.gz\n        ","scratch":"-","queue":"-","cpus":"6","memory":"38654705664","disk":"-","time":"28800000","env":"PYTHONNOUSERSITE=1\nR_PROFILE_USER=\/.Rprofile\nR_ENVIRON_USER=\/.Renviron\nPATH=\/rds\/general\/user\/bms20\/home\/.nextflow\/assets\/nf-core\/atacseq\/bin:$PATH\n","error_action":"-","vol_ctxt":"-","inv_ctxt":"-"}], "summary":[{"cpuUsage":{"mean":29.2,"min":29.2,"q1":29.2,"q2":29.2,"q3":29.2,"max":29.2,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"process":"CHECK_DESIGN","mem":{"mean":10870784,"min":10870784,"q1":10870784,"q2":10870784,"q3":10870784,"max":10870784,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"memUsage":{"mean":0.17,"min":0.17,"q1":0.17,"q2":0.17,"q3":0.17,"max":0.17,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"timeUsage":null,"vmem":{"mean":17293312,"min":17293312,"q1":17293312,"q2":17293312,"q3":17293312,"max":17293312,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"reads":{"mean":641044,"min":641044,"q1":641044,"q2":641044,"q3":641044,"max":641044,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"cpu":{"mean":29.2,"min":29.2,"q1":29.2,"q2":29.2,"q3":29.2,"max":29.2,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"time":{"mean":667,"min":667,"q1":667,"q2":667,"q3":667,"max":667,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"writes":{"mean":922,"min":922,"q1":922,"q2":922,"q3":922,"max":922,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"}},{"cpuUsage":null,"process":"FASTQC","mem":null,"memUsage":null,"timeUsage":null,"vmem":null,"reads":null,"cpu":null,"time":null,"writes":null}] };
 
   </script>
 

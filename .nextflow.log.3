@@ -1,11 +1,1108 @@
-Jan-14 10:26:25.169 [main] DEBUG nextflow.cli.Launcher - $> nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv --genome GRCh37 --narrow_peak --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif
-Jan-14 10:26:33.771 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 20.10.0
-Jan-14 10:26:51.332 [main] DEBUG nextflow.scm.AssetManager - Git config: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/atacseq.git
-Jan-14 10:26:52.285 [main] DEBUG nextflow.scm.AssetManager - Git config: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/atacseq.git
-Jan-14 10:27:12.107 [main] DEBUG nextflow.cli.Launcher - Operation aborted
-nextflow.exception.AbortOperationException: Project `nf-core/atacseq` currently is sticked on revision: 1.2.1 -- you need to specify explicitly a revision with the option `-r` to use it
-	at nextflow.scm.AssetManager.checkout(AssetManager.groovy:903)
-	at nextflow.cli.CmdRun.getScriptFile(CmdRun.groovy:350)
-	at nextflow.cli.CmdRun.run(CmdRun.groovy:249)
-	at nextflow.cli.Launcher.run(Launcher.groovy:466)
-	at nextflow.cli.Launcher.main(Launcher.groovy:648)
+Jan-25 13:43:26.998 [main] DEBUG nextflow.cli.Launcher - $> nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_assays.csv --genome GRCh37 --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -with-tower -r 1.2.1 -profile imperial -c /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config2
+Jan-25 13:43:27.229 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 20.10.0
+Jan-25 13:43:29.274 [main] DEBUG nextflow.scm.AssetManager - Git config: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/atacseq.git
+Jan-25 13:43:29.296 [main] DEBUG nextflow.scm.AssetManager - Git config: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/atacseq.git
+Jan-25 13:43:29.720 [main] INFO  nextflow.cli.CmdRun - Launching `nf-core/atacseq` [grave_poincare] - revision: 1b3a832db5 [1.2.1]
+Jan-25 13:43:30.471 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/nextflow.config
+Jan-25 13:43:30.476 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /apps/nextflow/20.01.0/bin/nextflow.config
+Jan-25 13:43:30.476 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config2
+Jan-25 13:43:30.477 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/nextflow.config
+Jan-25 13:43:30.477 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /apps/nextflow/20.01.0/bin/nextflow.config
+Jan-25 13:43:30.478 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config2
+Jan-25 13:43:30.489 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `imperial`
+Jan-25 13:43:32.140 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `imperial`
+Jan-25 13:43:32.215 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `imperial`
+Jan-25 13:43:32.309 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [cfc_dev, denbi_qbic, bi, genotoul, bigpurple, uppmax, abims, imperial_mb, docker, gis, utd_ganymede, mpcdf, conda, singularity, icr_davros, munin, prince, czbiohub_aws, hebbe, cfc, uzh, ccga_med, debug, test, genouest, cbe, ebc, ccga_dx, crick, google, kraken, phoenix, seg_globe, shh, awsbatch, pasteur, uct_hpc, imperial, test_full, binac]
+Jan-25 13:43:32.341 [main] DEBUG nextflow.config.ConfigBuilder - Enabling execution in Singularity container as requested by cli option `-with-singularity null`
+Jan-25 13:43:32.421 [main] DEBUG nextflow.Session - Session uuid: 15b09b9f-999b-443e-9d6c-464abe1cb385
+Jan-25 13:43:32.422 [main] DEBUG nextflow.Session - Run name: grave_poincare
+Jan-25 13:43:32.424 [main] DEBUG nextflow.Session - Executor pool size: 24
+Jan-25 13:43:32.443 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/nextflow.config
+Jan-25 13:43:32.444 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /apps/nextflow/20.01.0/bin/nextflow.config
+Jan-25 13:43:32.445 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config2
+Jan-25 13:43:32.446 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/nextflow.config
+Jan-25 13:43:32.447 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /apps/nextflow/20.01.0/bin/nextflow.config
+Jan-25 13:43:32.450 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config2
+Jan-25 13:43:32.452 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `imperial`
+Jan-25 13:43:33.347 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `imperial`
+Jan-25 13:43:33.501 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `imperial`
+Jan-25 13:43:33.554 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [cfc_dev, denbi_qbic, bi, genotoul, bigpurple, uppmax, abims, imperial_mb, docker, gis, utd_ganymede, mpcdf, conda, singularity, icr_davros, munin, prince, czbiohub_aws, hebbe, cfc, uzh, ccga_med, debug, test, genouest, cbe, ebc, ccga_dx, crick, google, kraken, phoenix, seg_globe, shh, awsbatch, pasteur, uct_hpc, imperial, test_full, binac]
+Jan-25 13:43:33.556 [main] DEBUG nextflow.config.ConfigBuilder - Enabling execution in Singularity container as requested by cli option `-with-singularity null`
+Jan-25 13:43:33.577 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 20.10.0 build 5430
+  Created: 01-11-2020 15:14 UTC (15:14 BST)
+  System: Linux 3.10.0-1127.19.1.el7.x86_64
+  Runtime: Groovy 3.0.5 on Java HotSpot(TM) 64-Bit Server VM 1.8.0_144-b01
+  Encoding: UTF-8 (UTF-8)
+  Process: 20462@login-5 [146.179.60.55]
+  CPUs: 24 - Mem: 188.9 GB (52.5 GB) - Swap: 0 (0)
+Jan-25 13:43:33.603 [main] DEBUG nextflow.Session - Work-dir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work [nfs]
+Jan-25 13:43:33.687 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Jan-25 13:43:33.709 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jan-25 13:43:34.034 [main] DEBUG nextflow.Session - Session start invoked
+Jan-25 13:43:34.043 [main] DEBUG io.seqera.tower.plugin.TowerClient - Creating Tower observer -- endpoint=https://api.tower.nf; requestInterval=1s; aliveInterval=1m; maxRetries=5; backOffBase=3; backOffDelay=250
+Jan-25 13:43:34.178 [main] DEBUG nextflow.trace.TraceFileObserver - Flow starting -- trace file: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY/pipeline_info/execution_trace.txt
+Jan-25 13:43:39.962 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jan-25 13:43:39.977 [main] DEBUG nextflow.Session - Workflow process names [dsl1]: FASTQC, MERGED_LIB_MACS2_QC, MERGED_LIB_CONSENSUS_ANNOTATE, output_documentation, MERGED_LIB_BIGWIG, MERGED_LIB_PLOTPROFILE, MULTIQC, SORT_BAM, MERGED_LIB_CONSENSUS_DESEQ2, MERGED_REP_CONSENSUS, MERGED_LIB_PICARD_METRICS, BWA_MEM, MERGED_REP_BIGWIG, MERGED_REP_MACS2, MERGED_REP_MACS2_QC, MERGED_LIB_CONSENSUS, MERGED_REP_MACS2_ANNOTATE, MERGED_REP_CONSENSUS_COUNTS, BWA_INDEX, get_software_versions, CHECK_DESIGN, MERGED_LIB_BAM, MERGED_LIB_ATAQV_MKARV, MAKE_GENE_BED, MERGED_LIB_PRESEQ, MERGED_LIB_MACS2, MERGED_LIB_BAM_FILTER, MERGED_LIB_CONSENSUS_COUNTS, MERGED_LIB_ATAQV, MERGED_LIB_MACS2_ANNOTATE, TRIMGALORE, MERGED_REP_BAM, MERGED_REP_CONSENSUS_DESEQ2, MERGED_LIB_BAM_REMOVE_ORPHAN, MERGED_REP_CONSENSUS_ANNOTATE, MAKE_TSS_BED, IGV, MERGED_LIB_PLOTFINGERPRINT, MAKE_GENOME_FILTER
+Jan-25 13:43:40.108 [main] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider
+Jan-25 13:43:40.122 [main] DEBUG nextflow.file.FileHelper - AWS S3 config details: {}
+Jan-25 13:44:23.280 [main] INFO  nextflow.Nextflow - -[2m--------------------------------------------------[0m-
+                                        [0;32m,--.[0;30m/[0;32m,-.[0m
+[0;34m        ___     __   __   __   ___     [0;32m/,-._.--~'[0m
+[0;34m  |\ | |__  __ /  ` /  \ |__) |__         [0;33m}  {[0m
+[0;34m  | \| |       \__, \__/ |  \ |___     [0;32m\`-._,-`-,[0m
+                                        [0;32m`._,._,'[0m
+[0;35m  nf-core/atacseq v1.2.1[0m
+-[2m--------------------------------------------------[0m-
+
+Jan-25 13:44:23.290 [main] INFO  nextflow.Nextflow - Run Name             : grave_poincare
+Data Type            : Paired-End
+Design File          : /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_assays.csv
+Genome               : GRCh37
+Fasta File           : s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Sequence/WholeGenomeFasta/genome.fa
+GTF File             : s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.gtf
+Gene BED File        : s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.bed
+BWA Index            : s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Sequence/BWAIndex/genome.fa
+Blacklist BED        : /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/assets/blacklists/GRCh37-blacklist.bed
+Mitochondrial Contig : MT
+MACS2 Genome Size    : 2.7e9
+Min Consensus Reps   : 1
+MACS2 Narrow Peaks   : No
+MACS2 Broad Cutoff   : 0.1
+Trim R1              : 0 bp
+Trim R2              : 0 bp
+Trim 3' R1           : 0 bp
+Trim 3' R2           : 0 bp
+NextSeq Trim         : 0 bp
+Fingerprint Bins     : 500000
+Save Genome Index    : No
+Max Resources        : 256 GB memory, 32 cpus, 3d time per job
+Container            : singularity - /rds/general/user/bms20/home/atacseq_latest.sif
+Output Dir           : /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY
+Launch Dir           : /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG
+Working Dir          : /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work
+Script Dir           : /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq
+User                 : bms20
+Config Profile       : imperial
+Config Description   : Imperial College London - HPC Profile -- provided by nf-core/configs.
+Config Contact       : Combiz Khozoie (c.khozoie@imperial.ac.uk)
+Config URL           : https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/
+Jan-25 13:44:23.291 [main] INFO  nextflow.Nextflow - -[2m--------------------------------------------------[0m-
+Jan-25 13:44:23.412 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:44:23.413 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:44:23.432 [main] DEBUG nextflow.executor.Executor - [warm up] executor > pbspro
+Jan-25 13:44:23.440 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'pbspro' > capacity: 50; pollInterval: 5s; dumpInterval: 5m 
+Jan-25 13:44:23.448 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'pbspro' > queue-stat-interval: 1m
+Jan-25 13:44:24.242 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process CHECK_DESIGN (design_assays.csv) > jobId: 2996827.pbs; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/1d/37afe5cec90f95e70df9d76b991b71
+Jan-25 13:44:24.251 [Task submitter] INFO  nextflow.Session - [1d/37afe5] Submitted process > CHECK_DESIGN (design_assays.csv)
+Jan-25 13:47:28.508 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 2996827.pbs; id: 1; name: CHECK_DESIGN (design_assays.csv); status: COMPLETED; exit: 0; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/1d/37afe5cec90f95e70df9d76b991b71 started: 1611582448482; exited: 2021-01-25T13:46:51Z; ]
+Jan-25 13:47:28.576 [Task monitor] DEBUG n.util.BlockingThreadExecutorFactory - Thread pool name=FileTransfer; maxThreads=72; maxQueueSize=216; keepAlive=1m
+Jan-25 13:47:28.601 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.602 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.626 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.626 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.675 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name FASTQC
+Jan-25 13:47:28.677 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.678 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.711 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name TRIMGALORE
+Jan-25 13:47:28.713 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.713 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.767 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name BWA_MEM
+Jan-25 13:47:28.769 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.770 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.790 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name SORT_BAM
+Jan-25 13:47:28.793 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.794 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.810 [Actor Thread 14] ERROR nextflow.processor.TaskProcessor - Error executing process > 'TRIMGALORE (H3K27me3_R1_T1)'
+
+Caused by:
+  No signature of method: Script_cf1875fb.check_max() is applicable for argument types: (Integer, String) values: [32, cpus]
+
+Source block:
+  def cores = 1
+  if (task.cpus) {
+              cores = (task.cpus as int) - 4
+              if (params.single_end) cores = (task.cpus as int) - 3
+              if (cores < 1) cores = 1
+              if (cores > 4) cores = 4
+          }
+  c_r1 = params.clip_r1 > 0 ? "--clip_r1 ${params.clip_r1}" : ''
+  c_r2 = params.clip_r2 > 0 ? "--clip_r2 ${params.clip_r2}" : ''
+  tpc_r1 = params.three_prime_clip_r1 > 0 ? "--three_prime_clip_r1 ${params.three_prime_clip_r1}" : ''
+  tpc_r2 = params.three_prime_clip_r2 > 0 ? "--three_prime_clip_r2 ${params.three_prime_clip_r2}" : ''
+  nextseq = params.trim_nextseq > 0 ? "--nextseq ${params.trim_nextseq}" : ''
+  if (params.single_end) {
+              """
+              [ ! -f  ${name}.fastq.gz ] && ln -s $reads ${name}.fastq.gz
+              trim_galore --cores $cores --fastqc --gzip $c_r1 $tpc_r1 $nextseq ${name}.fastq.gz
+              """
+          } else {
+              """
+              [ ! -f  ${name}_1.fastq.gz ] && ln -s ${reads[0]} ${name}_1.fastq.gz
+              [ ! -f  ${name}_2.fastq.gz ] && ln -s ${reads[1]} ${name}_2.fastq.gz
+              trim_galore --cores $cores --paired --fastqc --gzip $c_r1 $c_r2 $tpc_r1 $tpc_r2 $nextseq ${name}_1.fastq.gz ${name}_2.fastq.gz
+              """
+          }
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+Jan-25 13:47:28.825 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BAM
+Jan-25 13:47:28.825 [Actor Thread 14] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Jan-25 13:47:28.829 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.829 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.852 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BAM_FILTER
+Jan-25 13:47:28.854 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.855 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.870 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BAM_REMOVE_ORPHAN
+Jan-25 13:47:28.872 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.873 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.887 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches label `process_low` for process with name MERGED_LIB_PRESEQ
+Jan-25 13:47:28.889 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:error_ignore` matches label `error_ignore` for process with name MERGED_LIB_PRESEQ
+Jan-25 13:47:28.891 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.891 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.902 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_PICARD_METRICS
+Jan-25 13:47:28.904 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.904 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.932 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BIGWIG
+Jan-25 13:47:28.934 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.934 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.948 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name MERGED_LIB_PLOTPROFILE
+Jan-25 13:47:28.952 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.953 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.963 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process FASTQC (H3K27me3_R1_T1) > jobId: 2996840.pbs; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/54/221e7a144b1ae9316159c1ef375ed0
+Jan-25 13:47:28.964 [Task submitter] INFO  nextflow.Session - [54/221e7a] Submitted process > FASTQC (H3K27me3_R1_T1)
+Jan-25 13:47:28.971 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name MERGED_LIB_PLOTFINGERPRINT
+Jan-25 13:47:28.973 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.973 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:28.997 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_MACS2
+Jan-25 13:47:28.999 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:28.999 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.021 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_MACS2_ANNOTATE
+Jan-25 13:47:29.022 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.023 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.037 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_MACS2_QC
+Jan-25 13:47:29.038 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.039 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.053 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_long` matches label `process_long` for process with name MERGED_LIB_CONSENSUS
+Jan-25 13:47:29.055 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.055 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.065 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_CONSENSUS_ANNOTATE
+Jan-25 13:47:29.066 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.066 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.077 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_CONSENSUS_COUNTS
+Jan-25 13:47:29.078 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.079 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.088 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_CONSENSUS_DESEQ2
+Jan-25 13:47:29.089 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.089 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.102 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_ATAQV
+Jan-25 13:47:29.103 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.103 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.111 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_ATAQV_MKARV
+Jan-25 13:47:29.112 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.113 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.128 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_BAM
+Jan-25 13:47:29.129 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.130 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.144 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_BIGWIG
+Jan-25 13:47:29.145 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.145 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.158 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_MACS2
+Jan-25 13:47:29.159 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.159 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.169 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_MACS2_ANNOTATE
+Jan-25 13:47:29.170 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.171 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.181 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_MACS2_QC
+Jan-25 13:47:29.182 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.183 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.195 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_long` matches label `process_long` for process with name MERGED_REP_CONSENSUS
+Jan-25 13:47:29.196 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.197 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.206 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_CONSENSUS_ANNOTATE
+Jan-25 13:47:29.207 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.207 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.217 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_CONSENSUS_COUNTS
+Jan-25 13:47:29.219 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.219 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.228 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_CONSENSUS_DESEQ2
+Jan-25 13:47:29.229 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.229 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.251 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.251 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.258 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:get_software_versions` matches process get_software_versions
+Jan-25 13:47:29.259 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.260 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.341 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.342 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:29.355 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-25 13:47:29.356 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-25 13:47:30.114 [Actor Thread 12] DEBUG nextflow.sort.BigSort - Sort completed -- entries: 1; slices: 1; internal sort time: 0.005 s; external sort time: 0.026 s; total time: 0.031 s
+Jan-25 13:47:30.127 [Actor Thread 12] DEBUG nextflow.file.FileCollector - Saved collect-files list to: /rds/general/ephemeral/user/bms20/ephemeral/5d240a896c5ffd8b3685e742c343494f.collect-file
+Jan-25 13:47:30.223 [Actor Thread 12] DEBUG nextflow.file.FileCollector - Deleting file collector temp dir: /rds/general/ephemeral/user/bms20/ephemeral/nxf-6670661632923751161
+Jan-25 13:47:30.383 [main] INFO  io.seqera.tower.plugin.TowerClient - Monitor the execution with Nextflow Tower using this url https://tower.nf/watch/1mf3vqDK9TXEzb
+Jan-25 13:47:30.385 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Jan-25 13:47:30.386 [main] DEBUG nextflow.Session - Session await
+Jan-25 13:47:30.386 [main] DEBUG nextflow.Session - Session await > all process finished
+Jan-25 13:47:37.677 [FileTransfer-thread-2] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.bed at /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/stage/a8/8791f2255ea9355ea7f412cfef58df/genes.bed
+Jan-25 13:47:40.683 [FileTransfer-thread-3] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Sequence/WholeGenomeFasta/genome.fa at /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/stage/82/f27f3639599b6bd0bbe55e97ba4ce4/genome.fa
+Jan-25 13:49:29.179 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 2996840.pbs; id: 5; name: FASTQC (H3K27me3_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/54/221e7a144b1ae9316159c1ef375ed0 started: 1611582543863; exited: -; ]
+Jan-25 13:52:29.089 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor pbspro > tasks in the submission queue: 5 -- tasks to be submitted are shown below
+~> TaskHandler[jobId: null; id: 4; name: FASTQC (H3K27ac_R1_T1); status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/d2/36dbb0ac2392d02cf63ae0845369b2 started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 8; name: get_software_versions; status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/53/6f99009252fec6524201f9036d6dba started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 9; name: output_documentation; status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/e5/547a2575ffa28608fd771e8d1c9486 started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 2; name: MAKE_TSS_BED (genes.bed); status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/39/9ede540fe26a4ef142094d4b3b249a started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 3; name: MAKE_GENOME_FILTER (genome.fa); status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/2a/1a8ca949bf17056d96b07b2de2cac5 started: -; exited: -; ]
+Jan-25 13:54:14.422 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 2996840.pbs; id: 5; name: FASTQC (H3K27me3_R1_T1); status: COMPLETED; exit: 0; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/54/221e7a144b1ae9316159c1ef375ed0 started: 1611582543863; exited: 2021-01-25T13:53:38Z; ]
+Jan-25 13:54:29.497 [Task monitor] DEBUG n.processor.TaskPollingMonitor - No more task to compute -- The following nodes are still active:
+[process] MERGED_LIB_BAM
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_BAM_FILTER
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: bed
+  port 2: (value) bound ; channel: bamtools_filter_config
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_BAM_REMOVE_ORPHAN
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PRESEQ
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PICARD_METRICS
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: fasta
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_BIGWIG
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: sizes
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PLOTPROFILE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: bed
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PLOTFINGERPRINT
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_MACS2
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: mlib_peak_count_header
+  port 2: (value) bound ; channel: mlib_frip_score_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_MACS2_ANNOTATE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: fasta
+  port 2: (value) bound ; channel: gtf
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_MACS2_QC
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (value) OPEN  ; channel: annos
+  port 2: (value) bound ; channel: mlib_peak_annotation_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS_ANNOTATE
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bed
+  port 1: (value) OPEN  ; channel: bool
+  port 2: (value) bound ; channel: fasta
+  port 3: (value) bound ; channel: gtf
+  port 4: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS_COUNTS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bams
+  port 1: (value) OPEN  ; channel: saf
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS_DESEQ2
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: counts
+  port 1: (value) bound ; channel: mlib_deseq2_pca_header
+  port 2: (value) bound ; channel: mlib_deseq2_clustering_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_ATAQV
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: autosomes
+  port 2: (value) OPEN  ; channel: tss_bed
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_ATAQV_MKARV
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: json
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_BAM
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_BIGWIG
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: sizes
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_MACS2
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: mrep_peak_count_header
+  port 2: (value) bound ; channel: mrep_frip_score_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_MACS2_ANNOTATE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: fasta
+  port 2: (value) bound ; channel: gtf
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_MACS2_QC
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (value) OPEN  ; channel: annos
+  port 2: (value) bound ; channel: mrep_peak_annotation_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS_ANNOTATE
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bed
+  port 1: (value) OPEN  ; channel: bool
+  port 2: (value) bound ; channel: fasta
+  port 3: (value) bound ; channel: gtf
+  port 4: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS_COUNTS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bams
+  port 1: (value) OPEN  ; channel: saf
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS_DESEQ2
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: counts
+  port 1: (value) bound ; channel: mrep_deseq2_pca_header
+  port 2: (value) bound ; channel: mrep_deseq2_clustering_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] IGV
+  status=ACTIVE
+  port 0: (value) bound ; channel: fasta
+  port 1: (value) OPEN  ; channel: bigwigs
+  port 2: (value) OPEN  ; channel: peaks
+  port 3: (value) OPEN  ; channel: consensus_peaks
+  port 4: (value) OPEN  ; channel: differential_peaks
+  port 5: (value) OPEN  ; channel: rbigwigs
+  port 6: (value) OPEN  ; channel: rpeaks
+  port 7: (value) OPEN  ; channel: rconsensus_peaks
+  port 8: (value) OPEN  ; channel: rdifferential_peaks
+  port 9: (cntrl) -     ; channel: $
+
+[process] MULTIQC
+  status=ACTIVE
+  port 0: (value) bound ; channel: multiqc_config
+  port 1: (value) bound ; channel: mqc_custom_config
+  port 2: (value) OPEN  ; channel: software_versions/*
+  port 3: (queue) OPEN  ; channel: workflow_summary
+  port 4: (value) OPEN  ; channel: fastqc/*
+  port 5: (value) OPEN  ; channel: trimgalore/*
+  port 6: (value) OPEN  ; channel: trimgalore/fastqc/*
+  port 7: (value) OPEN  ; channel: alignment/library/*
+  port 8: (value) OPEN  ; channel: alignment/mergedLibrary/*
+  port 9: (value) OPEN  ; channel: alignment/mergedLibrary/*
+  port 10: (value) OPEN  ; channel: alignment/mergedLibrary/*
+  port 11: (value) OPEN  ; channel: alignment/mergedLibrary/picard_metrics/*
+  port 12: (value) OPEN  ; channel: alignment/mergedLibrary/picard_metrics/*
+  port 13: (value) OPEN  ; channel: macs/mergedLibrary/*
+  port 14: (value) OPEN  ; channel: macs/mergedLibrary/*
+  port 15: (value) OPEN  ; channel: macs/mergedLibrary/consensus/*
+  port 16: (value) OPEN  ; channel: macs/mergedLibrary/consensus/*
+  port 17: (value) OPEN  ; channel: preseq/*
+  port 18: (value) OPEN  ; channel: deeptools/*
+  port 19: (value) OPEN  ; channel: deeptools/*
+  port 20: (value) OPEN  ; channel: alignment/mergedReplicate/*
+  port 21: (value) OPEN  ; channel: alignment/mergedReplicate/*
+  port 22: (value) OPEN  ; channel: alignment/mergedReplicate/*
+  port 23: (value) OPEN  ; channel: macs/mergedReplicate/*
+  port 24: (value) OPEN  ; channel: macs/mergedReplicate/*
+  port 25: (value) OPEN  ; channel: macs/mergedReplicate/consensus/*
+  port 26: (value) OPEN  ; channel: macs/mergedReplicate/consensus/*
+  port 27: (cntrl) -     ; channel: $
+
+Jan-25 13:57:29.464 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor pbspro > tasks in the submission queue: 5 -- tasks to be submitted are shown below
+~> TaskHandler[jobId: null; id: 4; name: FASTQC (H3K27ac_R1_T1); status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/d2/36dbb0ac2392d02cf63ae0845369b2 started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 8; name: get_software_versions; status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/53/6f99009252fec6524201f9036d6dba started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 9; name: output_documentation; status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/e5/547a2575ffa28608fd771e8d1c9486 started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 2; name: MAKE_TSS_BED (genes.bed); status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/39/9ede540fe26a4ef142094d4b3b249a started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 3; name: MAKE_GENOME_FILTER (genome.fa); status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/2a/1a8ca949bf17056d96b07b2de2cac5 started: -; exited: -; ]
+Jan-25 13:59:29.577 [Task monitor] DEBUG n.processor.TaskPollingMonitor - No more task to compute -- The following nodes are still active:
+[process] MERGED_LIB_BAM
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_BAM_FILTER
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: bed
+  port 2: (value) bound ; channel: bamtools_filter_config
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_BAM_REMOVE_ORPHAN
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PRESEQ
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PICARD_METRICS
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: fasta
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_BIGWIG
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: sizes
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PLOTPROFILE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: bed
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PLOTFINGERPRINT
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_MACS2
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: mlib_peak_count_header
+  port 2: (value) bound ; channel: mlib_frip_score_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_MACS2_ANNOTATE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: fasta
+  port 2: (value) bound ; channel: gtf
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_MACS2_QC
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (value) OPEN  ; channel: annos
+  port 2: (value) bound ; channel: mlib_peak_annotation_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS_ANNOTATE
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bed
+  port 1: (value) OPEN  ; channel: bool
+  port 2: (value) bound ; channel: fasta
+  port 3: (value) bound ; channel: gtf
+  port 4: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS_COUNTS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bams
+  port 1: (value) OPEN  ; channel: saf
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS_DESEQ2
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: counts
+  port 1: (value) bound ; channel: mlib_deseq2_pca_header
+  port 2: (value) bound ; channel: mlib_deseq2_clustering_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_ATAQV
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: autosomes
+  port 2: (value) OPEN  ; channel: tss_bed
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_ATAQV_MKARV
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: json
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_BAM
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_BIGWIG
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: sizes
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_MACS2
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: mrep_peak_count_header
+  port 2: (value) bound ; channel: mrep_frip_score_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_MACS2_ANNOTATE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: fasta
+  port 2: (value) bound ; channel: gtf
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_MACS2_QC
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (value) OPEN  ; channel: annos
+  port 2: (value) bound ; channel: mrep_peak_annotation_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS_ANNOTATE
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bed
+  port 1: (value) OPEN  ; channel: bool
+  port 2: (value) bound ; channel: fasta
+  port 3: (value) bound ; channel: gtf
+  port 4: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS_COUNTS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bams
+  port 1: (value) OPEN  ; channel: saf
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS_DESEQ2
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: counts
+  port 1: (value) bound ; channel: mrep_deseq2_pca_header
+  port 2: (value) bound ; channel: mrep_deseq2_clustering_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] IGV
+  status=ACTIVE
+  port 0: (value) bound ; channel: fasta
+  port 1: (value) OPEN  ; channel: bigwigs
+  port 2: (value) OPEN  ; channel: peaks
+  port 3: (value) OPEN  ; channel: consensus_peaks
+  port 4: (value) OPEN  ; channel: differential_peaks
+  port 5: (value) OPEN  ; channel: rbigwigs
+  port 6: (value) OPEN  ; channel: rpeaks
+  port 7: (value) OPEN  ; channel: rconsensus_peaks
+  port 8: (value) OPEN  ; channel: rdifferential_peaks
+  port 9: (cntrl) -     ; channel: $
+
+[process] MULTIQC
+  status=ACTIVE
+  port 0: (value) bound ; channel: multiqc_config
+  port 1: (value) bound ; channel: mqc_custom_config
+  port 2: (value) OPEN  ; channel: software_versions/*
+  port 3: (queue) OPEN  ; channel: workflow_summary
+  port 4: (value) OPEN  ; channel: fastqc/*
+  port 5: (value) OPEN  ; channel: trimgalore/*
+  port 6: (value) OPEN  ; channel: trimgalore/fastqc/*
+  port 7: (value) OPEN  ; channel: alignment/library/*
+  port 8: (value) OPEN  ; channel: alignment/mergedLibrary/*
+  port 9: (value) OPEN  ; channel: alignment/mergedLibrary/*
+  port 10: (value) OPEN  ; channel: alignment/mergedLibrary/*
+  port 11: (value) OPEN  ; channel: alignment/mergedLibrary/picard_metrics/*
+  port 12: (value) OPEN  ; channel: alignment/mergedLibrary/picard_metrics/*
+  port 13: (value) OPEN  ; channel: macs/mergedLibrary/*
+  port 14: (value) OPEN  ; channel: macs/mergedLibrary/*
+  port 15: (value) OPEN  ; channel: macs/mergedLibrary/consensus/*
+  port 16: (value) OPEN  ; channel: macs/mergedLibrary/consensus/*
+  port 17: (value) OPEN  ; channel: preseq/*
+  port 18: (value) OPEN  ; channel: deeptools/*
+  port 19: (value) OPEN  ; channel: deeptools/*
+  port 20: (value) OPEN  ; channel: alignment/mergedReplicate/*
+  port 21: (value) OPEN  ; channel: alignment/mergedReplicate/*
+  port 22: (value) OPEN  ; channel: alignment/mergedReplicate/*
+  port 23: (value) OPEN  ; channel: macs/mergedReplicate/*
+  port 24: (value) OPEN  ; channel: macs/mergedReplicate/*
+  port 25: (value) OPEN  ; channel: macs/mergedReplicate/consensus/*
+  port 26: (value) OPEN  ; channel: macs/mergedReplicate/consensus/*
+  port 27: (cntrl) -     ; channel: $
+
+Jan-25 14:02:29.526 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor pbspro > tasks in the submission queue: 5 -- tasks to be submitted are shown below
+~> TaskHandler[jobId: null; id: 4; name: FASTQC (H3K27ac_R1_T1); status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/d2/36dbb0ac2392d02cf63ae0845369b2 started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 8; name: get_software_versions; status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/53/6f99009252fec6524201f9036d6dba started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 9; name: output_documentation; status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/e5/547a2575ffa28608fd771e8d1c9486 started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 2; name: MAKE_TSS_BED (genes.bed); status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/39/9ede540fe26a4ef142094d4b3b249a started: -; exited: -; ]
+~> TaskHandler[jobId: null; id: 3; name: MAKE_GENOME_FILTER (genome.fa); status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/2a/1a8ca949bf17056d96b07b2de2cac5 started: -; exited: -; ]
+Jan-25 14:04:29.614 [Task monitor] DEBUG n.processor.TaskPollingMonitor - No more task to compute -- The following nodes are still active:
+[process] MERGED_LIB_BAM
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_BAM_FILTER
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: bed
+  port 2: (value) bound ; channel: bamtools_filter_config
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_BAM_REMOVE_ORPHAN
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PRESEQ
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PICARD_METRICS
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: fasta
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_BIGWIG
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: sizes
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PLOTPROFILE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: bed
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PLOTFINGERPRINT
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_MACS2
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: mlib_peak_count_header
+  port 2: (value) bound ; channel: mlib_frip_score_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_MACS2_ANNOTATE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: fasta
+  port 2: (value) bound ; channel: gtf
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_MACS2_QC
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (value) OPEN  ; channel: annos
+  port 2: (value) bound ; channel: mlib_peak_annotation_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS_ANNOTATE
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bed
+  port 1: (value) OPEN  ; channel: bool
+  port 2: (value) bound ; channel: fasta
+  port 3: (value) bound ; channel: gtf
+  port 4: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS_COUNTS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bams
+  port 1: (value) OPEN  ; channel: saf
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS_DESEQ2
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: counts
+  port 1: (value) bound ; channel: mlib_deseq2_pca_header
+  port 2: (value) bound ; channel: mlib_deseq2_clustering_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_ATAQV
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: autosomes
+  port 2: (value) OPEN  ; channel: tss_bed
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_ATAQV_MKARV
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: json
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_BAM
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_BIGWIG
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: sizes
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_MACS2
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: mrep_peak_count_header
+  port 2: (value) bound ; channel: mrep_frip_score_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_MACS2_ANNOTATE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: fasta
+  port 2: (value) bound ; channel: gtf
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_MACS2_QC
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (value) OPEN  ; channel: annos
+  port 2: (value) bound ; channel: mrep_peak_annotation_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS_ANNOTATE
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bed
+  port 1: (value) OPEN  ; channel: bool
+  port 2: (value) bound ; channel: fasta
+  port 3: (value) bound ; channel: gtf
+  port 4: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS_COUNTS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bams
+  port 1: (value) OPEN  ; channel: saf
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS_DESEQ2
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: counts
+  port 1: (value) bound ; channel: mrep_deseq2_pca_header
+  port 2: (value) bound ; channel: mrep_deseq2_clustering_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] IGV
+  status=ACTIVE
+  port 0: (value) bound ; channel: fasta
+  port 1: (value) OPEN  ; channel: bigwigs
+  port 2: (value) OPEN  ; channel: peaks
+  port 3: (value) OPEN  ; channel: consensus_peaks
+  port 4: (value) OPEN  ; channel: differential_peaks
+  port 5: (value) OPEN  ; channel: rbigwigs
+  port 6: (value) OPEN  ; channel: rpeaks
+  port 7: (value) OPEN  ; channel: rconsensus_peaks
+  port 8: (value) OPEN  ; channel: rdifferential_peaks
+  port 9: (cntrl) -     ; channel: $
+
+[process] MULTIQC
+  status=ACTIVE
+  port 0: (value) bound ; channel: multiqc_config
+  port 1: (value) bound ; channel: mqc_custom_config
+  port 2: (value) OPEN  ; channel: software_versions/*
+  port 3: (queue) OPEN  ; channel: workflow_summary
+  port 4: (value) OPEN  ; channel: fastqc/*
+  port 5: (value) OPEN  ; channel: trimgalore/*
+  port 6: (value) OPEN  ; channel: trimgalore/fastqc/*
+  port 7: (value) OPEN  ; channel: alignment/library/*
+  port 8: (value) OPEN  ; channel: alignment/mergedLibrary/*
+  port 9: (value) OPEN  ; channel: alignment/mergedLibrary/*
+  port 10: (value) OPEN  ; channel: alignment/mergedLibrary/*
+  port 11: (value) OPEN  ; channel: alignment/mergedLibrary/picard_metrics/*
+  port 12: (value) OPEN  ; channel: alignment/mergedLibrary/picard_metrics/*
+  port 13: (value) OPEN  ; channel: macs/mergedLibrary/*
+  port 14: (value) OPEN  ; channel: macs/mergedLibrary/*
+  port 15: (value) OPEN  ; channel: macs/mergedLibrary/consensus/*
+  port 16: (value) OPEN  ; channel: macs/mergedLibrary/consensus/*
+  port 17: (value) OPEN  ; channel: preseq/*
+  port 18: (value) OPEN  ; channel: deeptools/*
+  port 19: (value) OPEN  ; channel: deeptools/*
+  port 20: (value) OPEN  ; channel: alignment/mergedReplicate/*
+  port 21: (value) OPEN  ; channel: alignment/mergedReplicate/*
+  port 22: (value) OPEN  ; channel: alignment/mergedReplicate/*
+  port 23: (value) OPEN  ; channel: macs/mergedReplicate/*
+  port 24: (value) OPEN  ; channel: macs/mergedReplicate/*
+  port 25: (value) OPEN  ; channel: macs/mergedReplicate/consensus/*
+  port 26: (value) OPEN  ; channel: macs/mergedReplicate/consensus/*
+  port 27: (cntrl) -     ; channel: $
+
+Jan-25 14:05:36.274 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
+Jan-25 14:05:36.293 [SIGINT handler] DEBUG nextflow.Session - The following nodes are still active:
+[process] MERGED_LIB_BAM
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_BAM_FILTER
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: bed
+  port 2: (value) bound ; channel: bamtools_filter_config
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_BAM_REMOVE_ORPHAN
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PRESEQ
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PICARD_METRICS
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: fasta
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_BIGWIG
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: sizes
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PLOTPROFILE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: bed
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_PLOTFINGERPRINT
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_MACS2
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: mlib_peak_count_header
+  port 2: (value) bound ; channel: mlib_frip_score_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_MACS2_ANNOTATE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: fasta
+  port 2: (value) bound ; channel: gtf
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_MACS2_QC
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (value) OPEN  ; channel: annos
+  port 2: (value) bound ; channel: mlib_peak_annotation_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS_ANNOTATE
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bed
+  port 1: (value) OPEN  ; channel: bool
+  port 2: (value) bound ; channel: fasta
+  port 3: (value) bound ; channel: gtf
+  port 4: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS_COUNTS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bams
+  port 1: (value) OPEN  ; channel: saf
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_CONSENSUS_DESEQ2
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: counts
+  port 1: (value) bound ; channel: mlib_deseq2_pca_header
+  port 2: (value) bound ; channel: mlib_deseq2_clustering_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_ATAQV
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: autosomes
+  port 2: (value) OPEN  ; channel: tss_bed
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_LIB_ATAQV_MKARV
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: json
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_BAM
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_BIGWIG
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: sizes
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_MACS2
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: mrep_peak_count_header
+  port 2: (value) bound ; channel: mrep_frip_score_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_MACS2_ANNOTATE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: fasta
+  port 2: (value) bound ; channel: gtf
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_MACS2_QC
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (value) OPEN  ; channel: annos
+  port 2: (value) bound ; channel: mrep_peak_annotation_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: peaks
+  port 1: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS_ANNOTATE
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bed
+  port 1: (value) OPEN  ; channel: bool
+  port 2: (value) bound ; channel: fasta
+  port 3: (value) bound ; channel: gtf
+  port 4: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS_COUNTS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: bams
+  port 1: (value) OPEN  ; channel: saf
+  port 2: (cntrl) -     ; channel: $
+
+[process] MERGED_REP_CONSENSUS_DESEQ2
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: counts
+  port 1: (value) bound ; channel: mrep_deseq2_pca_header
+  port 2: (value) bound ; channel: mrep_deseq2_clustering_header
+  port 3: (cntrl) -     ; channel: $
+
+[process] IGV
+  status=ACTIVE
+  port 0: (value) bound ; channel: fasta
+  port 1: (value) OPEN  ; channel: bigwigs
+  port 2: (value) OPEN  ; channel: peaks
+  port 3: (value) OPEN  ; channel: consensus_peaks
+  port 4: (value) OPEN  ; channel: differential_peaks
+  port 5: (value) OPEN  ; channel: rbigwigs
+  port 6: (value) OPEN  ; channel: rpeaks
+  port 7: (value) OPEN  ; channel: rconsensus_peaks
+  port 8: (value) OPEN  ; channel: rdifferential_peaks
+  port 9: (cntrl) -     ; channel: $
+
+[process] MULTIQC
+  status=ACTIVE
+  port 0: (value) bound ; channel: multiqc_config
+  port 1: (value) bound ; channel: mqc_custom_config
+  port 2: (value) OPEN  ; channel: software_versions/*
+  port 3: (queue) OPEN  ; channel: workflow_summary
+  port 4: (value) OPEN  ; channel: fastqc/*
+  port 5: (value) OPEN  ; channel: trimgalore/*
+  port 6: (value) OPEN  ; channel: trimgalore/fastqc/*
+  port 7: (value) OPEN  ; channel: alignment/library/*
+  port 8: (value) OPEN  ; channel: alignment/mergedLibrary/*
+  port 9: (value) OPEN  ; channel: alignment/mergedLibrary/*
+  port 10: (value) OPEN  ; channel: alignment/mergedLibrary/*
+  port 11: (value) OPEN  ; channel: alignment/mergedLibrary/picard_metrics/*
+  port 12: (value) OPEN  ; channel: alignment/mergedLibrary/picard_metrics/*
+  port 13: (value) OPEN  ; channel: macs/mergedLibrary/*
+  port 14: (value) OPEN  ; channel: macs/mergedLibrary/*
+  port 15: (value) OPEN  ; channel: macs/mergedLibrary/consensus/*
+  port 16: (value) OPEN  ; channel: macs/mergedLibrary/consensus/*
+  port 17: (value) OPEN  ; channel: preseq/*
+  port 18: (value) OPEN  ; channel: deeptools/*
+  port 19: (value) OPEN  ; channel: deeptools/*
+  port 20: (value) OPEN  ; channel: alignment/mergedReplicate/*
+  port 21: (value) OPEN  ; channel: alignment/mergedReplicate/*
+  port 22: (value) OPEN  ; channel: alignment/mergedReplicate/*
+  port 23: (value) OPEN  ; channel: macs/mergedReplicate/*
+  port 24: (value) OPEN  ; channel: macs/mergedReplicate/*
+  port 25: (value) OPEN  ; channel: macs/mergedReplicate/consensus/*
+  port 26: (value) OPEN  ; channel: macs/mergedReplicate/consensus/*
+  port 27: (cntrl) -     ; channel: $
+
+Jan-25 14:05:36.295 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jan-25 14:05:36.522 [main] INFO  nextflow.Nextflow - -[0;35m[nf-core/atacseq][0;31m Pipeline completed with errors[0m-
+Jan-25 14:05:36.530 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=5; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=29m 40s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=6; peakMemory=36 GB; ]
+Jan-25 14:05:36.841 [main] DEBUG nextflow.trace.TraceFileObserver - Flow completing -- flushing trace file
+Jan-25 14:05:36.846 [main] DEBUG nextflow.trace.ReportObserver - Flow completing -- rendering html report
+Jan-25 14:05:36.859 [main] DEBUG nextflow.trace.ReportObserver - Execution report summary data:
+  [{"cpuUsage":{"mean":33.6,"min":33.6,"q1":33.6,"q2":33.6,"q3":33.6,"max":33.6,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"process":"CHECK_DESIGN","mem":{"mean":9793536,"min":9793536,"q1":9793536,"q2":9793536,"q3":9793536,"max":9793536,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"memUsage":{"mean":0.15,"min":0.15,"q1":0.15,"q2":0.15,"q3":0.15,"max":0.15,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"timeUsage":null,"vmem":{"mean":16470016,"min":16470016,"q1":16470016,"q2":16470016,"q3":16470016,"max":16470016,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"reads":{"mean":641007,"min":641007,"q1":641007,"q2":641007,"q3":641007,"max":641007,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"cpu":{"mean":33.6,"min":33.6,"q1":33.6,"q2":33.6,"q3":33.6,"max":33.6,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"time":{"mean":562,"min":562,"q1":562,"q2":562,"q3":562,"max":562,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"writes":{"mean":922,"min":922,"q1":922,"q2":922,"q3":922,"max":922,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"}},{"cpuUsage":{"mean":11.27,"min":11.27,"q1":11.27,"q2":11.27,"q3":11.27,"max":11.27,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"process":"FASTQC","mem":{"mean":1200918528,"min":1200918528,"q1":1200918528,"q2":1200918528,"q3":1200918528,"max":1200918528,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"memUsage":{"mean":3.11,"min":3.11,"q1":3.11,"q2":3.11,"q3":3.11,"max":3.11,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"timeUsage":{"mean":1.03,"min":1.03,"q1":1.03,"q2":1.03,"q3":1.03,"max":1.03,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"vmem":{"mean":5155807232,"min":5155807232,"q1":5155807232,"q2":5155807232,"q3":5155807232,"max":5155807232,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"reads":{"mean":1677123950,"min":1677123950,"q1":1677123950,"q2":1677123950,"q3":1677123950,"max":1677123950,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"cpu":{"mean":67.6,"min":67.6,"q1":67.6,"q2":67.6,"q3":67.6,"max":67.6,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"time":{"mean":296539,"min":296539,"q1":296539,"q2":296539,"q3":296539,"max":296539,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"writes":{"mean":4210687,"min":4210687,"q1":4210687,"q2":4210687,"q3":4210687,"max":4210687,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"}}]
+Jan-25 14:05:37.972 [main] DEBUG nextflow.trace.TimelineObserver - Flow completing -- rendering html timeline
+Jan-25 14:05:38.509 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Jan-25 14:05:38.516 [main] DEBUG nextflow.util.SpuriousDeps - AWS S3 uploader shutdown
+Jan-25 14:05:38.789 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

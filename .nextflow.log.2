@@ -1,39 +1,52 @@
-Jan-14 10:32:27.337 [main] DEBUG nextflow.cli.Launcher - $> nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv --genome GRCh37 --narrow_peak --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -r 1.2.1
-Jan-14 10:32:33.246 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 20.10.0
-Jan-14 10:32:38.274 [main] DEBUG nextflow.scm.AssetManager - Git config: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/atacseq.git
-Jan-14 10:32:38.479 [main] DEBUG nextflow.scm.AssetManager - Git config: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/atacseq.git
-Jan-14 10:33:18.968 [main] INFO  nextflow.cli.CmdRun - Launching `nf-core/atacseq` [suspicious_brown] - revision: 1b3a832db5 [1.2.1]
-Jan-14 10:33:33.772 [main] DEBUG nextflow.config.ConfigBuilder - Found config home: /rds/general/user/bms20/home/.nextflow/config
-Jan-14 10:33:34.403 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/nextflow.config
-Jan-14 10:33:36.596 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /apps/nextflow/20.01.0/bin/nextflow.config
-Jan-14 10:33:36.597 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /rds/general/user/bms20/home/.nextflow/config
-Jan-14 10:33:36.597 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/nextflow.config
-Jan-14 10:33:36.597 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /apps/nextflow/20.01.0/bin/nextflow.config
-Jan-14 10:33:37.123 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Jan-14 10:33:39.414 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Jan-14 10:33:49.651 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Jan-14 10:33:51.434 [main] DEBUG nextflow.config.ConfigBuilder - Enabling execution in Singularity container as requested by cli option `-with-singularity null`
-Jan-14 10:34:19.151 [main] DEBUG nextflow.Session - Session uuid: 489f45b6-12e7-496b-8457-575ee1ceb7ec
-Jan-14 10:34:19.334 [main] DEBUG nextflow.Session - Run name: suspicious_brown
-Jan-14 10:34:19.337 [main] DEBUG nextflow.Session - Executor pool size: 24
-Jan-14 10:34:22.149 [main] DEBUG nextflow.cli.CmdRun - 
+Jan-26 18:31:11.787 [main] DEBUG nextflow.cli.Launcher - $> nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_assays.csv --genome GRCh37 --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -with-tower -r 1.2.1 -profile imperial -c /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config2
+Jan-26 18:31:12.150 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 20.10.0
+Jan-26 18:31:24.213 [main] DEBUG nextflow.scm.AssetManager - Git config: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/atacseq.git
+Jan-26 18:31:25.212 [main] DEBUG nextflow.scm.AssetManager - Git config: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/atacseq.git
+Jan-26 18:31:31.432 [main] INFO  nextflow.cli.CmdRun - Launching `nf-core/atacseq` [focused_yalow] - revision: 1b3a832db5 [1.2.1]
+Jan-26 18:31:34.842 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/nextflow.config
+Jan-26 18:31:34.866 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /apps/nextflow/20.01.0/bin/nextflow.config
+Jan-26 18:31:34.869 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config2
+Jan-26 18:31:34.870 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/nextflow.config
+Jan-26 18:31:34.912 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /apps/nextflow/20.01.0/bin/nextflow.config
+Jan-26 18:31:34.912 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config2
+Jan-26 18:31:35.016 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `imperial`
+Jan-26 18:31:49.217 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `imperial`
+Jan-26 18:31:50.016 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `imperial`
+Jan-26 18:31:50.930 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [cfc_dev, denbi_qbic, bi, genotoul, bigpurple, uppmax, abims, imperial_mb, docker, gis, utd_ganymede, mpcdf, conda, singularity, icr_davros, munin, prince, czbiohub_aws, hebbe, cfc, uzh, ccga_med, debug, test, genouest, cbe, ebc, ccga_dx, crick, google, kraken, phoenix, seg_globe, shh, awsbatch, pasteur, uct_hpc, imperial, test_full, binac]
+Jan-26 18:31:51.033 [main] DEBUG nextflow.config.ConfigBuilder - Enabling execution in Singularity container as requested by cli option `-with-singularity null`
+Jan-26 18:31:51.427 [main] DEBUG nextflow.Session - Session uuid: 5b4e42a6-9fee-4a51-b7b0-40d45f27073f
+Jan-26 18:31:51.427 [main] DEBUG nextflow.Session - Run name: focused_yalow
+Jan-26 18:31:51.428 [main] DEBUG nextflow.Session - Executor pool size: 24
+Jan-26 18:31:51.620 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/nextflow.config
+Jan-26 18:31:51.621 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /apps/nextflow/20.01.0/bin/nextflow.config
+Jan-26 18:31:51.621 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config2
+Jan-26 18:31:51.621 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq/nextflow.config
+Jan-26 18:31:51.622 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /apps/nextflow/20.01.0/bin/nextflow.config
+Jan-26 18:31:51.623 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config2
+Jan-26 18:31:51.624 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `imperial`
+Jan-26 18:32:02.313 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `imperial`
+Jan-26 18:32:05.614 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `imperial`
+Jan-26 18:32:05.740 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [cfc_dev, denbi_qbic, bi, genotoul, bigpurple, uppmax, abims, imperial_mb, docker, gis, utd_ganymede, mpcdf, conda, singularity, icr_davros, munin, prince, czbiohub_aws, hebbe, cfc, uzh, ccga_med, debug, test, genouest, cbe, ebc, ccga_dx, crick, google, kraken, phoenix, seg_globe, shh, awsbatch, pasteur, uct_hpc, imperial, test_full, binac]
+Jan-26 18:32:05.741 [main] DEBUG nextflow.config.ConfigBuilder - Enabling execution in Singularity container as requested by cli option `-with-singularity null`
+Jan-26 18:32:05.939 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 20.10.0 build 5430
   Created: 01-11-2020 15:14 UTC (15:14 BST)
   System: Linux 3.10.0-1127.19.1.el7.x86_64
   Runtime: Groovy 3.0.5 on Java HotSpot(TM) 64-Bit Server VM 1.8.0_144-b01
   Encoding: UTF-8 (UTF-8)
-  Process: 17453@login-7 [146.179.60.57]
-  CPUs: 24 - Mem: 188.9 GB (726.5 MB) - Swap: 0 (0)
-Jan-14 10:34:30.591 [main] DEBUG nextflow.Session - Work-dir: /rds/general/user/bms20/ephemeral/tmp [nfs]
-Jan-14 10:34:36.641 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
-Jan-14 10:34:37.086 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Jan-14 10:34:51.151 [main] DEBUG nextflow.Session - Session start invoked
-Jan-14 10:34:51.159 [main] DEBUG nextflow.trace.TraceFileObserver - Flow starting -- trace file: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY/pipeline_info/execution_trace.txt
-Jan-14 10:36:38.958 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Jan-14 10:36:39.941 [main] DEBUG nextflow.Session - Workflow process names [dsl1]: FASTQC, MERGED_LIB_MACS2_QC, MERGED_LIB_CONSENSUS_ANNOTATE, output_documentation, MERGED_LIB_BIGWIG, MERGED_LIB_PLOTPROFILE, MULTIQC, SORT_BAM, MERGED_LIB_CONSENSUS_DESEQ2, MERGED_REP_CONSENSUS, MERGED_LIB_PICARD_METRICS, BWA_MEM, MERGED_REP_BIGWIG, MERGED_REP_MACS2, MERGED_REP_MACS2_QC, MERGED_LIB_CONSENSUS, MERGED_REP_MACS2_ANNOTATE, MERGED_REP_CONSENSUS_COUNTS, BWA_INDEX, get_software_versions, CHECK_DESIGN, MERGED_LIB_BAM, MERGED_LIB_ATAQV_MKARV, MAKE_GENE_BED, MERGED_LIB_PRESEQ, MERGED_LIB_MACS2, MERGED_LIB_BAM_FILTER, MERGED_LIB_CONSENSUS_COUNTS, MERGED_LIB_ATAQV, MERGED_LIB_MACS2_ANNOTATE, TRIMGALORE, MERGED_REP_BAM, MERGED_REP_CONSENSUS_DESEQ2, MERGED_LIB_BAM_REMOVE_ORPHAN, MERGED_REP_CONSENSUS_ANNOTATE, MAKE_TSS_BED, IGV, MERGED_LIB_PLOTFINGERPRINT, MAKE_GENOME_FILTER
-Jan-14 10:36:43.003 [main] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider
-Jan-14 10:36:43.207 [main] DEBUG nextflow.file.FileHelper - AWS S3 config details: {}
-Jan-14 10:37:48.289 [main] INFO  nextflow.Nextflow - -[2m--------------------------------------------------[0m-
+  Process: 17293@login-4 [146.179.60.54]
+  CPUs: 24 - Mem: 188.9 GB (23.6 GB) - Swap: 0 (0)
+Jan-26 18:32:06.062 [main] DEBUG nextflow.Session - Work-dir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work [nfs]
+Jan-26 18:32:06.330 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Jan-26 18:32:06.362 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jan-26 18:32:10.888 [main] DEBUG nextflow.Session - Session start invoked
+Jan-26 18:32:10.950 [main] DEBUG io.seqera.tower.plugin.TowerClient - Creating Tower observer -- endpoint=https://api.tower.nf; requestInterval=1s; aliveInterval=1m; maxRetries=5; backOffBase=3; backOffDelay=250
+Jan-26 18:32:11.447 [main] DEBUG nextflow.trace.TraceFileObserver - Flow starting -- trace file: /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY/pipeline_info/execution_trace.txt
+Jan-26 18:32:56.358 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jan-26 18:32:56.413 [main] DEBUG nextflow.Session - Workflow process names [dsl1]: FASTQC, MERGED_LIB_MACS2_QC, MERGED_LIB_CONSENSUS_ANNOTATE, output_documentation, MERGED_LIB_BIGWIG, MERGED_LIB_PLOTPROFILE, MULTIQC, SORT_BAM, MERGED_LIB_CONSENSUS_DESEQ2, MERGED_REP_CONSENSUS, MERGED_LIB_PICARD_METRICS, BWA_MEM, MERGED_REP_BIGWIG, MERGED_REP_MACS2, MERGED_REP_MACS2_QC, MERGED_LIB_CONSENSUS, MERGED_REP_MACS2_ANNOTATE, MERGED_REP_CONSENSUS_COUNTS, BWA_INDEX, get_software_versions, CHECK_DESIGN, MERGED_LIB_BAM, MERGED_LIB_ATAQV_MKARV, MAKE_GENE_BED, MERGED_LIB_PRESEQ, MERGED_LIB_MACS2, MERGED_LIB_BAM_FILTER, MERGED_LIB_CONSENSUS_COUNTS, MERGED_LIB_ATAQV, MERGED_LIB_MACS2_ANNOTATE, TRIMGALORE, MERGED_REP_BAM, MERGED_REP_CONSENSUS_DESEQ2, MERGED_LIB_BAM_REMOVE_ORPHAN, MERGED_REP_CONSENSUS_ANNOTATE, MAKE_TSS_BED, IGV, MERGED_LIB_PLOTFINGERPRINT, MAKE_GENOME_FILTER
+Jan-26 18:32:58.316 [main] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider
+Jan-26 18:32:58.616 [main] DEBUG nextflow.file.FileHelper - AWS S3 config details: {}
+Jan-26 18:33:46.229 [main] INFO  nextflow.Nextflow - -[2m--------------------------------------------------[0m-
                                         [0;32m,--.[0;30m/[0;32m,-.[0m
 [0;34m        ___     __   __   __   ___     [0;32m/,-._.--~'[0m
 [0;34m  |\ | |__  __ /  ` /  \ |__) |__         [0;33m}  {[0m
@@ -42,9 +55,9 @@ Jan-14 10:37:48.289 [main] INFO  nextflow.Nextflow - -[2m----------------------
 [0;35m  nf-core/atacseq v1.2.1[0m
 -[2m--------------------------------------------------[0m-
 
-Jan-14 10:37:59.574 [main] INFO  nextflow.Nextflow - Run Name             : suspicious_brown
+Jan-26 18:33:46.237 [main] INFO  nextflow.Nextflow - Run Name             : focused_yalow
 Data Type            : Paired-End
-Design File          : /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv
+Design File          : /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_assays.csv
 Genome               : GRCh37
 Fasta File           : s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Sequence/WholeGenomeFasta/genome.fa
 GTF File             : s3://ngi-igenomes/igenomes//Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.gtf
@@ -54,7 +67,8 @@ Blacklist BED        : /rds/general/user/bms20/home/.nextflow/assets/nf-core/ata
 Mitochondrial Contig : MT
 MACS2 Genome Size    : 2.7e9
 Min Consensus Reps   : 1
-MACS2 Narrow Peaks   : Yes
+MACS2 Narrow Peaks   : No
+MACS2 Broad Cutoff   : 0.1
 Trim R1              : 0 bp
 Trim R2              : 0 bp
 Trim 3' R1           : 0 bp
@@ -62,271 +76,227 @@ Trim 3' R2           : 0 bp
 NextSeq Trim         : 0 bp
 Fingerprint Bins     : 500000
 Save Genome Index    : No
-Max Resources        : 128 GB memory, 16 cpus, 10d time per job
+Max Resources        : 256 GB memory, 32 cpus, 3d time per job
 Container            : singularity - /rds/general/user/bms20/home/atacseq_latest.sif
 Output Dir           : /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY
 Launch Dir           : /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG
-Working Dir          : /rds/general/user/bms20/ephemeral/tmp
+Working Dir          : /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work
 Script Dir           : /rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq
 User                 : bms20
-Config Profile       : standard
-Jan-14 10:37:59.681 [main] INFO  nextflow.Nextflow - -[2m--------------------------------------------------[0m-
-Jan-14 10:38:04.179 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:38:04.321 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:38:04.339 [main] DEBUG nextflow.executor.Executor - [warm up] executor > pbspro
-Jan-14 10:38:04.350 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'pbspro' > capacity: 50; pollInterval: 5s; dumpInterval: 5m 
-Jan-14 10:38:04.437 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'pbspro' > queue-stat-interval: 1m
-Jan-14 10:38:29.323 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process CHECK_DESIGN (design_noindex2.csv) > jobId: 2941894.pbs; workDir: /rds/general/user/bms20/ephemeral/tmp/ac/ca8327232a8190a1e3a3ce6e0e5aff
-Jan-14 10:38:29.377 [Task submitter] INFO  nextflow.Session - [ac/ca8327] Submitted process > CHECK_DESIGN (design_noindex2.csv)
-Jan-14 10:43:13.469 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 2941894.pbs; id: 1; name: CHECK_DESIGN (design_noindex2.csv); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ac/ca8327232a8190a1e3a3ce6e0e5aff started: 1610620785101; exited: -; ]
-Jan-14 10:48:18.267 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 2941894.pbs; id: 1; name: CHECK_DESIGN (design_noindex2.csv); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ac/ca8327232a8190a1e3a3ce6e0e5aff started: 1610620785101; exited: -; ]
-Jan-14 10:53:18.337 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 2941894.pbs; id: 1; name: CHECK_DESIGN (design_noindex2.csv); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ac/ca8327232a8190a1e3a3ce6e0e5aff started: 1610620785101; exited: -; ]
-Jan-14 10:56:08.391 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 2941894.pbs; id: 1; name: CHECK_DESIGN (design_noindex2.csv); status: COMPLETED; exit: 0; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ac/ca8327232a8190a1e3a3ce6e0e5aff started: 1610620785101; exited: 2021-01-14T10:55:42Z; ]
-Jan-14 10:56:08.761 [Task monitor] DEBUG n.util.BlockingThreadExecutorFactory - Thread pool name=FileTransfer; maxThreads=72; maxQueueSize=216; keepAlive=1m
-Jan-14 10:56:08.867 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:08.867 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:08.900 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:08.901 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:08.986 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name FASTQC
-Jan-14 10:56:08.988 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:08.988 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.097 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name TRIMGALORE
-Jan-14 10:56:09.098 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.099 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.183 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name BWA_MEM
-Jan-14 10:56:09.184 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.184 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.244 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name SORT_BAM
-Jan-14 10:56:09.245 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.245 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.305 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BAM
-Jan-14 10:56:09.309 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.309 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.369 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BAM_FILTER
-Jan-14 10:56:09.370 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.371 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.388 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BAM_REMOVE_ORPHAN
-Jan-14 10:56:09.389 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.389 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.442 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches label `process_low` for process with name MERGED_LIB_PRESEQ
-Jan-14 10:56:09.443 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:error_ignore` matches label `error_ignore` for process with name MERGED_LIB_PRESEQ
-Jan-14 10:56:09.443 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.444 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.456 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_PICARD_METRICS
-Jan-14 10:56:09.457 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.460 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.497 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BIGWIG
-Jan-14 10:56:09.498 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.498 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.511 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name MERGED_LIB_PLOTPROFILE
-Jan-14 10:56:09.513 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.513 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.526 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name MERGED_LIB_PLOTFINGERPRINT
-Jan-14 10:56:09.527 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.527 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.543 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_MACS2
-Jan-14 10:56:09.544 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.544 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.570 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_MACS2_ANNOTATE
-Jan-14 10:56:09.572 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.572 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.589 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_MACS2_QC
-Jan-14 10:56:09.591 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.591 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.601 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_long` matches label `process_long` for process with name MERGED_LIB_CONSENSUS
-Jan-14 10:56:09.602 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.602 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.613 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_CONSENSUS_ANNOTATE
-Jan-14 10:56:09.614 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.614 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.625 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_CONSENSUS_COUNTS
-Jan-14 10:56:09.626 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.626 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.640 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_CONSENSUS_DESEQ2
-Jan-14 10:56:09.642 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.642 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.661 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_ATAQV
-Jan-14 10:56:09.663 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.663 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.675 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_ATAQV_MKARV
-Jan-14 10:56:09.676 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.676 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.697 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_BAM
-Jan-14 10:56:09.699 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.699 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.723 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_BIGWIG
-Jan-14 10:56:09.724 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.724 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.743 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_MACS2
-Jan-14 10:56:09.744 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.745 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.761 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_MACS2_ANNOTATE
-Jan-14 10:56:09.763 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.763 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.783 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_MACS2_QC
-Jan-14 10:56:09.784 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.785 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.807 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_long` matches label `process_long` for process with name MERGED_REP_CONSENSUS
-Jan-14 10:56:09.808 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.810 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.835 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_CONSENSUS_ANNOTATE
-Jan-14 10:56:09.850 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.850 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.877 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_CONSENSUS_COUNTS
-Jan-14 10:56:09.878 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.878 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.889 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_CONSENSUS_DESEQ2
-Jan-14 10:56:09.891 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.891 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.919 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.920 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:09.930 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:get_software_versions` matches process get_software_versions
-Jan-14 10:56:09.931 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:09.931 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:10.102 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process FASTQC (control_R2_T1) > jobId: 2941950.pbs; workDir: /rds/general/user/bms20/ephemeral/tmp/c0/a9d7a3047387047b3979185391e976
-Jan-14 10:56:10.116 [Task submitter] INFO  nextflow.Session - [c0/a9d7a3] Submitted process > FASTQC (control_R2_T1)
-Jan-14 10:56:10.183 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:10.183 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:10.196 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
-Jan-14 10:56:10.196 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
-Jan-14 10:56:10.206 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
-Jan-14 10:56:10.207 [main] DEBUG nextflow.Session - Session await
-Jan-14 10:56:10.663 [Actor Thread 10] DEBUG nextflow.sort.BigSort - Sort completed -- entries: 1; slices: 1; internal sort time: 0.008 s; external sort time: 0.027 s; total time: 0.035 s
-Jan-14 10:56:10.717 [Actor Thread 10] DEBUG nextflow.file.FileCollector - Saved collect-files list to: /rds/general/ephemeral/user/bms20/ephemeral/e5010a851b223dbeb0f27c02a2ad96c7.collect-file
-Jan-14 10:56:10.815 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process FASTQC (control_R1_T1) > jobId: 2941951.pbs; workDir: /rds/general/user/bms20/ephemeral/tmp/a4/68c642b1ea98782aeb510601a7f4d2
-Jan-14 10:56:10.816 [Task submitter] INFO  nextflow.Session - [a4/68c642] Submitted process > FASTQC (control_R1_T1)
-Jan-14 10:56:10.890 [Actor Thread 10] DEBUG nextflow.file.FileCollector - Deleting file collector temp dir: /rds/general/ephemeral/user/bms20/ephemeral/nxf-196962885143727876
-Jan-14 10:56:11.231 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process TRIMGALORE (control_R1_T1) > jobId: 2941952.pbs; workDir: /rds/general/user/bms20/ephemeral/tmp/ba/2a4e17c0ae5f41e1d0986646d2c689
-Jan-14 10:56:11.231 [Task submitter] INFO  nextflow.Session - [ba/2a4e17] Submitted process > TRIMGALORE (control_R1_T1)
-Jan-14 10:56:11.808 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process TRIMGALORE (control_R2_T1) > jobId: 2941953.pbs; workDir: /rds/general/user/bms20/ephemeral/tmp/f2/c3690b914999edd366f1f0c00b7556
-Jan-14 10:56:11.809 [Task submitter] INFO  nextflow.Session - [f2/c3690b] Submitted process > TRIMGALORE (control_R2_T1)
-Jan-14 10:56:12.672 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process get_software_versions > jobId: 2941954.pbs; workDir: /rds/general/user/bms20/ephemeral/tmp/eb/5ecabdc82b9d1f2f2e3dec3b92f83e
-Jan-14 10:56:12.673 [Task submitter] INFO  nextflow.Session - [eb/5ecabd] Submitted process > get_software_versions
-Jan-14 10:56:15.835 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process output_documentation > jobId: 2941955.pbs; workDir: /rds/general/user/bms20/ephemeral/tmp/f7/0085f2e04328ecc4b51cad4876c12e
-Jan-14 10:56:15.836 [Task submitter] INFO  nextflow.Session - [f7/0085f2] Submitted process > output_documentation
-Jan-14 10:56:17.959 [FileTransfer-thread-2] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.bed at /rds/general/user/bms20/ephemeral/tmp/stage/d8/9f97fe9aa877bda1f7898b6e1236db/genes.bed
-Jan-14 10:56:20.972 [FileTransfer-thread-3] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Sequence/WholeGenomeFasta/genome.fa at /rds/general/user/bms20/ephemeral/tmp/stage/91/57b7b2258c682d5f4421207bdf467a/genome.fa
-Jan-14 10:56:27.589 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process MAKE_TSS_BED (genes.bed) > jobId: 2941957.pbs; workDir: /rds/general/user/bms20/ephemeral/tmp/52/42edbcce85bfe3513086bc74bc80b0
-Jan-14 10:56:27.660 [Task submitter] INFO  nextflow.Session - [52/42edbc] Submitted process > MAKE_TSS_BED (genes.bed)
-Jan-14 10:56:30.254 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process MAKE_GENOME_FILTER (genome.fa) > jobId: 2941958.pbs; workDir: /rds/general/user/bms20/ephemeral/tmp/62/82dbe942cff2763c193571703a95c0
-Jan-14 10:56:30.255 [Task submitter] INFO  nextflow.Session - [62/82dbe9] Submitted process > MAKE_GENOME_FILTER (genome.fa)
-Jan-14 10:58:18.357 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 8 -- submitted tasks are shown below
-~> TaskHandler[jobId: 2941950.pbs; id: 5; name: FASTQC (control_R2_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/c0/a9d7a3047387047b3979185391e976 started: 1610621838520; exited: -; ]
-~> TaskHandler[jobId: 2941951.pbs; id: 4; name: FASTQC (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/a4/68c642b1ea98782aeb510601a7f4d2 started: 1610621838529; exited: -; ]
-~> TaskHandler[jobId: 2941952.pbs; id: 6; name: TRIMGALORE (control_R1_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ba/2a4e17c0ae5f41e1d0986646d2c689 started: -; exited: -; ]
-~> TaskHandler[jobId: 2941953.pbs; id: 7; name: TRIMGALORE (control_R2_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f2/c3690b914999edd366f1f0c00b7556 started: -; exited: -; ]
-~> TaskHandler[jobId: 2941954.pbs; id: 8; name: get_software_versions; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/eb/5ecabdc82b9d1f2f2e3dec3b92f83e started: 1610621838537; exited: -; ]
-~> TaskHandler[jobId: 2941955.pbs; id: 9; name: output_documentation; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f7/0085f2e04328ecc4b51cad4876c12e started: 1610621838545; exited: -; ]
-~> TaskHandler[jobId: 2941957.pbs; id: 2; name: MAKE_TSS_BED (genes.bed); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/52/42edbcce85bfe3513086bc74bc80b0 started: 1610621838552; exited: -; ]
-~> TaskHandler[jobId: 2941958.pbs; id: 3; name: MAKE_GENOME_FILTER (genome.fa); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/62/82dbe942cff2763c193571703a95c0 started: 1610621838559; exited: -; ]
-Jan-14 11:03:10.094 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 2941957.pbs; id: 2; name: MAKE_TSS_BED (genes.bed); status: COMPLETED; exit: 0; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/52/42edbcce85bfe3513086bc74bc80b0 started: 1610621838552; exited: 2021-01-14T11:03:00Z; ]
-Jan-14 11:03:19.188 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 7 -- submitted tasks are shown below
-~> TaskHandler[jobId: 2941950.pbs; id: 5; name: FASTQC (control_R2_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/c0/a9d7a3047387047b3979185391e976 started: 1610621838520; exited: -; ]
-~> TaskHandler[jobId: 2941951.pbs; id: 4; name: FASTQC (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/a4/68c642b1ea98782aeb510601a7f4d2 started: 1610621838529; exited: -; ]
-~> TaskHandler[jobId: 2941952.pbs; id: 6; name: TRIMGALORE (control_R1_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ba/2a4e17c0ae5f41e1d0986646d2c689 started: -; exited: -; ]
-~> TaskHandler[jobId: 2941953.pbs; id: 7; name: TRIMGALORE (control_R2_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f2/c3690b914999edd366f1f0c00b7556 started: -; exited: -; ]
-~> TaskHandler[jobId: 2941954.pbs; id: 8; name: get_software_versions; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/eb/5ecabdc82b9d1f2f2e3dec3b92f83e started: 1610621838537; exited: -; ]
-~> TaskHandler[jobId: 2941955.pbs; id: 9; name: output_documentation; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f7/0085f2e04328ecc4b51cad4876c12e started: 1610621838545; exited: -; ]
-~> TaskHandler[jobId: 2941958.pbs; id: 3; name: MAKE_GENOME_FILTER (genome.fa); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/62/82dbe942cff2763c193571703a95c0 started: 1610621838559; exited: -; ]
-Jan-14 11:08:21.296 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 7 -- submitted tasks are shown below
-~> TaskHandler[jobId: 2941950.pbs; id: 5; name: FASTQC (control_R2_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/c0/a9d7a3047387047b3979185391e976 started: 1610621838520; exited: -; ]
-~> TaskHandler[jobId: 2941951.pbs; id: 4; name: FASTQC (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/a4/68c642b1ea98782aeb510601a7f4d2 started: 1610621838529; exited: -; ]
-~> TaskHandler[jobId: 2941952.pbs; id: 6; name: TRIMGALORE (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ba/2a4e17c0ae5f41e1d0986646d2c689 started: 1610622216409; exited: -; ]
-~> TaskHandler[jobId: 2941953.pbs; id: 7; name: TRIMGALORE (control_R2_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f2/c3690b914999edd366f1f0c00b7556 started: -; exited: -; ]
-~> TaskHandler[jobId: 2941954.pbs; id: 8; name: get_software_versions; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/eb/5ecabdc82b9d1f2f2e3dec3b92f83e started: 1610621838537; exited: -; ]
-~> TaskHandler[jobId: 2941955.pbs; id: 9; name: output_documentation; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f7/0085f2e04328ecc4b51cad4876c12e started: 1610621838545; exited: -; ]
-~> TaskHandler[jobId: 2941958.pbs; id: 3; name: MAKE_GENOME_FILTER (genome.fa); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/62/82dbe942cff2763c193571703a95c0 started: 1610621838559; exited: -; ]
-Jan-14 11:10:02.174 [Task monitor] DEBUG nextflow.executor.GridTaskHandler - File is returning an empty content TaskHandler[jobId: 2941950.pbs; id: 5; name: FASTQC (control_R2_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/c0/a9d7a3047387047b3979185391e976 started: 1610621838520; exited: 2021-01-14T11:10:01Z; ] -- Try to wait a while and .. pray.
-Jan-14 11:10:06.771 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 2941950.pbs; id: 5; name: FASTQC (control_R2_T1); status: COMPLETED; exit: 134; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/c0/a9d7a3047387047b3979185391e976 started: 1610621838520; exited: 2021-01-14T11:10:02Z; ]
-Jan-14 11:10:07.193 [Task monitor] INFO  nextflow.processor.TaskProcessor - [c0/a9d7a3] NOTE: Process `FASTQC (control_R2_T1)` terminated with an error exit status (134) -- Execution is retried (1)
-Jan-14 11:10:11.694 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process FASTQC (control_R2_T1) > jobId: 2942035.pbs; workDir: /rds/general/user/bms20/ephemeral/tmp/dc/9271bd17b577b5fa4ff85bfe3630a7
-Jan-14 11:10:11.697 [Task submitter] INFO  nextflow.Session - [dc/9271bd] Re-submitted process > FASTQC (control_R2_T1)
-Jan-14 11:13:21.819 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 7 -- submitted tasks are shown below
-~> TaskHandler[jobId: 2941951.pbs; id: 4; name: FASTQC (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/a4/68c642b1ea98782aeb510601a7f4d2 started: 1610621838529; exited: -; ]
-~> TaskHandler[jobId: 2941952.pbs; id: 6; name: TRIMGALORE (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ba/2a4e17c0ae5f41e1d0986646d2c689 started: 1610622216409; exited: -; ]
-~> TaskHandler[jobId: 2941953.pbs; id: 7; name: TRIMGALORE (control_R2_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f2/c3690b914999edd366f1f0c00b7556 started: -; exited: -; ]
-~> TaskHandler[jobId: 2941954.pbs; id: 8; name: get_software_versions; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/eb/5ecabdc82b9d1f2f2e3dec3b92f83e started: 1610621838537; exited: -; ]
-~> TaskHandler[jobId: 2941955.pbs; id: 9; name: output_documentation; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f7/0085f2e04328ecc4b51cad4876c12e started: 1610621838545; exited: -; ]
-~> TaskHandler[jobId: 2941958.pbs; id: 3; name: MAKE_GENOME_FILTER (genome.fa); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/62/82dbe942cff2763c193571703a95c0 started: 1610621838559; exited: -; ]
-~> TaskHandler[jobId: 2942035.pbs; id: 10; name: FASTQC (control_R2_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/dc/9271bd17b577b5fa4ff85bfe3630a7 started: -; exited: -; ]
-Jan-14 11:14:11.842 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 2941955.pbs; id: 9; name: output_documentation; status: COMPLETED; exit: 255; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f7/0085f2e04328ecc4b51cad4876c12e started: 1610621838545; exited: 2021-01-14T11:13:34Z; ]
-Jan-14 11:14:11.919 [Task monitor] ERROR nextflow.processor.TaskProcessor - Error executing process > 'output_documentation'
+Config Profile       : imperial
+Config Description   : Imperial College London - HPC Profile -- provided by nf-core/configs.
+Config Contact       : Combiz Khozoie (c.khozoie@imperial.ac.uk)
+Config URL           : https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/
+Jan-26 18:33:46.238 [main] INFO  nextflow.Nextflow - -[2m--------------------------------------------------[0m-
+Jan-26 18:33:46.645 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:33:46.646 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:33:46.724 [main] DEBUG nextflow.executor.Executor - [warm up] executor > pbspro
+Jan-26 18:33:46.731 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'pbspro' > capacity: 50; pollInterval: 5s; dumpInterval: 5m 
+Jan-26 18:33:46.739 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'pbspro' > queue-stat-interval: 1m
+Jan-26 18:33:52.439 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process CHECK_DESIGN (design_assays.csv) > jobId: 3002970.pbs; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/73/931ca84157d2ee04f1730b5f8bc845
+Jan-26 18:33:52.524 [Task submitter] INFO  nextflow.Session - [73/931ca8] Submitted process > CHECK_DESIGN (design_assays.csv)
+Jan-26 18:35:56.837 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 3002970.pbs; id: 1; name: CHECK_DESIGN (design_assays.csv); status: COMPLETED; exit: 0; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/73/931ca84157d2ee04f1730b5f8bc845 started: 1611686151830; exited: 2021-01-26T18:35:52Z; ]
+Jan-26 18:35:56.931 [Task monitor] DEBUG n.util.BlockingThreadExecutorFactory - Thread pool name=FileTransfer; maxThreads=72; maxQueueSize=216; keepAlive=1m
+Jan-26 18:35:57.124 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:35:57.124 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:35:57.416 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:35:57.416 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:35:57.714 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name FASTQC
+Jan-26 18:35:57.715 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:35:57.716 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:35:58.016 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name TRIMGALORE
+Jan-26 18:35:58.017 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:TRIMGALORE` matches process TRIMGALORE
+Jan-26 18:35:58.114 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:35:58.114 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:35:59.513 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name BWA_MEM
+Jan-26 18:35:59.616 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:35:59.616 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:00.114 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name SORT_BAM
+Jan-26 18:36:00.117 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:00.117 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:01.519 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BAM
+Jan-26 18:36:01.614 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:01.614 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:02.113 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BAM_FILTER
+Jan-26 18:36:02.114 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:02.115 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:02.418 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BAM_REMOVE_ORPHAN
+Jan-26 18:36:02.613 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:02.614 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:03.131 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches label `process_low` for process with name MERGED_LIB_PRESEQ
+Jan-26 18:36:03.212 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:error_ignore` matches label `error_ignore` for process with name MERGED_LIB_PRESEQ
+Jan-26 18:36:03.214 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:03.215 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:03.515 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_PICARD_METRICS
+Jan-26 18:36:03.517 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:03.517 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:04.315 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_BIGWIG
+Jan-26 18:36:04.316 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:04.316 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:04.513 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name MERGED_LIB_PLOTPROFILE
+Jan-26 18:36:04.514 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:04.514 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:04.717 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches label `process_high` for process with name MERGED_LIB_PLOTFINGERPRINT
+Jan-26 18:36:04.812 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:04.812 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:05.222 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_MACS2
+Jan-26 18:36:05.314 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:05.314 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:05.515 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process FASTQC (H3K27ac_R1_T1) > jobId: 3002977.pbs; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/a1/a01508d467ded063be0b46df745da0
+Jan-26 18:36:05.517 [Task submitter] INFO  nextflow.Session - [a1/a01508] Submitted process > FASTQC (H3K27ac_R1_T1)
+Jan-26 18:36:05.718 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_MACS2_ANNOTATE
+Jan-26 18:36:05.813 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:05.814 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:06.215 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_MACS2_QC
+Jan-26 18:36:06.216 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:06.217 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:06.519 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_long` matches label `process_long` for process with name MERGED_LIB_CONSENSUS
+Jan-26 18:36:06.521 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:06.521 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:06.913 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_CONSENSUS_ANNOTATE
+Jan-26 18:36:06.915 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:06.915 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:07.114 [FileTransfer-thread-2] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.bed at /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/stage/a8/8791f2255ea9355ea7f412cfef58df/genes.bed
+Jan-26 18:36:07.213 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_CONSENSUS_COUNTS
+Jan-26 18:36:07.214 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:07.214 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:07.517 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_CONSENSUS_DESEQ2
+Jan-26 18:36:07.518 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:07.518 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:07.819 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_ATAQV
+Jan-26 18:36:07.913 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:07.913 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:08.116 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_LIB_ATAQV_MKARV
+Jan-26 18:36:08.214 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:08.215 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:08.514 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process FASTQC (H3K27me3_R1_T1) > jobId: 3002978.pbs; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/9a/d58f9fade6b6255e871f2d10a3558e
+Jan-26 18:36:08.515 [Task submitter] INFO  nextflow.Session - [9a/d58f9f] Submitted process > FASTQC (H3K27me3_R1_T1)
+Jan-26 18:36:09.012 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_BAM
+Jan-26 18:36:09.112 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:09.112 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:09.714 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_BIGWIG
+Jan-26 18:36:09.716 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:09.716 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:10.116 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_MACS2
+Jan-26 18:36:10.118 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:10.118 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:10.418 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_MACS2_ANNOTATE
+Jan-26 18:36:10.477 [FileTransfer-thread-3] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Sequence/WholeGenomeFasta/genome.fa at /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/stage/82/f27f3639599b6bd0bbe55e97ba4ce4/genome.fa
+Jan-26 18:36:10.512 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:10.512 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:10.717 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_MACS2_QC
+Jan-26 18:36:10.718 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:10.718 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:10.917 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_long` matches label `process_long` for process with name MERGED_REP_CONSENSUS
+Jan-26 18:36:11.016 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:11.017 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:11.212 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_CONSENSUS_ANNOTATE
+Jan-26 18:36:11.213 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:11.213 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:11.321 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_CONSENSUS_COUNTS
+Jan-26 18:36:11.413 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:11.413 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:11.616 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches label `process_medium` for process with name MERGED_REP_CONSENSUS_DESEQ2
+Jan-26 18:36:11.617 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:11.617 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:12.115 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:12.115 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:12.418 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:get_software_versions` matches process get_software_versions
+Jan-26 18:36:12.419 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:12.420 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:12.814 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process TRIMGALORE (H3K27me3_R1_T1) > jobId: 3002979.pbs; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/4b/3d556a011c81e242ad7576556803cf
+Jan-26 18:36:12.815 [Task submitter] INFO  nextflow.Session - [4b/3d556a] Submitted process > TRIMGALORE (H3K27me3_R1_T1)
+Jan-26 18:36:14.614 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process TRIMGALORE (H3K27ac_R1_T1) > jobId: 3002980.pbs; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/48/b6f31d4db216f8fd875d3b532a56ca
+Jan-26 18:36:14.714 [Task submitter] INFO  nextflow.Session - [48/b6f31d] Submitted process > TRIMGALORE (H3K27ac_R1_T1)
+Jan-26 18:36:15.317 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:15.317 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:42.413 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: pbspro
+Jan-26 18:36:42.414 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'pbspro'
+Jan-26 18:36:43.213 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process MAKE_TSS_BED (genes.bed) > jobId: 3002981.pbs; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/81/c574beb9d01dfeec707d1cb09db396
+Jan-26 18:36:43.215 [Task submitter] INFO  nextflow.Session - [81/c574be] Submitted process > MAKE_TSS_BED (genes.bed)
+Jan-26 18:36:44.118 [Actor Thread 5] DEBUG nextflow.sort.BigSort - Sort completed -- entries: 1; slices: 1; internal sort time: 0.389 s; external sort time: 0.406 s; total time: 0.795 s
+Jan-26 18:36:44.913 [Actor Thread 5] DEBUG nextflow.file.FileCollector - Saved collect-files list to: /rds/general/ephemeral/user/bms20/ephemeral/145d269784c1a042dea52662c78efff7.collect-file
+Jan-26 18:36:45.113 [main] INFO  io.seqera.tower.plugin.TowerClient - Monitor the execution with Nextflow Tower using this url https://tower.nf/watch/55ZTAVh5yrqzHG
+Jan-26 18:36:45.214 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Jan-26 18:36:45.215 [main] DEBUG nextflow.Session - Session await
+Jan-26 18:36:45.612 [Actor Thread 5] DEBUG nextflow.file.FileCollector - Deleting file collector temp dir: /rds/general/ephemeral/user/bms20/ephemeral/nxf-7539616499526593514
+Jan-26 18:36:46.013 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process MAKE_GENOME_FILTER (genome.fa) > jobId: 3002982.pbs; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/88/8171b317fbb3f9f959c46adf4dcd74
+Jan-26 18:36:46.014 [Task submitter] INFO  nextflow.Session - [88/8171b3] Submitted process > MAKE_GENOME_FILTER (genome.fa)
+Jan-26 18:36:48.613 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process get_software_versions > jobId: 3002983.pbs; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/fd/de72bd474779c7b741b46de4400540
+Jan-26 18:36:48.613 [Task submitter] INFO  nextflow.Session - [fd/de72bd] Submitted process > get_software_versions
+Jan-26 18:36:49.712 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [PBSPRO] submitted process output_documentation > jobId: 3002985.pbs; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/cb/d2713cc91f24ac63308eb331c9455d
+Jan-26 18:36:49.713 [Task submitter] INFO  nextflow.Session - [cb/d2713c] Submitted process > output_documentation
+Jan-26 18:38:27.628 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 3002981.pbs; id: 2; name: MAKE_TSS_BED (genes.bed); status: COMPLETED; exit: 0; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/81/c574beb9d01dfeec707d1cb09db396 started: 1611686272069; exited: 2021-01-26T18:37:55Z; ]
+Jan-26 18:38:27.682 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 3002982.pbs; id: 3; name: MAKE_GENOME_FILTER (genome.fa); status: COMPLETED; exit: 0; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/88/8171b317fbb3f9f959c46adf4dcd74 started: 1611686272424; exited: 2021-01-26T18:38:17Z; ]
+Jan-26 18:38:28.115 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 3002983.pbs; id: 8; name: get_software_versions; status: COMPLETED; exit: 0; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/fd/de72bd474779c7b741b46de4400540 started: 1611686272810; exited: 2021-01-26T18:38:01Z; ]
+Jan-26 18:38:29.263 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 3002985.pbs; id: 9; name: output_documentation; status: COMPLETED; exit: 0; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/cb/d2713cc91f24ac63308eb331c9455d started: 1611686273065; exited: 2021-01-26T18:37:56Z; ]
+Jan-26 18:39:14.432 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 4 -- submitted tasks are shown below
+~> TaskHandler[jobId: 3002977.pbs; id: 4; name: FASTQC (H3K27ac_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/a1/a01508d467ded063be0b46df745da0 started: 1611686292071; exited: -; ]
+~> TaskHandler[jobId: 3002978.pbs; id: 5; name: FASTQC (H3K27me3_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/9a/d58f9fade6b6255e871f2d10a3558e started: 1611686292077; exited: -; ]
+~> TaskHandler[jobId: 3002979.pbs; id: 7; name: TRIMGALORE (H3K27me3_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/4b/3d556a011c81e242ad7576556803cf started: 1611686292121; exited: -; ]
+~> TaskHandler[jobId: 3002980.pbs; id: 6; name: TRIMGALORE (H3K27ac_R1_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/48/b6f31d4db216f8fd875d3b532a56ca started: -; exited: -; ]
+Jan-26 18:40:44.449 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 3002977.pbs; id: 4; name: FASTQC (H3K27ac_R1_T1); status: COMPLETED; exit: 134; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/a1/a01508d467ded063be0b46df745da0 started: 1611686292071; exited: 2021-01-26T18:40:03Z; ]
+Jan-26 18:40:44.476 [Task monitor] INFO  nextflow.processor.TaskProcessor - [a1/a01508] NOTE: Process `FASTQC (H3K27ac_R1_T1)` terminated with an error exit status (134) -- Execution is retried (1)
+Jan-26 18:40:44.498 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 3002978.pbs; id: 5; name: FASTQC (H3K27me3_R1_T1); status: COMPLETED; exit: 134; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/9a/d58f9fade6b6255e871f2d10a3558e started: 1611686292077; exited: 2021-01-26T18:39:50Z; ]
+Jan-26 18:40:44.524 [Task monitor] INFO  nextflow.processor.TaskProcessor - [9a/d58f9f] NOTE: Process `FASTQC (H3K27me3_R1_T1)` terminated with an error exit status (134) -- Execution is retried (1)
+Jan-26 18:40:45.277 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - Failed to submit process FASTQC (H3K27ac_R1_T1) > exit: 32; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/13/1700aa482666dfab5c2a4092a79aa7
+qsub: 
+ Job resource selection does not match any permitted configuration.
+ Please review the job sizing guidance on:
+ https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/computing/
+
+
+
+Jan-26 18:40:45.319 [Task submitter] ERROR nextflow.processor.TaskProcessor - Error executing process > 'FASTQC (H3K27ac_R1_T1)'
 
 Caused by:
-  Process `output_documentation` terminated with an error exit status (255)
+  Failed to submit process to grid scheduler for execution
 
 Command executed:
 
-  markdown_to_html.py output.md -o results_description.html
+  qsub -N nf-FASTQC_H3K27 .command.run
 
 Command exit status:
-  255
+  32
 
 Command output:
-  (empty)
+  qsub: 
+   Job resource selection does not match any permitted configuration.
+   Please review the job sizing guidance on:
+   https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/computing/
+  
 
 Command error:
-  FATAL:   container creation failed: mount /rds/general/user/bms20/ephemeral/tmp/f7/0085f2e04328ecc4b51cad4876c12e->/rds/general/user/bms20/ephemeral/tmp/f7/0085f2e04328ecc4b51cad4876c12e error: while mounting /rds/general/user/bms20/ephemeral/tmp/f7/0085f2e04328ecc4b51cad4876c12e: destination /rds/general/user/bms20/ephemeral/tmp/f7/0085f2e04328ecc4b51cad4876c12e doesn't exist in container
+  /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/a1/a01508d467ded063be0b46df745da0/.command.sh: line 4: 3180630 Aborted                 (core dumped) fastqc -q -t 6 H3K27ac_R1_T1_1.fastq.gz
 
 Work dir:
-  /rds/general/user/bms20/ephemeral/tmp/f7/0085f2e04328ecc4b51cad4876c12e
+  /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/13/1700aa482666dfab5c2a4092a79aa7
 
 Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
-Jan-14 11:14:11.949 [Task monitor] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
-Jan-14 11:14:12.114 [main] DEBUG nextflow.Session - Session await > all process finished
-Jan-14 11:18:21.840 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 6 -- submitted tasks are shown below
-~> TaskHandler[jobId: 2941951.pbs; id: 4; name: FASTQC (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/a4/68c642b1ea98782aeb510601a7f4d2 started: 1610621838529; exited: -; ]
-~> TaskHandler[jobId: 2941952.pbs; id: 6; name: TRIMGALORE (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ba/2a4e17c0ae5f41e1d0986646d2c689 started: 1610622216409; exited: -; ]
-~> TaskHandler[jobId: 2941953.pbs; id: 7; name: TRIMGALORE (control_R2_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f2/c3690b914999edd366f1f0c00b7556 started: -; exited: -; ]
-~> TaskHandler[jobId: 2941954.pbs; id: 8; name: get_software_versions; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/eb/5ecabdc82b9d1f2f2e3dec3b92f83e started: 1610621838537; exited: -; ]
-~> TaskHandler[jobId: 2941958.pbs; id: 3; name: MAKE_GENOME_FILTER (genome.fa); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/62/82dbe942cff2763c193571703a95c0 started: 1610621838559; exited: -; ]
-~> TaskHandler[jobId: 2942035.pbs; id: 10; name: FASTQC (control_R2_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/dc/9271bd17b577b5fa4ff85bfe3630a7 started: -; exited: -; ]
-Jan-14 11:23:13.397 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 2941958.pbs; id: 3; name: MAKE_GENOME_FILTER (genome.fa); status: COMPLETED; exit: 0; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/62/82dbe942cff2763c193571703a95c0 started: 1610621838559; exited: 2021-01-14T11:23:09Z; ]
-Jan-14 11:23:22.574 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 5 -- submitted tasks are shown below
-~> TaskHandler[jobId: 2941951.pbs; id: 4; name: FASTQC (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/a4/68c642b1ea98782aeb510601a7f4d2 started: 1610621838529; exited: -; ]
-~> TaskHandler[jobId: 2941952.pbs; id: 6; name: TRIMGALORE (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ba/2a4e17c0ae5f41e1d0986646d2c689 started: 1610622216409; exited: -; ]
-~> TaskHandler[jobId: 2941953.pbs; id: 7; name: TRIMGALORE (control_R2_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f2/c3690b914999edd366f1f0c00b7556 started: 1610623326003; exited: -; ]
-~> TaskHandler[jobId: 2941954.pbs; id: 8; name: get_software_versions; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/eb/5ecabdc82b9d1f2f2e3dec3b92f83e started: 1610621838537; exited: -; ]
-~> TaskHandler[jobId: 2942035.pbs; id: 10; name: FASTQC (control_R2_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/dc/9271bd17b577b5fa4ff85bfe3630a7 started: -; exited: -; ]
-Jan-14 11:28:23.273 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 5 -- submitted tasks are shown below
-~> TaskHandler[jobId: 2941951.pbs; id: 4; name: FASTQC (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/a4/68c642b1ea98782aeb510601a7f4d2 started: 1610621838529; exited: -; ]
-~> TaskHandler[jobId: 2941952.pbs; id: 6; name: TRIMGALORE (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ba/2a4e17c0ae5f41e1d0986646d2c689 started: 1610622216409; exited: -; ]
-~> TaskHandler[jobId: 2941953.pbs; id: 7; name: TRIMGALORE (control_R2_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f2/c3690b914999edd366f1f0c00b7556 started: 1610623326003; exited: -; ]
-~> TaskHandler[jobId: 2941954.pbs; id: 8; name: get_software_versions; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/eb/5ecabdc82b9d1f2f2e3dec3b92f83e started: 1610621838537; exited: -; ]
-~> TaskHandler[jobId: 2942035.pbs; id: 10; name: FASTQC (control_R2_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/dc/9271bd17b577b5fa4ff85bfe3630a7 started: -; exited: -; ]
-Jan-14 11:33:23.362 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 5 -- submitted tasks are shown below
-~> TaskHandler[jobId: 2941951.pbs; id: 4; name: FASTQC (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/a4/68c642b1ea98782aeb510601a7f4d2 started: 1610621838529; exited: -; ]
-~> TaskHandler[jobId: 2941952.pbs; id: 6; name: TRIMGALORE (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ba/2a4e17c0ae5f41e1d0986646d2c689 started: 1610622216409; exited: -; ]
-~> TaskHandler[jobId: 2941953.pbs; id: 7; name: TRIMGALORE (control_R2_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f2/c3690b914999edd366f1f0c00b7556 started: 1610623326003; exited: -; ]
-~> TaskHandler[jobId: 2941954.pbs; id: 8; name: get_software_versions; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/eb/5ecabdc82b9d1f2f2e3dec3b92f83e started: 1610621838537; exited: -; ]
-~> TaskHandler[jobId: 2942035.pbs; id: 10; name: FASTQC (control_R2_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/dc/9271bd17b577b5fa4ff85bfe3630a7 started: -; exited: -; ]
-Jan-14 11:35:19.965 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 2941951.pbs; id: 4; name: FASTQC (control_R1_T1); status: COMPLETED; exit: 134; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/a4/68c642b1ea98782aeb510601a7f4d2 started: 1610621838529; exited: 2021-01-14T11:34:45Z; ]
-Jan-14 11:35:20.188 [Task monitor] INFO  nextflow.processor.TaskProcessor - [a4/68c642] NOTE: Process `FASTQC (control_R1_T1)` terminated with an error exit status (134) -- Execution is retried (1)
-Jan-14 11:38:23.551 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 4 -- submitted tasks are shown below
-~> TaskHandler[jobId: 2941952.pbs; id: 6; name: TRIMGALORE (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ba/2a4e17c0ae5f41e1d0986646d2c689 started: 1610622216409; exited: -; ]
-~> TaskHandler[jobId: 2941953.pbs; id: 7; name: TRIMGALORE (control_R2_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f2/c3690b914999edd366f1f0c00b7556 started: 1610623326003; exited: -; ]
-~> TaskHandler[jobId: 2941954.pbs; id: 8; name: get_software_versions; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/eb/5ecabdc82b9d1f2f2e3dec3b92f83e started: 1610621838537; exited: -; ]
-~> TaskHandler[jobId: 2942035.pbs; id: 10; name: FASTQC (control_R2_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/dc/9271bd17b577b5fa4ff85bfe3630a7 started: -; exited: -; ]
-Jan-14 11:40:21.632 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor pbspro > tasks in the submission queue: 1 -- tasks to be submitted are shown below
-~> TaskHandler[jobId: null; id: 11; name: FASTQC (control_R1_T1); status: NEW; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/5f/f93065665bd6f618deebd9779af0c3 started: -; exited: -; ]
-Jan-14 11:43:24.123 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 4 -- submitted tasks are shown below
-~> TaskHandler[jobId: 2941952.pbs; id: 6; name: TRIMGALORE (control_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/ba/2a4e17c0ae5f41e1d0986646d2c689 started: 1610622216409; exited: -; ]
-~> TaskHandler[jobId: 2941953.pbs; id: 7; name: TRIMGALORE (control_R2_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/f2/c3690b914999edd366f1f0c00b7556 started: 1610623326003; exited: -; ]
-~> TaskHandler[jobId: 2941954.pbs; id: 8; name: get_software_versions; status: RUNNING; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/eb/5ecabdc82b9d1f2f2e3dec3b92f83e started: 1610621838537; exited: -; ]
-~> TaskHandler[jobId: 2942035.pbs; id: 10; name: FASTQC (control_R2_T1); status: SUBMITTED; exit: -; error: -; workDir: /rds/general/user/bms20/ephemeral/tmp/dc/9271bd17b577b5fa4ff85bfe3630a7 started: -; exited: -; ]
-Jan-14 11:43:45.547 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
-Jan-14 11:43:46.045 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Jan-14 11:43:46.730 [main] INFO  nextflow.Nextflow - -[0;35m[nf-core/atacseq][0;31m Pipeline completed with errors[0m-
-Jan-14 11:43:46.751 [main] WARN  n.processor.TaskPollingMonitor - Killing pending tasks (4)
-Jan-14 11:43:47.895 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=3; failedCount=3; ignoredCount=0; cachedCount=0; pendingCount=1; submittedCount=1; runningCount=-1; retriesCount=2; abortedCount=4; succeedDuration=24m 34s; failedDuration=5h 21m 51s; cachedDuration=0ms;loadCpus=-12; loadMemory=0; peakRunning=6; peakCpus=32; peakMemory=192 GB; ]
-Jan-14 11:43:47.895 [main] DEBUG nextflow.trace.TraceFileObserver - Flow completing -- flushing trace file
-Jan-14 11:43:47.925 [main] DEBUG nextflow.trace.ReportObserver - Flow completing -- rendering html report
-Jan-14 11:43:48.904 [main] DEBUG nextflow.trace.ReportObserver - Execution report summary data:
-  [{"cpuUsage":{"mean":0.1,"min":0.1,"q1":0.1,"q2":0.1,"q3":0.1,"max":0.1,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"process":"CHECK_DESIGN","mem":{"mean":12636160,"min":12636160,"q1":12636160,"q2":12636160,"q3":12636160,"max":12636160,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"memUsage":{"mean":0.2,"min":0.2,"q1":0.2,"q2":0.2,"q3":0.2,"max":0.2,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"timeUsage":{"mean":1.47,"min":1.47,"q1":1.47,"q2":1.47,"q3":1.47,"max":1.47,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"vmem":{"mean":19087360,"min":19087360,"q1":19087360,"q2":19087360,"q3":19087360,"max":19087360,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"reads":{"mean":614139,"min":614139,"q1":614139,"q2":614139,"q3":614139,"max":614139,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"cpu":{"mean":0.1,"min":0.1,"q1":0.1,"q2":0.1,"q3":0.1,"max":0.1,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"time":{"mean":212207,"min":212207,"q1":212207,"q2":212207,"q3":212207,"max":212207,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"writes":{"mean":903,"min":903,"q1":903,"q2":903,"q3":903,"max":903,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"}},{"cpuUsage":{"mean":2.3,"min":2.3,"q1":2.3,"q2":2.3,"q3":2.3,"max":2.3,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"process":"MAKE_TSS_BED","mem":{"mean":8126464,"min":8126464,"q1":8126464,"q2":8126464,"q3":8126464,"max":8126464,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"memUsage":{"mean":0.13,"min":0.13,"q1":0.13,"q2":0.13,"q3":0.13,"max":0.13,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"timeUsage":{"mean":0.2,"min":0.2,"q1":0.2,"q2":0.2,"q3":0.2,"max":0.2,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"vmem":{"mean":16306176,"min":16306176,"q1":16306176,"q2":16306176,"q3":16306176,"max":16306176,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"reads":{"mean":51447041,"min":51447041,"q1":51447041,"q2":51447041,"q3":51447041,"max":51447041,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"cpu":{"mean":2.3,"min":2.3,"q1":2.3,"q2":2.3,"q3":2.3,"max":2.3,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"time":{"mean":28850,"min":28850,"q1":28850,"q2":28850,"q3":28850,"max":28850,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"writes":{"mean":34718641,"min":34718641,"q1":34718641,"q2":34718641,"q3":34718641,"max":34718641,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"}},{"cpuUsage":null,"process":"FASTQC","mem":null,"memUsage":null,"timeUsage":{"mean":5.29,"min":2.67,"q1":3.98,"q2":5.29,"q3":6.61,"max":7.92,"minLabel":"FASTQC (control_R2_T1)","maxLabel":"FASTQC (control_R1_T1)","q1Label":"FASTQC (control_R2_T1)","q2Label":"FASTQC (control_R2_T1)","q3Label":"FASTQC (control_R2_T1)"},"vmem":null,"reads":null,"cpu":null,"time":{"mean":1524842.5,"min":768250,"q1":1146546.25,"q2":1524842.5,"q3":1903138.75,"max":2281435,"minLabel":"FASTQC (control_R2_T1)","maxLabel":"FASTQC (control_R1_T1)","q1Label":"FASTQC (control_R2_T1)","q2Label":"FASTQC (control_R2_T1)","q3Label":"FASTQC (control_R2_T1)"},"writes":null},{"cpuUsage":null,"process":"output_documentation","mem":null,"memUsage":null,"timeUsage":{"mean":7.04,"min":7.04,"q1":7.04,"q2":7.04,"q3":7.04,"max":7.04,"minLabel":"output_documentation","maxLabel":"output_documentation","q1Label":"output_documentation","q2Label":"output_documentation","q3Label":"output_documentation"},"vmem":null,"reads":null,"cpu":null,"time":{"mean":1013296,"min":1013296,"q1":1013296,"q2":1013296,"q3":1013296,"max":1013296,"minLabel":"output_documentation","maxLabel":"output_documentation","q1Label":"output_documentation","q2Label":"output_documentation","q3Label":"output_documentation"},"writes":null},{"cpuUsage":{"mean":1.5,"min":1.5,"q1":1.5,"q2":1.5,"q3":1.5,"max":1.5,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"process":"MAKE_GENOME_FILTER","mem":{"mean":15933440,"min":15933440,"q1":15933440,"q2":15933440,"q3":15933440,"max":15933440,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"memUsage":{"mean":0.25,"min":0.25,"q1":0.25,"q2":0.25,"q3":0.25,"max":0.25,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"timeUsage":{"mean":8.56,"min":8.56,"q1":8.56,"q2":8.56,"q3":8.56,"max":8.56,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"vmem":{"mean":33628160,"min":33628160,"q1":33628160,"q2":33628160,"q3":33628160,"max":33628160,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"reads":{"mean":3147987926,"min":3147987926,"q1":3147987926,"q2":3147987926,"q3":3147987926,"max":3147987926,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"cpu":{"mean":1.5,"min":1.5,"q1":1.5,"q2":1.5,"q3":1.5,"max":1.5,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"time":{"mean":1233015,"min":1233015,"q1":1233015,"q2":1233015,"q3":1233015,"max":1233015,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"writes":{"mean":38069,"min":38069,"q1":38069,"q2":38069,"q3":38069,"max":38069,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"}},{"cpuUsage":null,"process":"TRIMGALORE","mem":null,"memUsage":null,"timeUsage":null,"vmem":null,"reads":null,"cpu":null,"time":null,"writes":null},{"cpuUsage":null,"process":"get_software_versions","mem":null,"memUsage":null,"timeUsage":null,"vmem":null,"reads":null,"cpu":null,"time":null,"writes":null}]
-Jan-14 11:43:54.489 [main] DEBUG nextflow.trace.TimelineObserver - Flow completing -- rendering html timeline
-Jan-14 11:44:01.345 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
-Jan-14 11:44:01.377 [main] DEBUG nextflow.util.SpuriousDeps - AWS S3 uploader shutdown
-Jan-14 11:44:03.201 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+Jan-26 18:40:45.324 [Task submitter] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Jan-26 18:40:45.426 [main] DEBUG nextflow.Session - Session await > all process finished
+Jan-26 18:44:15.466 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor pbspro > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[jobId: 3002979.pbs; id: 7; name: TRIMGALORE (H3K27me3_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/4b/3d556a011c81e242ad7576556803cf started: 1611686292121; exited: -; ]
+~> TaskHandler[jobId: 3002980.pbs; id: 6; name: TRIMGALORE (H3K27ac_R1_T1); status: RUNNING; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/48/b6f31d4db216f8fd875d3b532a56ca started: 1611686415153; exited: -; ]
+Jan-26 18:45:40.525 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 3002979.pbs; id: 7; name: TRIMGALORE (H3K27me3_R1_T1); status: COMPLETED; exit: 0; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/4b/3d556a011c81e242ad7576556803cf started: 1611686292121; exited: 2021-01-26T18:45:27Z; ]
+Jan-26 18:45:46.530 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor pbspro > tasks in the submission queue: 1 -- tasks to be submitted are shown below
+~> TaskHandler[jobId: null; id: 11; name: FASTQC (H3K27me3_R1_T1); status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/7e/bb466724f8043a47a5b058eb2b6ef8 started: -; exited: -; ]
+Jan-26 18:46:55.527 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 3002980.pbs; id: 6; name: TRIMGALORE (H3K27ac_R1_T1); status: COMPLETED; exit: 0; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/48/b6f31d4db216f8fd875d3b532a56ca started: 1611686415153; exited: 2021-01-26T18:46:31Z; ]
+Jan-26 18:49:15.815 [Task monitor] DEBUG n.processor.TaskPollingMonitor - No more task to compute -- Execution may be stalled
+Jan-26 18:50:47.137 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor pbspro > tasks in the submission queue: 1 -- tasks to be submitted are shown below
+~> TaskHandler[jobId: null; id: 11; name: FASTQC (H3K27me3_R1_T1); status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/7e/bb466724f8043a47a5b058eb2b6ef8 started: -; exited: -; ]
+Jan-26 18:54:16.039 [Task monitor] DEBUG n.processor.TaskPollingMonitor - No more task to compute -- Execution may be stalled
+Jan-26 18:55:47.747 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor pbspro > tasks in the submission queue: 1 -- tasks to be submitted are shown below
+~> TaskHandler[jobId: null; id: 11; name: FASTQC (H3K27me3_R1_T1); status: NEW; exit: -; error: -; workDir: /rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work/7e/bb466724f8043a47a5b058eb2b6ef8 started: -; exited: -; ]
+Jan-26 18:58:13.224 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
+Jan-26 18:58:13.512 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jan-26 18:58:17.523 [main] INFO  nextflow.Nextflow - -[0;35m[nf-core/atacseq][0;31m Pipeline completed with errors[0m-
+Jan-26 18:58:17.620 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=6; failedCount=4; ignoredCount=0; cachedCount=0; pendingCount=2; submittedCount=0; runningCount=-1; retriesCount=2; abortedCount=0; succeedDuration=3h 40m 9s; failedDuration=4h 34m 57s; cachedDuration=0ms;loadCpus=-12; loadMemory=0; peakRunning=7; peakCpus=76; peakMemory=196 GB; ]
+Jan-26 18:58:19.345 [main] DEBUG nextflow.trace.TraceFileObserver - Flow completing -- flushing trace file
+Jan-26 18:58:19.419 [main] DEBUG nextflow.trace.ReportObserver - Flow completing -- rendering html report
+Jan-26 18:58:19.816 [main] DEBUG nextflow.trace.ReportObserver - Execution report summary data:
+  [{"cpuUsage":{"mean":30.7,"min":30.7,"q1":30.7,"q2":30.7,"q3":30.7,"max":30.7,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"process":"CHECK_DESIGN","mem":{"mean":6897664,"min":6897664,"q1":6897664,"q2":6897664,"q3":6897664,"max":6897664,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"memUsage":{"mean":0.11,"min":0.11,"q1":0.11,"q2":0.11,"q3":0.11,"max":0.11,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"timeUsage":null,"vmem":{"mean":15384576,"min":15384576,"q1":15384576,"q2":15384576,"q3":15384576,"max":15384576,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"reads":{"mean":640994,"min":640994,"q1":640994,"q2":640994,"q3":640994,"max":640994,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"cpu":{"mean":30.7,"min":30.7,"q1":30.7,"q2":30.7,"q3":30.7,"max":30.7,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"time":{"mean":514,"min":514,"q1":514,"q2":514,"q3":514,"max":514,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"writes":{"mean":922,"min":922,"q1":922,"q2":922,"q3":922,"max":922,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"}},{"cpuUsage":{"mean":40.7,"min":40.7,"q1":40.7,"q2":40.7,"q3":40.7,"max":40.7,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"process":"MAKE_TSS_BED","mem":{"mean":8830976,"min":8830976,"q1":8830976,"q2":8830976,"q3":8830976,"max":8830976,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"memUsage":{"mean":0.14,"min":0.14,"q1":0.14,"q2":0.14,"q3":0.14,"max":0.14,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"timeUsage":{"mean":0.01,"min":0.01,"q1":0.01,"q2":0.01,"q3":0.01,"max":0.01,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"vmem":{"mean":17223680,"min":17223680,"q1":17223680,"q2":17223680,"q3":17223680,"max":17223680,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"reads":{"mean":51473983,"min":51473983,"q1":51473983,"q2":51473983,"q3":51473983,"max":51473983,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"cpu":{"mean":40.7,"min":40.7,"q1":40.7,"q2":40.7,"q3":40.7,"max":40.7,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"time":{"mean":2100,"min":2100,"q1":2100,"q2":2100,"q3":2100,"max":2100,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"},"writes":{"mean":34718658,"min":34718658,"q1":34718658,"q2":34718658,"q3":34718658,"max":34718658,"minLabel":"MAKE_TSS_BED (genes.bed)","maxLabel":"MAKE_TSS_BED (genes.bed)","q1Label":"MAKE_TSS_BED (genes.bed)","q2Label":"MAKE_TSS_BED (genes.bed)","q3Label":"MAKE_TSS_BED (genes.bed)"}},{"cpuUsage":{"mean":95.2,"min":95.2,"q1":95.2,"q2":95.2,"q3":95.2,"max":95.2,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"process":"MAKE_GENOME_FILTER","mem":{"mean":4976640,"min":4976640,"q1":4976640,"q2":4976640,"q3":4976640,"max":4976640,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"memUsage":{"mean":0.08,"min":0.08,"q1":0.08,"q2":0.08,"q3":0.08,"max":0.08,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"timeUsage":{"mean":0.16,"min":0.16,"q1":0.16,"q2":0.16,"q3":0.16,"max":0.16,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"vmem":{"mean":12144640,"min":12144640,"q1":12144640,"q2":12144640,"q3":12144640,"max":12144640,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"reads":{"mean":3148014750,"min":3148014750,"q1":3148014750,"q2":3148014750,"q3":3148014750,"max":3148014750,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"cpu":{"mean":95.2,"min":95.2,"q1":95.2,"q2":95.2,"q3":95.2,"max":95.2,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"time":{"mean":23622,"min":23622,"q1":23622,"q2":23622,"q3":23622,"max":23622,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"},"writes":{"mean":38087,"min":38087,"q1":38087,"q2":38087,"q3":38087,"max":38087,"minLabel":"MAKE_GENOME_FILTER (genome.fa)","maxLabel":"MAKE_GENOME_FILTER (genome.fa)","q1Label":"MAKE_GENOME_FILTER (genome.fa)","q2Label":"MAKE_GENOME_FILTER (genome.fa)","q3Label":"MAKE_GENOME_FILTER (genome.fa)"}},{"cpuUsage":{"mean":381.7,"min":381.7,"q1":381.7,"q2":381.7,"q3":381.7,"max":381.7,"minLabel":"get_software_versions","maxLabel":"get_software_versions","q1Label":"get_software_versions","q2Label":"get_software_versions","q3Label":"get_software_versions"},"process":"get_software_versions","mem":{"mean":202375168,"min":202375168,"q1":202375168,"q2":202375168,"q3":202375168,"max":202375168,"minLabel":"get_software_versions","maxLabel":"get_software_versions","q1Label":"get_software_versions","q2Label":"get_software_versions","q3Label":"get_software_versions"},"memUsage":{"mean":3.14,"min":3.14,"q1":3.14,"q2":3.14,"q3":3.14,"max":3.14,"minLabel":"get_software_versions","maxLabel":"get_software_versions","q1Label":"get_software_versions","q2Label":"get_software_versions","q3Label":"get_software_versions"},"timeUsage":{"mean":0.06,"min":0.06,"q1":0.06,"q2":0.06,"q3":0.06,"max":0.06,"minLabel":"get_software_versions","maxLabel":"get_software_versions","q1Label":"get_software_versions","q2Label":"get_software_versions","q3Label":"get_software_versions"},"vmem":{"mean":6114586624,"min":6114586624,"q1":6114586624,"q2":6114586624,"q3":6114586624,"max":6114586624,"minLabel":"get_software_versions","maxLabel":"get_software_versions","q1Label":"get_software_versions","q2Label":"get_software_versions","q3Label":"get_software_versions"},"reads":{"mean":45979028,"min":45979028,"q1":45979028,"q2":45979028,"q3":45979028,"max":45979028,"minLabel":"get_software_versions","maxLabel":"get_software_versions","q1Label":"get_software_versions","q2Label":"get_software_versions","q3Label":"get_software_versions"},"cpu":{"mean":381.7,"min":381.7,"q1":381.7,"q2":381.7,"q3":381.7,"max":381.7,"minLabel":"get_software_versions","maxLabel":"get_software_versions","q1Label":"get_software_versions","q2Label":"get_software_versions","q3Label":"get_software_versions"},"time":{"mean":8122,"min":8122,"q1":8122,"q2":8122,"q3":8122,"max":8122,"minLabel":"get_software_versions","maxLabel":"get_software_versions","q1Label":"get_software_versions","q2Label":"get_software_versions","q3Label":"get_software_versions"},"writes":{"mean":6446,"min":6446,"q1":6446,"q2":6446,"q3":6446,"max":6446,"minLabel":"get_software_versions","maxLabel":"get_software_versions","q1Label":"get_software_versions","q2Label":"get_software_versions","q3Label":"get_software_versions"}},{"cpuUsage":{"mean":44.1,"min":44.1,"q1":44.1,"q2":44.1,"q3":44.1,"max":44.1,"minLabel":"output_documentation","maxLabel":"output_documentation","q1Label":"output_documentation","q2Label":"output_documentation","q3Label":"output_documentation"},"process":"output_documentation","mem":{"mean":26484736,"min":26484736,"q1":26484736,"q2":26484736,"q3":26484736,"max":26484736,"minLabel":"output_documentation","maxLabel":"output_documentation","q1Label":"output_documentation","q2Label":"output_documentation","q3Label":"output_documentation"},"memUsage":{"mean":0.41,"min":0.41,"q1":0.41,"q2":0.41,"q3":0.41,"max":0.41,"minLabel":"output_documentation","maxLabel":"output_documentation","q1Label":"output_documentation","q2Label":"output_documentation","q3Label":"output_documentation"},"timeUsage":{"mean":0.01,"min":0.01,"q1":0.01,"q2":0.01,"q3":0.01,"max":0.01,"minLabel":"output_documentation","maxLabel":"output_documentation","q1Label":"output_documentation","q2Label":"output_documentation","q3Label":"output_documentation"},"vmem":{"mean":37044224,"min":37044224,"q1":37044224,"q2":37044224,"q3":37044224,"max":37044224,"minLabel":"output_documentation","maxLabel":"output_documentation","q1Label":"output_documentation","q2Label":"output_documentation","q3Label":"output_documentation"},"reads":{"mean":3408565,"min":3408565,"q1":3408565,"q2":3408565,"q3":3408565,"max":3408565,"minLabel":"output_documentation","maxLabel":"output_documentation","q1Label":"output_documentation","q2Label":"output_documentation","q3Label":"output_documentation"},"cpu":{"mean":44.1,"min":44.1,"q1":44.1,"q2":44.1,"q3":44.1,"max":44.1,"minLabel":"output_documentation","maxLabel":"output_documentation","q1Label":"output_documentation","q2Label":"output_documentation","q3Label":"output_documentation"},"time":{"mean":1963,"min":1963,"q1":1963,"q2":1963,"q3":1963,"max":1963,"minLabel":"output_documentation","maxLabel":"output_documentation","q1Label":"output_documentation","q2Label":"output_documentation","q3Label":"output_documentation"},"writes":{"mean":1315284,"min":1315284,"q1":1315284,"q2":1315284,"q3":1315284,"max":1315284,"minLabel":"output_documentation","maxLabel":"output_documentation","q1Label":"output_documentation","q2Label":"output_documentation","q3Label":"output_documentation"}},{"cpuUsage":null,"process":"FASTQC","mem":null,"memUsage":null,"timeUsage":{"mean":0.53,"min":0.53,"q1":0.53,"q2":0.53,"q3":0.53,"max":0.53,"minLabel":"FASTQC (H3K27ac_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27ac_R1_T1)","q2Label":"FASTQC (H3K27ac_R1_T1)","q3Label":"FASTQC (H3K27ac_R1_T1)"},"vmem":null,"reads":null,"cpu":null,"time":{"mean":152399.5,"min":152378,"q1":152388.75,"q2":152399.5,"q3":152410.25,"max":152421,"minLabel":"FASTQC (H3K27ac_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27ac_R1_T1)","q2Label":"FASTQC (H3K27ac_R1_T1)","q3Label":"FASTQC (H3K27ac_R1_T1)"},"writes":null},{"cpuUsage":{"mean":16.59,"min":15.49,"q1":16.04,"q2":16.59,"q3":17.14,"max":17.69,"minLabel":"TRIMGALORE (H3K27ac_R1_T1)","maxLabel":"TRIMGALORE (H3K27me3_R1_T1)","q1Label":"TRIMGALORE (H3K27ac_R1_T1)","q2Label":"TRIMGALORE (H3K27ac_R1_T1)","q3Label":"TRIMGALORE (H3K27ac_R1_T1)"},"process":"TRIMGALORE","mem":{"mean":2025873408,"min":1666826240,"q1":1846349824,"q2":2025873408,"q3":2205396992,"max":2384920576,"minLabel":"TRIMGALORE (H3K27ac_R1_T1)","maxLabel":"TRIMGALORE (H3K27me3_R1_T1)","q1Label":"TRIMGALORE (H3K27ac_R1_T1)","q2Label":"TRIMGALORE (H3K27ac_R1_T1)","q3Label":"TRIMGALORE (H3K27ac_R1_T1)"},"memUsage":{"mean":3.04,"min":2.5,"q1":2.77,"q2":3.04,"q3":3.31,"max":3.58,"minLabel":"TRIMGALORE (H3K27ac_R1_T1)","maxLabel":"TRIMGALORE (H3K27me3_R1_T1)","q1Label":"TRIMGALORE (H3K27ac_R1_T1)","q2Label":"TRIMGALORE (H3K27ac_R1_T1)","q3Label":"TRIMGALORE (H3K27ac_R1_T1)"},"timeUsage":{"mean":0.17,"min":0.16,"q1":0.16,"q2":0.17,"q3":0.17,"max":0.18,"minLabel":"TRIMGALORE (H3K27ac_R1_T1)","maxLabel":"TRIMGALORE (H3K27me3_R1_T1)","q1Label":"TRIMGALORE (H3K27ac_R1_T1)","q2Label":"TRIMGALORE (H3K27ac_R1_T1)","q3Label":"TRIMGALORE (H3K27ac_R1_T1)"},"vmem":{"mean":3645792256,"min":3537891328,"q1":3591841792,"q2":3645792256,"q3":3699742720,"max":3753693184,"minLabel":"TRIMGALORE (H3K27me3_R1_T1)","maxLabel":"TRIMGALORE (H3K27ac_R1_T1)","q1Label":"TRIMGALORE (H3K27me3_R1_T1)","q2Label":"TRIMGALORE (H3K27me3_R1_T1)","q3Label":"TRIMGALORE (H3K27me3_R1_T1)"},"reads":{"mean":45851603780,"min":40629692838,"q1":43240648309,"q2":45851603780,"q3":48462559251,"max":51073514722,"minLabel":"TRIMGALORE (H3K27ac_R1_T1)","maxLabel":"TRIMGALORE (H3K27me3_R1_T1)","q1Label":"TRIMGALORE (H3K27ac_R1_T1)","q2Label":"TRIMGALORE (H3K27ac_R1_T1)","q3Label":"TRIMGALORE (H3K27ac_R1_T1)"},"cpu":{"mean":530.9,"min":495.6,"q1":513.25,"q2":530.9,"q3":548.55,"max":566.2,"minLabel":"TRIMGALORE (H3K27ac_R1_T1)","maxLabel":"TRIMGALORE (H3K27me3_R1_T1)","q1Label":"TRIMGALORE (H3K27ac_R1_T1)","q2Label":"TRIMGALORE (H3K27ac_R1_T1)","q3Label":"TRIMGALORE (H3K27ac_R1_T1)"},"time":{"mean":435025,"min":411656,"q1":423340.5,"q2":435025,"q3":446709.5,"max":458394,"minLabel":"TRIMGALORE (H3K27ac_R1_T1)","maxLabel":"TRIMGALORE (H3K27me3_R1_T1)","q1Label":"TRIMGALORE (H3K27ac_R1_T1)","q2Label":"TRIMGALORE (H3K27ac_R1_T1)","q3Label":"TRIMGALORE (H3K27ac_R1_T1)"},"writes":{"mean":45119758004.5,"min":39650769614,"q1":42385263809.25,"q2":45119758004.5,"q3":47854252199.75,"max":50588746395,"minLabel":"TRIMGALORE (H3K27ac_R1_T1)","maxLabel":"TRIMGALORE (H3K27me3_R1_T1)","q1Label":"TRIMGALORE (H3K27ac_R1_T1)","q2Label":"TRIMGALORE (H3K27ac_R1_T1)","q3Label":"TRIMGALORE (H3K27ac_R1_T1)"}}]
+Jan-26 18:58:25.033 [main] DEBUG nextflow.trace.TimelineObserver - Flow completing -- rendering html timeline
+Jan-26 18:58:27.056 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Jan-26 18:58:27.063 [main] DEBUG nextflow.util.SpuriousDeps - AWS S3 uploader shutdown
+Jan-26 18:58:29.851 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

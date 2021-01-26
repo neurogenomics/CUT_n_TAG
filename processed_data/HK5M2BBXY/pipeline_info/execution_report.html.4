@@ -18,11 +18,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Nextflow workflow report for run id [ridiculous_waddington]">
+  <meta name="description" content="Nextflow workflow report for run id [adoring_cajal]">
   <meta name="author" content="Paolo Di Tommaso, Phil Ewels">
   <link rel="icon" type="image/png" href="https://www.nextflow.io/img/favicon.png" />
 
-  <title>[ridiculous_waddington] Nextflow Workflow Report</title>
+  <title>[adoring_cajal] Nextflow Workflow Report</title>
 
   <style type="text/css">
   /*!
@@ -137,7 +137,7 @@ table.DTCR_clonedTable.dataTable{position:absolute !important;background-color:r
         <li class="nav-item"><a class="nav-link" href="#tasks">Tasks</a></li>
       </ul>
       <span class="navbar-text">
-        [ridiculous_waddington]
+        [adoring_cajal]
       </span>
     </div>
   </nav>
@@ -146,68 +146,77 @@ table.DTCR_clonedTable.dataTable{position:absolute !important;background-color:r
     <div class="container">
 
       <h1 class="display-3">Nextflow workflow report</h1>
-      <h2 class="text-muted mb-4"><samp>[ridiculous_waddington]</samp> </h2>
+      <h2 class="text-muted mb-4"><samp>[adoring_cajal]</samp> </h2>
 
       
           <div class="alert alert-danger mb-4">
               <h4>Workflow execution completed unsuccessfully!</h4>
-              <p>The exit status of the task that caused the workflow execution to fail was: <code>32</code>.</p>
+              <p>The exit status of the task that caused the workflow execution to fail was: <code>null</code>.</p>
               <p>The full error message was:</p>
-              <pre>Error executing process > 'TRIMGALORE (control_R2_T1)'
+              <pre>Error executing process > 'TRIMGALORE (H3K27me3_R1_T1)'
 
 Caused by:
-  Failed to submit process to grid scheduler for execution
+  No signature of method: Script_cf1875fb.check_max() is applicable for argument types: (Integer, String) values: [32, cpus]
 
-Command executed:
+Source block:
+  def cores = 1
+  if (task.cpus) {
+              cores = (task.cpus as int) - 4
+              if (params.single_end) cores = (task.cpus as int) - 3
+              if (cores < 1) cores = 1
+              if (cores > 4) cores = 4
+          }
+  c_r1 = params.clip_r1 > 0 ? "--clip_r1 ${params.clip_r1}" : ''
+  c_r2 = params.clip_r2 > 0 ? "--clip_r2 ${params.clip_r2}" : ''
+  tpc_r1 = params.three_prime_clip_r1 > 0 ? "--three_prime_clip_r1 ${params.three_prime_clip_r1}" : ''
+  tpc_r2 = params.three_prime_clip_r2 > 0 ? "--three_prime_clip_r2 ${params.three_prime_clip_r2}" : ''
+  nextseq = params.trim_nextseq > 0 ? "--nextseq ${params.trim_nextseq}" : ''
+  if (params.single_end) {
+              """
+              [ ! -f  ${name}.fastq.gz ] && ln -s $reads ${name}.fastq.gz
+              trim_galore --cores $cores --fastqc --gzip $c_r1 $tpc_r1 $nextseq ${name}.fastq.gz
+              """
+          } else {
+              """
+              [ ! -f  ${name}_1.fastq.gz ] && ln -s ${reads[0]} ${name}_1.fastq.gz
+              [ ! -f  ${name}_2.fastq.gz ] && ln -s ${reads[1]} ${name}_2.fastq.gz
+              trim_galore --cores $cores --paired --fastqc --gzip $c_r1 $c_r2 $tpc_r1 $tpc_r2 $nextseq ${name}_1.fastq.gz ${name}_2.fastq.gz
+              """
+          }
 
-  qsub -N nf-TRIMGALORE_c .command.run
-
-Command exit status:
-  32
-
-Command output:
-  qsub: 
-   Job resource selection does not match any permitted configuration.
-   Please review the job sizing guidance on:
-   https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/computing/
-  
-
-Work dir:
-  /rds/general/user/bms20/ephemeral/tmp/ad/2bcb59dfa4f4b874dc11b6a9015310
-
-Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`</pre>
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`</pre>
           </div>
       
 
       <dl>
         <dt>Run times</dt>
         <dd>
-          <span id="workflow_start">17-Dec-2020 22:07:24</span> - <span id="workflow_complete">17-Dec-2020 22:13:47</span>
-          (<span id="completed_fromnow"></span>duration: <strong>6m 23s</strong>)
+          <span id="workflow_start">25-Jan-2021 13:09:07</span> - <span id="workflow_complete">25-Jan-2021 13:40:40</span>
+          (<span id="completed_fromnow"></span>duration: <strong>31m 32s</strong>)
         </dd>
 
         <dl>
           <div class="progress" style="height: 1.6rem; margin: 1.2rem auto; border-radius: 0.20rem;">
-            <div style="width: 66.67%" class="progress-bar bg-success" data-toggle="tooltip" data-placement="top" title="2 tasks succeeded"><span class="text-truncate">&nbsp; 2 succeeded &nbsp;</span></div>
+            <div style="width: 100.0%" class="progress-bar bg-success" data-toggle="tooltip" data-placement="top" title="2 tasks succeeded"><span class="text-truncate">&nbsp; 2 succeeded &nbsp;</span></div>
             <div style="width: 0.0%" class="progress-bar bg-secondary" data-toggle="tooltip" data-placement="top" title="0 tasks were cached"><span class="text-truncate">&nbsp; 0 cached &nbsp;</span></div>
             <div style="width: 0.0%" class="progress-bar bg-warning" data-toggle="tooltip" data-placement="top" title="0 tasks reported and error and were ignored"><span class="text-truncate">&nbsp; 0 ignored &nbsp;</span></div>
-            <div style="width: 33.33%" class="progress-bar bg-danger" data-toggle="tooltip" data-placement="top" title="1 tasks failed"><span class="text-truncate">&nbsp; 1 failed &nbsp;</span></div>
+            <div style="width: 0.0%" class="progress-bar bg-danger" data-toggle="tooltip" data-placement="top" title="0 tasks failed"><span class="text-truncate">&nbsp; 0 failed &nbsp;</span></div>
           </div>
         </dl>
 
         <dt>Nextflow command</dt>
-        <dd><pre class="nfcommand"><code>nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_noindex2.csv --genome GRCh37 --narrow_peak --mito_name false --skip_merge_replicates --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -c /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config -r 1.2.1</code></pre></dd>
+        <dd><pre class="nfcommand"><code>nextflow -c /apps/nextflow/20.01.0/bin/nextflow.config run nf-core/atacseq --input /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/raw_data/HK5M2BBXY/design_assays.csv --genome GRCh37 --outdir /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/processed_data/HK5M2BBXY -with-singularity /rds/general/user/bms20/home/atacseq_latest.sif -with-tower -r 1.2.1 -profile imperial -c /rds/general/user/bms20/home/neurogenomics/GitRepos/CUT_n_TAG/hpc_config2</code></pre></dd>
       </dl>
 
       <dl class="row small">
         <dt class="col-sm-3">CPU-Hours</dt>
-        <dd class="col-sm-9"><samp>0.2</samp></dd>
+        <dd class="col-sm-9"><samp>0.4</samp></dd>
 
         <dt class="col-sm-3">Launch directory</dt>
         <dd class="col-sm-9"><samp>/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG</samp></dd>
 
         <dt class="col-sm-3">Work directory</dt>
-        <dd class="col-sm-9"><samp>/rds/general/user/bms20/ephemeral/tmp</samp></dd>
+        <dd class="col-sm-9"><samp>/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG/work</samp></dd>
 
         <dt class="col-sm-3">Project directory</dt>
         <dd class="col-sm-9"><samp>/rds/general/user/bms20/home/.nextflow/assets/nf-core/atacseq</samp></dd>
@@ -223,7 +232,7 @@ Tip: you can try to figure out what's wrong by changing to the process work dir 
         
 
         <dt class="col-sm-3">Workflow session</dt>
-        <dd class="col-sm-9"><code>ecac9758-255a-437c-8082-697163e6b757</code></dd>
+        <dd class="col-sm-9"><code>5446da47-6e45-40aa-9730-0b6708a6a329</code></dd>
 
         
           <dt class="col-sm-3">Workflow repository</dt>
@@ -231,7 +240,7 @@ Tip: you can try to figure out what's wrong by changing to the process work dir 
         
 
         <dt class="col-sm-3">Workflow profile</dt>
-        <dd class="col-sm-9">standard</dd>
+        <dd class="col-sm-9">imperial</dd>
 
         
         <dt class="col-sm-3">Workflow container</dt>
@@ -1054,7 +1063,7 @@ $(function() {
 
   // Nextflow report data
   window.data = { "trace":[
-{"task_id":"1","hash":"80\/a52dc4","native_id":"2721377.pbs","process":"CHECK_DESIGN","module":"-","container":"\/rds\/general\/user\/bms20\/home\/atacseq_latest.sif","tag":"design_noindex2.csv","name":"CHECK_DESIGN (design_noindex2.csv)","status":"COMPLETED","exit":"0","submit":"1608242950901","start":"1608243010911","complete":"1608243010938","duration":"60037","realtime":"220","%cpu":"68.5","%mem":"0.0","rss":"12857344","vmem":"20123648","peak_rss":"12857344","peak_vmem":"20140032","rchar":"640703","wchar":"921","syscr":"221","syscw":"13","read_bytes":"3324928","write_bytes":"4096","attempt":"1","workdir":"\/rds\/general\/user\/bms20\/ephemeral\/tmp\/80\/a52dc48b92f2944239ca27f58b9715","script":"\n    check_design.py design_noindex2.csv design_reads.csv\n    ","scratch":"-","queue":"-","cpus":"1","memory":"6442450944","disk":"-","time":"14400000","env":"PYTHONNOUSERSITE=1\nR_PROFILE_USER=\/.Rprofile\nR_ENVIRON_USER=\/.Renviron\nPATH=\/rds\/general\/user\/bms20\/home\/.nextflow\/assets\/nf-core\/atacseq\/bin:$PATH\n","error_action":"-","vol_ctxt":"140","inv_ctxt":"77"},{"task_id":"4","hash":"70\/d57738","native_id":"2721379.pbs","process":"FASTQC","module":"-","container":"\/rds\/general\/user\/bms20\/home\/atacseq_latest.sif","tag":"control_R1_T1","name":"FASTQC (control_R1_T1)","status":"COMPLETED","exit":"0","submit":"1608243016397","start":"1608243081010","complete":"1608243211022","duration":"194625","realtime":"146131","%cpu":"103.2","%mem":"0.1","rss":"1171501056","vmem":"5168353280","peak_rss":"1171603456","peak_vmem":"5172809728","rchar":"1346888258","wchar":"4187189","syscr":"2609634","syscw":"12495","read_bytes":"1341711360","write_bytes":"54964224","attempt":"1","workdir":"\/rds\/general\/user\/bms20\/ephemeral\/tmp\/70\/d57738d202e5e4ccabf8938ed0d9f7","script":"\n        [ ! -f  control_R1_T1_1.fastq.gz ] && ln -s Di-AC_S1_L004_R1_001.fastq.gz control_R1_T1_1.fastq.gz\n        [ ! -f  control_R1_T1_2.fastq.gz ] && ln -s Di-AC_S1_L004_R2_001.fastq.gz control_R1_T1_2.fastq.gz\n        fastqc -q -t 6 control_R1_T1_1.fastq.gz\n        fastqc -q -t 6 control_R1_T1_2.fastq.gz\n        ","scratch":"-","queue":"-","cpus":"6","memory":"38654705664","disk":"-","time":"28800000","env":"PYTHONNOUSERSITE=1\nR_PROFILE_USER=\/.Rprofile\nR_ENVIRON_USER=\/.Renviron\nPATH=\/rds\/general\/user\/bms20\/home\/.nextflow\/assets\/nf-core\/atacseq\/bin:$PATH\n","error_action":"-","vol_ctxt":"293","inv_ctxt":"102"},{"task_id":"5","hash":"6d\/d093e7","native_id":"2721380.pbs","process":"FASTQC","module":"-","container":"\/rds\/general\/user\/bms20\/home\/atacseq_latest.sif","tag":"control_R2_T1","name":"FASTQC (control_R2_T1)","status":"ABORTED","exit":"-","submit":"1608243018297","start":"1608243081521","complete":"-","duration":"-","realtime":"-","%cpu":"-","%mem":"-","rss":"-","vmem":"-","peak_rss":"-","peak_vmem":"-","rchar":"-","wchar":"-","syscr":"-","syscw":"-","read_bytes":"-","write_bytes":"-","attempt":"1","workdir":"\/rds\/general\/user\/bms20\/ephemeral\/tmp\/6d\/d093e72f5d1d9dcdb88b79dd247992","script":"\n        [ ! -f  control_R2_T1_1.fastq.gz ] && ln -s Di-C_S2_L004_R1_001.fastq.gz control_R2_T1_1.fastq.gz\n        [ ! -f  control_R2_T1_2.fastq.gz ] && ln -s Di-C_S2_L004_R2_001.fastq.gz control_R2_T1_2.fastq.gz\n        fastqc -q -t 6 control_R2_T1_1.fastq.gz\n        fastqc -q -t 6 control_R2_T1_2.fastq.gz\n        ","scratch":"-","queue":"-","cpus":"6","memory":"38654705664","disk":"-","time":"28800000","env":"PYTHONNOUSERSITE=1\nR_PROFILE_USER=\/.Rprofile\nR_ENVIRON_USER=\/.Renviron\nPATH=\/rds\/general\/user\/bms20\/home\/.nextflow\/assets\/nf-core\/atacseq\/bin:$PATH\n","error_action":"-","vol_ctxt":"-","inv_ctxt":"-"},{"task_id":"7","hash":"ad\/2bcb59","native_id":"-","process":"TRIMGALORE","module":"-","container":"\/rds\/general\/user\/bms20\/home\/atacseq_latest.sif","tag":"control_R2_T1","name":"TRIMGALORE (control_R2_T1)","status":"FAILED","exit":"32","submit":"0","start":"0","complete":"1608243020597","duration":"-","realtime":"-","%cpu":"-","%mem":"-","rss":"-","vmem":"-","peak_rss":"-","peak_vmem":"-","rchar":"-","wchar":"-","syscr":"-","syscw":"-","read_bytes":"-","write_bytes":"-","attempt":"1","workdir":"\/rds\/general\/user\/bms20\/ephemeral\/tmp\/ad\/2bcb59dfa4f4b874dc11b6a9015310","script":"qsub -N nf-TRIMGALORE_c .command.run","scratch":"-","queue":"-","cpus":"12","memory":"77309411328","disk":"-","time":"57600000","env":"PYTHONNOUSERSITE=1\nR_PROFILE_USER=\/.Rprofile\nR_ENVIRON_USER=\/.Renviron\nPATH=\/rds\/general\/user\/bms20\/home\/.nextflow\/assets\/nf-core\/atacseq\/bin:$PATH\n","error_action":"FINISH","vol_ctxt":"-","inv_ctxt":"-"}], "summary":[{"cpuUsage":{"mean":68.5,"min":68.5,"q1":68.5,"q2":68.5,"q3":68.5,"max":68.5,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"process":"CHECK_DESIGN","mem":{"mean":12857344,"min":12857344,"q1":12857344,"q2":12857344,"q3":12857344,"max":12857344,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"memUsage":{"mean":0.2,"min":0.2,"q1":0.2,"q2":0.2,"q3":0.2,"max":0.2,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"timeUsage":null,"vmem":{"mean":20140032,"min":20140032,"q1":20140032,"q2":20140032,"q3":20140032,"max":20140032,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"reads":{"mean":640703,"min":640703,"q1":640703,"q2":640703,"q3":640703,"max":640703,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"cpu":{"mean":68.5,"min":68.5,"q1":68.5,"q2":68.5,"q3":68.5,"max":68.5,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"time":{"mean":220,"min":220,"q1":220,"q2":220,"q3":220,"max":220,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"},"writes":{"mean":921,"min":921,"q1":921,"q2":921,"q3":921,"max":921,"minLabel":"CHECK_DESIGN (design_noindex2.csv)","maxLabel":"CHECK_DESIGN (design_noindex2.csv)","q1Label":"CHECK_DESIGN (design_noindex2.csv)","q2Label":"CHECK_DESIGN (design_noindex2.csv)","q3Label":"CHECK_DESIGN (design_noindex2.csv)"}},{"cpuUsage":null,"process":"TRIMGALORE","mem":null,"memUsage":null,"timeUsage":null,"vmem":null,"reads":null,"cpu":null,"time":null,"writes":null},{"cpuUsage":{"mean":17.2,"min":17.2,"q1":17.2,"q2":17.2,"q3":17.2,"max":17.2,"minLabel":"FASTQC (control_R1_T1)","maxLabel":"FASTQC (control_R1_T1)","q1Label":"FASTQC (control_R1_T1)","q2Label":"FASTQC (control_R1_T1)","q3Label":"FASTQC (control_R1_T1)"},"process":"FASTQC","mem":{"mean":1171603456,"min":1171603456,"q1":1171603456,"q2":1171603456,"q3":1171603456,"max":1171603456,"minLabel":"FASTQC (control_R1_T1)","maxLabel":"FASTQC (control_R1_T1)","q1Label":"FASTQC (control_R1_T1)","q2Label":"FASTQC (control_R1_T1)","q3Label":"FASTQC (control_R1_T1)"},"memUsage":{"mean":3.03,"min":3.03,"q1":3.03,"q2":3.03,"q3":3.03,"max":3.03,"minLabel":"FASTQC (control_R1_T1)","maxLabel":"FASTQC (control_R1_T1)","q1Label":"FASTQC (control_R1_T1)","q2Label":"FASTQC (control_R1_T1)","q3Label":"FASTQC (control_R1_T1)"},"timeUsage":{"mean":0.51,"min":0.51,"q1":0.51,"q2":0.51,"q3":0.51,"max":0.51,"minLabel":"FASTQC (control_R1_T1)","maxLabel":"FASTQC (control_R1_T1)","q1Label":"FASTQC (control_R1_T1)","q2Label":"FASTQC (control_R1_T1)","q3Label":"FASTQC (control_R1_T1)"},"vmem":{"mean":5172809728,"min":5172809728,"q1":5172809728,"q2":5172809728,"q3":5172809728,"max":5172809728,"minLabel":"FASTQC (control_R1_T1)","maxLabel":"FASTQC (control_R1_T1)","q1Label":"FASTQC (control_R1_T1)","q2Label":"FASTQC (control_R1_T1)","q3Label":"FASTQC (control_R1_T1)"},"reads":{"mean":1346888258,"min":1346888258,"q1":1346888258,"q2":1346888258,"q3":1346888258,"max":1346888258,"minLabel":"FASTQC (control_R1_T1)","maxLabel":"FASTQC (control_R1_T1)","q1Label":"FASTQC (control_R1_T1)","q2Label":"FASTQC (control_R1_T1)","q3Label":"FASTQC (control_R1_T1)"},"cpu":{"mean":103.2,"min":103.2,"q1":103.2,"q2":103.2,"q3":103.2,"max":103.2,"minLabel":"FASTQC (control_R1_T1)","maxLabel":"FASTQC (control_R1_T1)","q1Label":"FASTQC (control_R1_T1)","q2Label":"FASTQC (control_R1_T1)","q3Label":"FASTQC (control_R1_T1)"},"time":{"mean":146131,"min":146131,"q1":146131,"q2":146131,"q3":146131,"max":146131,"minLabel":"FASTQC (control_R1_T1)","maxLabel":"FASTQC (control_R1_T1)","q1Label":"FASTQC (control_R1_T1)","q2Label":"FASTQC (control_R1_T1)","q3Label":"FASTQC (control_R1_T1)"},"writes":{"mean":4187189,"min":4187189,"q1":4187189,"q2":4187189,"q3":4187189,"max":4187189,"minLabel":"FASTQC (control_R1_T1)","maxLabel":"FASTQC (control_R1_T1)","q1Label":"FASTQC (control_R1_T1)","q2Label":"FASTQC (control_R1_T1)","q3Label":"FASTQC (control_R1_T1)"}}] };
+{"task_id":"1","hash":"e6\/ec9473","native_id":"2996730.pbs","process":"CHECK_DESIGN","module":"-","container":"\/rds\/general\/user\/bms20\/home\/atacseq_latest.sif","tag":"design_assays.csv","name":"CHECK_DESIGN (design_assays.csv)","status":"COMPLETED","exit":"0","submit":"1611580198828","start":"1611580323157","complete":"1611580323173","duration":"124345","realtime":"170","%cpu":"85.5","%mem":"0.0","rss":"3227648","vmem":"5619712","peak_rss":"3227648","peak_vmem":"5636096","rchar":"641044","wchar":"922","syscr":"221","syscw":"13","read_bytes":"3320832","write_bytes":"4096","attempt":"1","workdir":"\/rds\/general\/project\/neurogenomics-lab\/live\/GitRepos\/CUT_n_TAG\/work\/e6\/ec9473f091b92262552a8abb013ec4","script":"\n    check_design.py design_assays.csv design_reads.csv\n    ","scratch":"-","queue":"-","cpus":"1","memory":"6442450944","disk":"-","time":"14400000","env":"PYTHONNOUSERSITE=1\nR_PROFILE_USER=\/.Rprofile\nR_ENVIRON_USER=\/.Renviron\nPATH=\/rds\/general\/user\/bms20\/home\/.nextflow\/assets\/nf-core\/atacseq\/bin:$PATH\n","error_action":"-","vol_ctxt":"5","inv_ctxt":"0"},{"task_id":"5","hash":"be\/cd329a","native_id":"2996743.pbs","process":"FASTQC","module":"-","container":"\/rds\/general\/user\/bms20\/home\/atacseq_latest.sif","tag":"H3K27me3_R1_T1","name":"FASTQC (H3K27me3_R1_T1)","status":"COMPLETED","exit":"0","submit":"1611580326551","start":"1611580418455","complete":"1611580703550","duration":"376999","realtime":"251872","%cpu":"104.6","%mem":"0.1","rss":"1157107712","vmem":"4963868672","peak_rss":"1160736768","peak_vmem":"5030993920","rchar":"1677134400","wchar":"4210689","syscr":"3262515","syscw":"12540","read_bytes":"1671914496","write_bytes":"55320576","attempt":"1","workdir":"\/rds\/general\/project\/neurogenomics-lab\/live\/GitRepos\/CUT_n_TAG\/work\/be\/cd329a4d10ccd2163e69d906282fcb","script":"\n        [ ! -f  H3K27me3_R1_T1_1.fastq.gz ] && ln -s Di-C_S2_L004_R1_001.fastq.gz H3K27me3_R1_T1_1.fastq.gz\n        [ ! -f  H3K27me3_R1_T1_2.fastq.gz ] && ln -s Di-C_S2_L004_R2_001.fastq.gz H3K27me3_R1_T1_2.fastq.gz\n        fastqc -q -t 6 H3K27me3_R1_T1_1.fastq.gz\n        fastqc -q -t 6 H3K27me3_R1_T1_2.fastq.gz\n        ","scratch":"-","queue":"-","cpus":"6","memory":"38654705664","disk":"-","time":"28800000","env":"PYTHONNOUSERSITE=1\nR_PROFILE_USER=\/.Rprofile\nR_ENVIRON_USER=\/.Renviron\nPATH=\/rds\/general\/user\/bms20\/home\/.nextflow\/assets\/nf-core\/atacseq\/bin:$PATH\n","error_action":"-","vol_ctxt":"283","inv_ctxt":"103"}], "summary":[{"cpuUsage":{"mean":85.5,"min":85.5,"q1":85.5,"q2":85.5,"q3":85.5,"max":85.5,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"process":"CHECK_DESIGN","mem":{"mean":3227648,"min":3227648,"q1":3227648,"q2":3227648,"q3":3227648,"max":3227648,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"memUsage":{"mean":0.05,"min":0.05,"q1":0.05,"q2":0.05,"q3":0.05,"max":0.05,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"timeUsage":null,"vmem":{"mean":5636096,"min":5636096,"q1":5636096,"q2":5636096,"q3":5636096,"max":5636096,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"reads":{"mean":641044,"min":641044,"q1":641044,"q2":641044,"q3":641044,"max":641044,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"cpu":{"mean":85.5,"min":85.5,"q1":85.5,"q2":85.5,"q3":85.5,"max":85.5,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"time":{"mean":170,"min":170,"q1":170,"q2":170,"q3":170,"max":170,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"},"writes":{"mean":922,"min":922,"q1":922,"q2":922,"q3":922,"max":922,"minLabel":"CHECK_DESIGN (design_assays.csv)","maxLabel":"CHECK_DESIGN (design_assays.csv)","q1Label":"CHECK_DESIGN (design_assays.csv)","q2Label":"CHECK_DESIGN (design_assays.csv)","q3Label":"CHECK_DESIGN (design_assays.csv)"}},{"cpuUsage":{"mean":17.43,"min":17.43,"q1":17.43,"q2":17.43,"q3":17.43,"max":17.43,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"process":"FASTQC","mem":{"mean":1160736768,"min":1160736768,"q1":1160736768,"q2":1160736768,"q3":1160736768,"max":1160736768,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"memUsage":{"mean":3,"min":3,"q1":3,"q2":3,"q3":3,"max":3,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"timeUsage":{"mean":0.87,"min":0.87,"q1":0.87,"q2":0.87,"q3":0.87,"max":0.87,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"vmem":{"mean":5030993920,"min":5030993920,"q1":5030993920,"q2":5030993920,"q3":5030993920,"max":5030993920,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"reads":{"mean":1677134400,"min":1677134400,"q1":1677134400,"q2":1677134400,"q3":1677134400,"max":1677134400,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"cpu":{"mean":104.6,"min":104.6,"q1":104.6,"q2":104.6,"q3":104.6,"max":104.6,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"time":{"mean":251872,"min":251872,"q1":251872,"q2":251872,"q3":251872,"max":251872,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"},"writes":{"mean":4210689,"min":4210689,"q1":4210689,"q2":4210689,"q3":4210689,"max":4210689,"minLabel":"FASTQC (H3K27me3_R1_T1)","maxLabel":"FASTQC (H3K27me3_R1_T1)","q1Label":"FASTQC (H3K27me3_R1_T1)","q2Label":"FASTQC (H3K27me3_R1_T1)","q3Label":"FASTQC (H3K27me3_R1_T1)"}}] };
 
   </script>
 
