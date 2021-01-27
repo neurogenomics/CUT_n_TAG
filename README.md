@@ -52,8 +52,7 @@ mkdir -p /rds/general/user/bms20/ephemeral/rtmp/
 
 - !IMPORTANT! You may need to change the path of "/rds/general//user/$USER/home/R/x86_64-redhat-linux-gnu-library/3.6/" to the actualy location of your R library.  
 
-##### Run Rocker  
-
+- Run Rocker within singularity  
 ```
 singularity exec -B /rds/general/user/$USER/ephemeral/tmp/:/tmp,/rds/general/user/$USER/ephemeral/tmp/:/var/tmp,/rds/general/user/$USER/ephemeral/rtmp/:/rds/general/user/$USER/home/R/x86_64-redhat-linux-gnu-library/3.6/ --writable-tmpfs docker://rocker/tidyverse:latest R
 ``` 
