@@ -6,24 +6,23 @@ output:
   rmarkdown::html_document: 
     theme: spacelab
     highlight: zenburn 
-    code_folding: hide 
+    code_folding: show 
     toc: true 
     toc_float: true
     smooth_scroll: true
     number_sections: false 
     self_contained: true  
 ---
-```{r setup, include=T, root.dir="/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG"}
+```{r setup, include=T, message=F, root.dir="/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG"}
 # root.dir <- "/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG"
-root.dir <- "/Volumes/RDS/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG"
+# root.dir <- "/Volumes/RDS/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG" 
+root.dir <- "/Volumes/bms20/projects/neurogenomics-lab/live/GitRepos/CUT_n_TAG"
+
 source("functions.R")
 try({setwd(root.dir)})
 knitr::opts_chunk$set(echo = T, root.dir = root.dir)
-knitr::opts_knit$set(
-  root.dir = root.dir
-  )
+knitr::opts_knit$set(root.dir = root.dir)
 
- 
 library(dplyr) 
 # library(echolocatoR) # devtools::install_github("RajLabMSSM/echolocatoR")
 library(rtracklayer) # BiocManager::install("rtracklayer")
@@ -33,7 +32,30 @@ library(BSgenome.Hsapiens.UCSC.hg19) #BiocManager::install("BSgenome.Hsapiens.UC
 library(ChIPseeker) #BiocManager::install("ChIPseeker")
 library(ggupset) # install.packages("ggupset")
 library(ggimage) # install.packages("ggimage")
+library(clusterProfiler)
+library(ReactomePA)  # BiocManager::install("ReactomePA")
+
+library(rGADEM)
+library(BSgenome.Hsapiens.UCSC.hg19)
+library(GenomicRanges)
+
+# IMPORTANT! Otherwise can have issues with rtracklayer::import()
+# base::closeAllConnections()
 ```
+
+
+
+ The following scripts primarily follows these tutorials:
+ - [genomation]()  
+ - [ChIPseeker](http://bioconductor.org/packages/devel/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html)  
+
+
+# Data descriptions  
+
+## ENCODE  
+
+All ENCODE peak/bigwig/bam/fastq.gz files can be found [here on UCSC](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeBroadHistone/). 
+
 
 For general info on file formats (BED, narrowPeak, broadPeak) see UCSC Genome Browser documentation, specifically there are [3 ENCODE histone datasets](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC/):  
 
@@ -54,28 +76,30 @@ For general info on file formats (BED, narrowPeak, broadPeak) see UCSC Genome Br
   - *narrowPeak*: Yes  
   
 Peak files are also available for all three datasets in [.bb format on UCSC](ttp://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/peaks/jan2011/histone_macs/optimal/hub/).
-  - The latest version of `rtracklayer` (>=1.5) has `import.bb` function, but can seem to install it...   
+  - The latest version of `rtracklayer` (>=1.5) has `import.bb` function, but can't seem to install it...   
   
 **TF-specific** ChIP-seq ENCODE (narrow) peak files can again be found [here](http://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/peaks/june2012/spp/optimal/). 
 
   
 Several other datasets of potential interest for comparisons to CUT&TAG (though they only contain bigwig files, not peak files):  
+
 * wgEncodeRegMarkH3k4me1/  
 * wgEncodeRegMarkH3k4me3/  
 * wgEncodeRegMarkH3k27ac/  
 
-```{r ENCODE metadata}
+## Metadata  
+
+```{r ENCODE metadata, eval=F}
 # contains links and metadata for all ENCODE files, but the format is not very readable...
 meta <- data.table::fread("http://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/files.txt", sep=";", sep2 = " ") 
 links <- meta$V1 # links to .bb files?
 ```
-
-
-# Import query data  
+ 
+# Create query data  
 
 Import a `GRanges` object from the [echolocatoR Fine-mapping Portal](https://rajlab.shinyapps.io/Fine_Mapping_Shiny/) to use for querying a small subset of the CUT&TAG data.  
 
-```{r Import query data, eval=F}
+```{r Create query data, eval=F}
 file_names <- echolocatoR::GITHUB.list_files(creator = "RajLabMSSM", 
                                 repo = "Fine_Mapping_Shiny",
                                 query = "*Nalls23andMe_2019.*BST1.UKB.multi_finemap.csv.gz")
@@ -85,53 +109,58 @@ gr.dat <- GenomicRanges::makeGRangesFromDataFrame(data.table::fread(file_names),
                                                   start.field = "POS",
                                                   end.field = "POS")
 # ! IMPORTANT !: Needs to be in same chromosome format as bigwig in order to query!
-suppressWarnings(GenomeInfoDb::seqlevelsStyle(gr.dat) <- "NCBI")
+suppressWarnings(GenomeInfoDb::seqlevelsStyle(gr.dat) <- "UCSC")
 ```
 
 
-# ENCODE 
-
-All ENCODE peak/bigwig/bam/fastq.gz files can be found [here on UCSC](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeBroadHistone/). 
-
-## Query ENCODE peaks
+## Import peaks
 
 * Naming conventions for broadPeak come from [UCSC](https://genome.ucsc.edu/FAQ/FAQformat.html#format13). 
 * IMPORTANT!: Note that "pValue" and "qValue" are actually the -log() of these metrics. Additionally, -1 means that this metric is not available (instead of NA?....)
 
-```{r}
-
-broad_ucsc_url <- "http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC"
-ENCODE_urls <- list(BroadHistone=list(
-  
-))
-list(ENCODE.BroadHistone.= file.path(broad_ucsc_url,"wgEncodeBroadHistone",
-                        "wgEncodeBroadHistoneK562H3k27me3StdPk.broadPeak.gz")
-     )
+```{r Import peaks} 
 ENCODE.broadPeaks <- rtracklayer::import("http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeBroadHistone/wgEncodeBroadHistoneK562H3k27acStdPk.broadPeak.gz")  
-ENCODE.broad
 ```
 
 ## Query ENCODE bigwig
 
 * ENCODE bigwig and peaks data is hosted on the [UCSC Genome Browser here](http://genome.ucsc.edu/cgi-bin/hgTracks?tsCurTab=advancedTab&tsGroup=Any&tsType=Any&hgt_mdbVar1=dccAccession&hgt_tSearch=search&hgt_tsDelRow=&hgt_tsAddRow=&hgt_tsPage=&tsSimple=&tsName=&tsDescr=&db=hg19&hgt_mdbVal1=wgEncodeEH000043). 
-* Specifcally, we'll be querying the H3K27ac ChIP-seq data from K562 cell-lines, to best match up with the CUT&TAG assay being used here.
+* Specifcally, we'll be querying the H3K27ac ChIP-seq data from K562 cell-lines, to best match up with the CUT&TAG assay being used here. 
 
-```{r Query ENCODE bigwig}
+```{r Query ENCODE bigwig, eval=F}
 ENCODE.bw_filt <- import.bw.parallel(bw.file = "http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeBroadHistone/wgEncodeBroadHistoneK562H3k27acStdSig.bigWig",
-                                    gr.dat = ENCODE.broadPeaks)
+                                    gr.dat = ENCODE.broadPeaks, 
+                                    bw.file_format = "UCSC")
+head(ENCODE.broadPeaks)
 ```
 
-# CUT&TAG
+# CUT&TAG  
+
+* When I ran the nf-core/atacseq pipeline for the first time on this CUT&TAG data, I accidentally mis-specified the design matrix such that the H3k27ac and H3k27ame3 assays were merged into one (in the *mergedReplicates* subfolder).  
+
+* However, we can still recover the independent assays from the *mergedLibrary* since each assay only had one sample. In this case, use these keys:
+  - control_R1 = H3k27ac  
+  - control_R2 = H3k27ame3
+
+
+```{r Gather CT dirs} 
+CT.dir <- file.path(root.dir,"processed_data/HK5M2BBXY_merged")
+CT.peaks_dir <- file.path(CT.dir,"bwa/mergedLibrary/macs/narrowPeak")
+CT.bw_dir <- file.path(CT.dir,"bwa/mergedLibrary/bigwig")
+```
+
 
 ## Query CUT&TAG bigwig  
 
-Import a subset of a bigwig file based on the coordinates in the `GRanges` object (ENCODE broadPeaks`).
+* Import a subset of a bigwig file based on the coordinates in the `GRanges` object (ENCODE broadPeaks`).  
+* **WARNING!**: If you're querying many regions, this can take a long time.   
 
-```{r Query CUT&TAG bigwig} 
-# Switch formats
-suppressWarnings(GenomeInfoDb::seqlevelsStyle(ENCODE.broadPeaks) <- "NCBI")
-CT.bw_filt <- import.bw.parallel(bw.file = file.path(root.dir,"processed_data/HK5M2BBXY/bwa/mergedReplicate/bigwig/control.mRp.clN.bigWig"),
-                          gr.dat = ENCODE.broadPeaks)
+```{r Query CUT&TAG bigwig, eval=F} 
+CT.bw_filt <- import.bw.parallel(bw.file = file.path(CT.bw_dir,
+                                                     "control_R1.mLb.clN.bigWig"),
+                          gr.dat = ENCODE.broadPeaks, 
+                          bw.file_format = "NCBI")
+head(CT.bw_filt)
 ```
 
 ## Import CUT&TAG summits
@@ -139,9 +168,9 @@ CT.bw_filt <- import.bw.parallel(bw.file = file.path(root.dir,"processed_data/HK
 Summits are especially the peaks of the peaks (1bp/peak). 
 
 ```{r Import CUT&TAG summits}
-CT.summits <- rtracklayer::import(file.path(root.dir,peaks_dir,"control.mRp.clN_summits.bed")) 
+CT.summits <- rtracklayer::import(file.path(CT.peaks_dir,
+                                            "control_R1.mLb.clN_summits.bed")) 
 CT.summits$width <- GenomicRanges::width(CT.summits)
-
 summary(CT.summits$width)
 ```
 
@@ -151,157 +180,59 @@ summary(CT.summits$width)
 
 ### .annotatePeaks  
 
-This file contains additional informaton like which gene each peak is closest to.  
+This previously annotated file contains additional information like which gene each peak is closest to.  
 
 ```{r .annotatePeaks} 
-peaks_dir <- "processed_data/HK5M2BBXY/bwa/mergedReplicate/macs/narrowPeak"
-
 # Narrow peaks
-CT.annotatePeaks <-  data.table::fread(file.path(root.dir,peaks_dir,"control.mRp.clN_peaks.annotatePeaks.txt")) %>%
+CT.annotatePeaks <-  data.table::fread(file.path(CT.peaks_dir,"control_R1.mLb.clN_peaks.annotatePeaks.txt")) %>%
   dplyr::mutate(peak_score=`Peak Score`) %>%
   GenomicRanges::makeGRangesFromDataFrame(seqnames.field = "Chr", 
                                           start.field = "Start", end.field = "End",strand.field = "Strand",
                                           keep.extra.columns = T) 
 CT.annotatePeaks$width <- GenomicRanges::width(CT.annotatePeaks) 
-summary(CT.annotatePeaks$width)
-
-ChIPseeker::plotAnnoBar(CT.annotatePeaks)
+summary(CT.annotatePeaks$width) 
 ```
 
 ### .narrowPeaks  
 
 * Column names derived from [UCSC documentation](https://genome.ucsc.edu/FAQ/FAQformat.html#format12).  
-* Interestingly, these peaks are slightly different lengths than those in *.annotatePeaks*.
+
+* Interestingly, these peaks are slightly different lengths than those in *.annotatePeaks*.  
+
+* *NOTE!*:`rtracklayer::import` will get confused by a narrowPeak file that is missing the extra stats columns, which are missing here because it's not a *mergedReplicates* file. Instead, just read it in as a regular bed file for now.
 
 ```{r .narrowPeaks}
-CT.narrowPeaks <- rtracklayer::import(file.path(root.dir,peaks_dir,"control.mRp.clN_peaks.narrowPeak")) 
+CT.narrowPeaks <- rtracklayer::import.bed(file.path(CT.peaks_dir,
+                                                "control_R1.mLb.clN_peaks.narrowPeak")) 
 CT.narrowPeaks$width <- GenomicRanges::width(CT.narrowPeaks)  
 summary(CT.narrowPeaks$width)
 
 ChIPseeker::covplot(peak = CT.narrowPeaks,
-                    weightCol = "qValue",
+                    weightCol = "score",#"qValue",
                     title = "CUT&TAG peaks")
-```
-
-
-#### Annotate peaks  
-    
-
-```{r}
-plotDistToTSS(peakAnno,
-              title="Distribution of transcription factor-binding loci\nrelative to TSS")
-```
-## ReactomePA enrichment
-
-```{r ReactomePA}
-library(ReactomePA)  # BiocManager::install("ReactomePA")
-pathway1 <- enrichPathway(as.data.frame(peakAnno)$geneId)
-dotplot(pathway1)
-head(pathway1, 10)
-```
-```{r}
-gene <- seq2gene(CT.narrowPeaks, 
-                 tssRegion = c(-1000, 1000), 
-                 flankDistance = 3000,
-                 TxDb=TxDb.Hsapiens.UCSC.hg19.knownGene)
-pathway2 <- enrichPathway(gene)
-dotplot(pathway2)
-head(pathway2, 10)
-```
-
-
-## Discover CUT&TAG motifs
-
-* From the genomatic [documentation](https://compgenomr.github.io/book/motif-discovery.html#motif-comparison). 
-* Motif discovery step uses [`rGADEM` R package](https://bioconductor.org/packages/release/bioc/vignettes/rGADEM/inst/doc/rGADEM.pdf).
-* [MotifbreakR](http://bioconductor.org/packages/release/bioc/html/motifbreakR.html) could also be used, but is more designed for individual SNPs rather than genomic ranges (to know knowledge). See `echolocatoR::MOTIFBREAKR()` for a convenience wrapper of this package.
-
-```{r Discover CUT&TAG motifs}
-# order the peaks by qvalue, and take top 250 peaks
-CT.narrowPeaks_top = CT.narrowPeaks[order(CT.narrowPeaks$pValue)]
-CT.narrowPeaks_top = head(CT.narrowPeaks_top, n = 500)
-# CT.narrowPeaks_top_stored <- CT.narrowPeaks_top
-# merge nearby  peaks
-CT.narrowPeaks_top = GenomicRanges::reduce(CT.narrowPeaks_top, )
-# Create a region of  +/-50 bp around the center of the peaks
-CT.narrowPeaks_top = GenomicRanges::resize(CT.narrowPeaks_top, 
-                                           width = 50, fix='center')
-suppressWarnings(GenomeInfoDb::seqlevelsStyle(CT.narrowPeaks_top) <- "UCSC")
-CT.narrowPeaks_top$score <- GenomicRanges::score(CT.narrowPeaks_top_stored)
-CT.narrowPeaks_top$width <- GenomicRanges::width(CT.narrowPeaks_top_stored)
-
-pwd<-"" #INPUT FILES- BedFiles, FASTA, etc.
-path<- system.file("extdata/Test_100.bed",package="rGADEM")
-BedFile<-paste(pwd,path,sep="")
-Sequences <- rtracklayer::import(BedFile)
-Sequences <- rtracklayer::import(BedFile)
-BSge
-library(BSgenome.Hsapiens.UCSC.hg19)
-library(GenomicRanges)
-
-gadem <- GADEM(Sequences=CT.narrowPeaks_top,
-               verbose=1,
-               genome=Hsapiens,)
-
-```
-
-## Visualize CUT&TAG region
-
-```{r Visualize} 
-geom <- "histogram"
-gg_hist <- ggbio::autoplot(CT.bw_filt, 
-                geom=geom, 
-                aes(fill=score),
-                adjust=.2,
-                binwidth=1000
-                ) +
-  theme_classic() 
-  
-max_height <- echolocatoR::PLOT.get_max_histogram_height(gg=gg_hist)
-rect_height <- max_height / if(geom=="density") 8 else 10
-CT_narrowPeaks_filt$y <- 0 - rect_height
-
-gg <- gg_hist +
-ggbio::geom_rect(CT_narrowPeaks_filt,
-                       stat="identity", 
-                        rect.height= rect_height,
-                       aes(y=y, fill=peak_score, label=Annotation),
-                       alpha = .7, inherit.aes = F,
-                       color="transparent",
-                       hjust=1) +
-  theme_classic() +
-  ggbio::zoom_in(fac = 1/20) +
-  ggbio::scale_x_sequnit(unit = "Mb")
-gg
-
 ```
 
 
 
 # ENCODE vs. CUT&TAG
 
-## Compare bigwig scores
+## Prepare peaks lists  
 
-### Range overlaps
+```{r Prepare peaks lists}
+suppressWarnings(GenomeInfoDb::seqlevelsStyle(CT.narrowPeaks) <- "UCSC")
+peaks_list <- list(CT=CT.narrowPeaks, 
+                   ENCODE=ENCODE.broadPeaks)
 
-First, let's check how many peaks 
-
-```{r}
-ENCODE.bw_filt$score
-CT.bw_filt$score
-
-
+tagMatrix_list <- prepare_tagMatrix(peaks_list=peaks_list)
+annotatePeak_list <- prepare_annotatePeak(peaks_list = peaks_list)
 ```
-
 
 ## Compare overlap  
 
 ```{r Compare overlap}
-hits <- GenomicRanges::findOverlaps(query = CT.narrowPeaks, 
-                                    subject = ENCODE.broadPeaks)
-CT.narrowPeaks[S4Vectors::subjectHits(hits)]
+compare_peak_overlap(gr.query = CT.narrowPeaks, 
+                     gr.subject = ENCODE.broadPeaks)
 ```
-
 ## Compare peaks
 
 Compare peaks and their annotations across datasets using tools like [`ChIPseeker`](http://bioconductor.org/packages/devel/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html). 
@@ -309,10 +240,6 @@ Compare peaks and their annotations across datasets using tools like [`ChIPseeke
 ### tagHeatmap
 
 ```{r tagHeatmap} 
-peaks_list <- list(CT=CT.narrowPeaks, 
-                   ENCODE=ENCODE.broadPeaks)
-tagMatrix_list <- prepare_tagMatrix(peaks_list=peaks_list)
-
 ChIPseeker::tagHeatmap(tagMatrix_list, 
                        xlim=c(-3000, 3000))
 ```
@@ -329,8 +256,6 @@ plotAvgProf(tagMatrix_list,
 ### plotAnnoBar
 
 ```{r plotAnnoBar}
-annotatePeak_list <- prepare_annotatePeak(peaks_list = peaks_list)
-
 ChIPseeker::plotAnnoBar(annotatePeak_list)
 ```
 
@@ -349,29 +274,37 @@ ChIPseeker::plotDistToTSS(annotatePeak_list)
 # ChIPseeker::vennpie(peakAnno)
 lapply(annotatePeak_list, function(x){ChIPseeker::upsetplot(x, vennpie=T)})
 ```
-### Functional profiles comparison
+### Gene profile enrichment  
+
+#### clusterProfiler  
 
 Use [clusterProfiler](http://bioconductor.org/packages/release/bioc/html/clusterProfiler.html) to compare functional profiles across datasets.  
 
 ```{r Functional profiles comparison}
-genes = lapply(annotatePeak_list, function(i) as.data.frame(i)$geneId)
-names(genes) = sub("_", "\n", names(genes))
-library(clusterProfiler)
+res_clusterProfiler <- enrich_clusterProfiler(annotatePeak_list,
+                                              fun="enrichKEGG",
+                                              pvalueCutoff  = 0.05,
+                                              pAdjustMethod = "BH")
+```
 
-compKEGG <- clusterProfiler::compareCluster(geneCluster   = genes,
-                                            fun = "enrichKEGG",
-                                            pvalueCutoff  = 0.05,
-                                            pAdjustMethod = "BH")
-dotplot(compKEGG, 
-        showCategory = 15, 
-        title = "KEGG Pathway Enrichment Analysis")
+#### ReactomePA enrichment
+
+*under construction *
+
+```{r ReactomePA, eval=F}
+res_ReactomePA <- enrich_ReactomePA(annotatePeak_list,
+                                    pvalueCutoff  = 0.05,
+                                    pAdjustMethod = "BH")
 ```
 
 ### Overlap of peaks and annotated genes
 
-```{r}
-genes= lapply(annotatePeak_list, function(i) as.data.frame(i)$geneId)
-vennplot(genes)
+```{r Overlap of peaks and annotated genes}
+vp_res <- gene_vennplot(annotatePeak_list = annotatePeak_list, 
+                        use_seq2gene = F)
+
+vp_res.seq2gene <- gene_vennplot(annotatePeak_list = annotatePeak_list, 
+                        use_seq2gene = T)
 ```
 
 ### Statistical testing of peak overlap
@@ -382,7 +315,7 @@ vennplot(genes)
 #### Convert to UCSC format  
 
 ```{r Convert to UCSC format}
-CT.UCSC_path <- file.path(root.dir,peaks_dir,"control.mRp.clN_peaks.UCSC.narrowPeak")
+CT.UCSC_path <- file.path(CT.peaks_dir,"control_R1.mLb.clN_peaks.narrowPeak")
 rtracklayer::export.bed(CT.narrowPeaks, 
                         con = CT.UCSC_path)
 ```
@@ -401,5 +334,51 @@ peak_enrich <- ChIPseeker::enrichPeakOverlap(queryPeak = CT.UCSC_path,
                                  nShuffle      = 100,
                                  chainFile     = NULL,
                                  verbose       = T)
+print(peak_enrich)
 ```
+
+# Discover TFBS motifs  
+
+*under construction*  
+
+* From the genomatic [documentation](https://compgenomr.github.io/book/motif-discovery.html#motif-comparison). 
+* Motif discovery step uses [`rGADEM` R package](https://bioconductor.org/packages/release/bioc/vignettes/rGADEM/inst/doc/rGADEM.pdf).
+* [MotifbreakR](http://bioconductor.org/packages/release/bioc/html/motifbreakR.html) could also be used, but is more designed for individual SNPs rather than genomic ranges (to know knowledge). See `echolocatoR::MOTIFBREAKR()` for a convenience wrapper of this package.
+
+```{r Discover CUT&TAG motifs, eval=F}
+# order the peaks by qvalue, and take top 250 peaks
+CT.narrowPeaks_top = CT.narrowPeaks[order(CT.narrowPeaks$pValue)]
+CT.narrowPeaks_top = head(CT.narrowPeaks_top, n = 500)
+# CT.narrowPeaks_top_stored <- CT.narrowPeaks_top
+# merge nearby  peaks
+CT.narrowPeaks_top = GenomicRanges::reduce(CT.narrowPeaks_top, )
+# Create a region of  +/-50 bp around the center of the peaks
+CT.narrowPeaks_top = GenomicRanges::resize(CT.narrowPeaks_top, 
+                                           width = 50, fix='center')
+suppressWarnings(GenomeInfoDb::seqlevelsStyle(CT.narrowPeaks_top) <- "UCSC")
+CT.narrowPeaks_top$score <- GenomicRanges::score(CT.narrowPeaks_top)
+CT.narrowPeaks_top$width <- GenomicRanges::width(CT.narrowPeaks_top)
+
+## Example data
+# pwd<-"" #INPUT FILES- BedFiles, FASTA, etc.
+# path<- system.file("extdata/Test_100.bed",package="rGADEM")
+# BedFile<-paste(pwd,path,sep="")
+# Sequences <- rtracklayer::import(BedFile)
+# Sequences <- rtracklayer::import(BedFile)
+
+gadem <- GADEM(Sequences=CT.narrowPeaks_top,
+               verbose=1,
+               genome=Hsapiens)
+```
+
+
+# Session Info
+
+<details>
+
+```{r Session Info}
+sessioninfo::session_info()
+```
+
+</details>
 

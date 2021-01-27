@@ -105,24 +105,25 @@ message_parallel <- function(...){
 import.bw.parallel <- function(bw.file,
                                gr.dat,
                                parallel_chrom=T,
-                               nThread=parallel::detectCores()){
+                               nThread=parallel::detectCores()-1,
+                               bw.file_format="UCSC"){
+  suppressWarnings(GenomeInfoDb::seqlevelsStyle(gr.dat) <- bw.file_format)
   if(parallel_chrom){ 
     # It's muuuch faster to just iterate over each chromosome, 
     ## Get all ranges within min/max POS, 
     #and then filter to just the relevant ranges within your ranges.
     if(nThread>1) print(paste("Parallelizing queries across",nThread,"cores"))
     chroms <- unique(GenomicRanges::seqnames(gr.dat))
-    gr.list <- parallel::mclapply(chroms, function(chrom){
-      message_parallel(paste("Querying chrom =",chrom))
-      gr.chr <-  gr.dat[GenomicRanges::seqnames(gr.dat)==chrom,] 
+    gr.list <- parallel::mclapply(chroms, function(chr){
+      message_parallel(paste("Querying chrom =",chr)) 
+      gr.chr <-  gr.dat[GenomicRanges::seqnames(gr.dat)==chr,] 
       bw.chr <- rtracklayer::import.bw(con = bw.file,
                                        selection = gr.chr) 
       hits <- GenomicRanges::findOverlaps(query = gr.chr, subject = bw.chr)
       bw.chr <- bw.chr[S4Vectors::subjectHits(hits), ] 
       return(bw.chr)
     }, mc.cores = nThread) %>%
-      GenomicRanges::GRangesList(compress = F)
-    GenomicRanges::sort(gr.bind)
+      GenomicRanges::GRangesList(compress = F) 
     gr.bind <- GenomicRanges::sort(unlist(gr.list))
     return(gr.bind)
   
@@ -136,15 +137,11 @@ import.bw.parallel <- function(bw.file,
   } 
 }
 
-
-
-#### 
+ 
 
 prepare_tagMatrix <- function(peaks_list,
-                              nThread=parallel::detectCores()-1){
-  library(TxDb.Hsapiens.UCSC.hg19.knownGene)
-  library(ChIPseeker)
-  TxDb <- TxDb.Hsapiens.UCSC.hg19.knownGene
+                              nThread=parallel::detectCores()-1){ 
+  TxDb <- TxDb.Hsapiens.UCSC.hg19.knownGene::TxDb.Hsapiens.UCSC.hg19.knownGene
   tagMatrix_list <- parallel::mclapply(names(peaks_list), function(x){
     message_parallel(x) 
     gr <- peaks_list[[x]]
@@ -164,14 +161,14 @@ prepare_tagMatrix <- function(peaks_list,
 
 prepare_annotatePeak <- function(peaks_list,
                                  nThread=parallel::detectCores()-1){
-  parallel::mclapply(names(peaks_list), function(x){
-    library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+  TxDb <- TxDb.Hsapiens.UCSC.hg19.knownGene::TxDb.Hsapiens.UCSC.hg19.knownGene 
+  parallel::mclapply(names(peaks_list), function(x){  
     message_parallel(x)
     gr <- peaks_list[[x]] 
     suppressWarnings(GenomeInfoDb::seqlevelsStyle(gr) <- "UCSC") 
     peakAnno <- ChIPseeker::annotatePeak(peak = gr,
                                          tssRegion=c(-3000, 3000),
-                                         TxDb=TxDb.Hsapiens.UCSC.hg19.knownGene,
+                                         TxDb=TxDb,
                                          annoDb="org.Hs.eg.db")
     return(peakAnno)
   }, mc.cores = nThread) %>% `names<-`(names(peaks_list))
@@ -179,5 +176,151 @@ prepare_annotatePeak <- function(peaks_list,
 
 
 
+peaks_plot <- function(CT.bw_filt,
+                       geom="histogram",
+                       show_plot=T){ 
+  gg_hist <- ggbio::autoplot(CT.bw_filt, 
+                             geom=geom, 
+                             aes(fill=score),
+                             adjust=.2,
+                             binwidth=1000
+  ) +
+    theme_classic() 
+  
+  max_height <- echolocatoR::PLOT.get_max_histogram_height(gg=gg_hist)
+  rect_height <- max_height / if(geom=="density") 8 else 10
+  CT_narrowPeaks_filt$y <- 0 - rect_height
+  
+  gg <- gg_hist +
+    ggbio::geom_rect(CT_narrowPeaks_filt,
+                     stat="identity", 
+                     rect.height= rect_height,
+                     aes(y=y, fill=peak_score, label=Annotation),
+                     alpha = .7, inherit.aes = F,
+                     color="transparent",
+                     hjust=1) +
+    theme_classic() +
+    ggbio::zoom_in(fac = 1/20) +
+    ggbio::scale_x_sequnit(unit = "Mb")
+  if(show_plot) print(gg)
+  return(gg)
+}
+
+
+
+compare_peak_overlap <- function(gr.query, 
+                                 gr.subject){
+  # gr.query <- CT.narrowPeaks; gr.subject <- ENCODE.broadPeaks
+  suppressWarnings(GenomeInfoDb::seqlevelsStyle(gr.query) <- "UCSC")
+  suppressWarnings(GenomeInfoDb::seqlevelsStyle(gr.subject) <- "UCSC")
+  
+  hits <- GenomicRanges::findOverlaps(query = gr.query, 
+                                      subject = gr.subject)
+  query_hits <- gr.query[S4Vectors::queryHits(hits)]
+  print(
+    paste0(length(query_hits)," / ",length(gr.query),
+           " (",round(length(query_hits)/length(gr.query)*100,2),"%)",
+           " of query peaks overlap with subject peaks."
+    )
+  )
+  subject_hits <- gr.subject[S4Vectors::subjectHits(hits)]
+  print(
+    paste0(length(subject_hits)," / ",length(gr.subject),
+           " (",round(length(subject_hits)/length(gr.subject)*100,2),"%)",
+           " of subject peaks overlap with query peaks."
+    )
+  )
+}
+
+
+
+
+enrich_clusterProfiler <- function(annotatePeak_list,
+                                   fun="enrichKEGG",
+                                   pvalueCutoff  = 0.05,
+                                   pAdjustMethod = "BH",
+                                   show_plot=T){ 
+  genes = lapply(annotatePeak_list, function(i) as.data.frame(i)$geneId)
+  names(genes) = sub("_", "\n", names(genes))
+  pathways <- clusterProfiler::compareCluster(geneCluster   = genes,
+                                              fun = fun,
+                                              pvalueCutoff  = pvalueCutoff,
+                                              pAdjustMethod = pAdjustMethod)
+  .plot <- clusterProfiler::dotplot(pathways, 
+                                    showCategory = 15, 
+                                    title = paste(gsub("^enrich","",fun),"pathway enrichment"))
+  if(show_plot)print(.plot)
+  return(list(pathways=pathways,
+              dotplot=.plot ) )
+}
+
+
+
+
+enrich_ReactomePA <- function(annotatePeak_list,
+                              pvalueCutoff  = 0.05,
+                              pAdjustMethod = "BH",
+                              show_plot=T){
+  TxDb <- TxDb.Hsapiens.UCSC.hg19.knownGene::TxDb.Hsapiens.UCSC.hg19.knownGene
+  res <- lapply(names(annotatePeak_list), function(x){ 
+    print(x)
+    peakAnnot <- annotatePeak_list[[x]]
+    # Construct gene list
+    genes1 <- as.data.frame(peakAnnot)$geneId
+    names(genes1) = sub("_", "\n", names(genes1))
+    # Enrich pathway
+    pathway1 <- ReactomePA::enrichPathway(genes1)
+    dotplot1 <- ReactomePA::dotplot(pathway1,
+                                    title=paste(x,":\nReactomePA pathway enrichment"))
+    if(show_plot) print(dotplot1)
+    
+    # Enrich pathway after seq2gene 
+    genes2 <- ChIPseeker::seq2gene(peakAnnot@anno, 
+                                   tssRegion = c(-1000, 1000), 
+                                   flankDistance = 3000,
+                                   TxDb=TxDb) 
+    # Enrich pathway
+    pathway2 <- ReactomePA::enrichPathway(genes2, 
+                                          pvalueCutoff  = pvalueCutoff,
+                                          pAdjustMethod = pAdjustMethod) 
+    dotplot2 <- ReactomePA::dotplot(pathway2,
+                                    title=paste(x,":\nseq2gene + ReactomePA pathway enrichment"))
+    if(show_plot) print(dotplot2) 
+    return(list(pathways=pathway1,
+                pathways_seq2gene=pathway2,
+                dotplot=dotplot1,
+                dotplot_seq2gene=dotplot2 ) )
+  }) %>% `names<-`(names(annotatePeak_list))
+  
+  return(res)
+}
+
+
+
+
+
+
+gene_vennplot <- function(annotatePeak_list,
+                          use_seq2gene=F,
+                          show_plot=T){
+  TxDb <- TxDb.Hsapiens.UCSC.hg19.knownGene::TxDb.Hsapiens.UCSC.hg19.knownGene
+  gene_lists <- lapply(names(annotatePeak_list), function(x,
+                                                          .use_seq2gene=use_seq2gene){
+    print(x)  
+    if(.use_seq2gene){
+      genes <- ChIPseeker::seq2gene(annotatePeak_list[[x]]@anno, 
+                                    tssRegion = c(-1000, 1000), 
+                                    flankDistance = 3000,
+                                    TxDb=TxDb) 
+    } else{ genes <- annotatePeak_list[[x]]@anno$geneId } 
+    return(genes)
+  }) %>% `names<-`(names(peaks_list))
+  # Plot
+  vp <- ChIPseeker::vennplot(gene_lists)
+  if(show_plot)print(vp)
+  # Return
+  return(list(gene_lists=gene_lists,
+              vennplot=vp))
+}
 
 
