@@ -1,9 +1,27 @@
 # CUT_n_TAG
 
 
-## [Results](https://neurogenomics.github.io/CUT_n_TAG/scripts/nf-core_atacseq_results.html)  
+## Results  
 
-- All results of CUT&TAG data processing can be found through the links found [here](https://neurogenomics.github.io/CUT_n_TAG/scripts/nf-core_atacseq_results.html).  
+[Links to all results](https://neurogenomics.github.io/CUT_n_TAG/scripts/nf-core_atacseq_results.html))
+
+
+### HK5M2BBXY  
+
+**Description**: Initial test run of four samples (two H3k27ac + two H3k27ame3). Accidentally merged libraries across assay types (H3k27ac/H3k27ame3) during nf-core/atacseq run (will fix).  
+
+#### [MultiQC report](https://neurogenomics.github.io/CUT_n_TAG/web/processed_data/HK5M2BBXY/multiqc/narrowPeak/multiqc_report.html)  
+
+#### [ataqv report](https://neurogenomics.github.io/CUT_n_TAG/web/processed_data/HK5M2BBXY/bwa/mergedLibrary/ataqv/narrowPeak/html/html/index.html)  
+
+#### [NF execution report](https://neurogenomics.github.io/CUT_n_TAG/web/processed_data/HK5M2BBXY/pipeline_info/execution_report.html)  
+
+#### [NF execution timeline](https://neurogenomics.github.io/CUT_n_TAG/web/processed_data/HK5M2BBXY/pipeline_info/execution_timeline.html)  
+
+#### [CUT&TAG vs. ENCODE](https://neurogenomics.github.io/CUT_n_TAG/scripts/visualize_peaks.html)  
+
+Analyses comparing CUT&TAG H3k27ac data (Imperial) vs. H3k27ac ChIP-seq data (ENCODE), both in K562 cell-lines.  
+
 
 
 ## Pipelines
@@ -18,28 +36,37 @@
 - Docker isn't allowed on HPC by itself because it presents some security risk.  
 Instead, follow [these instructions](https://osf.io/6w7f9/wiki/Computing/) to create a R-based Docker container (Rocker) inside a singularity container.
 - By default singularity bind mounts](https://singularity.lbl.gov/quickstart) `/home/$USER`, `/tmp`, and `$PWD` into your container at runtime.  
+
 ```
 mkdir -p /rds/general/user/$USER/ephemeral/tmp/  
-mkdir -p /rds/general/user/bms20/ephemeral/rtmp/
+mkdir -p /rds/general/user/bms20/ephemeral/rtmp/ 
+```
 
 ## On HPC, Rocker containers can be run through Singularity with a single command much like the native Docker commands, e.g. "singularity exec docker://rocker/tidyverse:latest R"
-## By default singularity bind mounts](https://singularity.lbl.gov/quickstart) `/home/$USER`, `/tmp`, and `$PWD` into your container at runtime.
+
+## By default singularity bind mounts](https://singularity.lbl.gov/quickstart) `/home/$USER`, `/tmp`, and `$PWD` into your container at runtime. 
+
 ## !IMPORTANT! You may need to change the path of "/rds/general//user/$USER/home/R/x86_64-redhat-linux-gnu-library/3.6/" to the actualy location of your R library.  
 
-# Run Rocker
+# Run Rocker  
+
+```
 singularity exec -B /rds/general/user/$USER/ephemeral/tmp/:/tmp,/rds/general/user/$USER/ephemeral/tmp/:/var/tmp,/rds/general/user/$USER/ephemeral/rtmp/:/rds/general/user/$USER/home/R/x86_64-redhat-linux-gnu-library/3.6/ --writable-tmpfs docker://rocker/tidyverse:latest R
 ``` 
 
 #### 2. Download nf-core/atacseq container  
 
-Now you can download the *nfcore/atacseq* singularity container via [DockerHub](https://hub.docker.com/r/nfcore/atacseq/)  
-```
+Now you can download the *nfcore/atacseq* singularity container via [DockerHub](https://hub.docker.com/r/nfcore/atacseq/)   
+
+
 # Download nf-core/atacseq                                                                                                                                           
 ## This will download "atacseq_latest.sif" to your home directory.
-singularity pull docker://nfcore/atacseq:latest  
-## Copy this .sif file to the cacheDir specified in your nextflow config file.
-scp ~/atacseq_latest.sif /rds/general/user/$USER/projects/neurogenomics-lab/live/.singularity-cache/   
-```
+`singularity pull docker://nfcore/atacseq:latest` 
+
+## Copy this .sif file to the cacheDir specified in your nextflow config file. 
+
+`scp ~/atacseq_latest.sif /rds/general/user/$USER/projects/neurogenomics-lab/live/.singularity-cache/` 
+
 - Once you have the container downloaded, you can now specify it in the [`-profile`](download the singularity image outside of the pipeline and save in the same dir as the cacheDir path for the singularity option in the custom config file) flag in the main pipeline (see below).  
 - More info on this process is on the [lab Wiki](https://osf.io/6w7f9/wiki/Computing/).
 
@@ -54,13 +81,18 @@ The config file tells nextflow how to run on Imperial's HPC.
 
 - Register with [nextflow-tower according to Combiz's instructions](https://combiz.github.io/scflow-manual/example-run.html#enable-nextflow-tower) 
 to get real-time reports as the pipeline runs. Once registered, add the token to your config file.  
+
 -  Run the nextflow pipeline. See [here](https://nf-co.re/atacseq/1.2.1/parameters) for all parameter options.  
 
 #### 4. Download the singularity container  
+
 - In theory, *nf-core/atacseq* should download the singularity automatically when it runs.  
-However in practice, downloading it this way either takes waaayyy too long, and/or fails entirely.  
-- Therefore, per Narun Fancy's reccommendation "download the singularity image outside of the pipeline and save in the same dir as the cacheDir path for the singularity option in the custom config file".
+However in practice, downloading it this way either takes waaayyy too long, and/or fails entirely. 
+
+- Therefore, per Narun Fancy's recommendation *"download the singularity image outside of the pipeline and save in the same dir as the cacheDir path for the singularity option in the custom config file"*. 
+
 `/rds/general/user/$USER/projects/neurogenomics-lab/live/.singularity-cache`  
+
 - For more info on the `-profile` flag, see [here](https://nf-co.re/atacseq/1.2.1/usage#profile).  
 
 #### 5. Finally run the pipeline!  
