@@ -18,6 +18,10 @@ output:
 # root.dir <- "/Volumes/RDS/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG" 
 root.dir <- "/Volumes/bms20/projects/neurogenomics-lab/live/GitRepos/CUT_n_TAG"
 
+CT.dir <- file.path(root.dir,"processed_data/HK5M2BBXY_merged")
+CT.peaks_dir <- file.path(CT.dir,"bwa/mergedLibrary/macs/narrowPeak")
+CT.bw_dir <- file.path(CT.dir,"bwa/mergedLibrary/bigwig")
+
 source("functions.R")
 try({setwd(root.dir)})
 knitr::opts_chunk$set(echo = T, root.dir = root.dir)
@@ -87,7 +91,7 @@ Several other datasets of potential interest for comparisons to CUT&TAG (though 
 * wgEncodeRegMarkH3k4me3/  
 * wgEncodeRegMarkH3k27ac/  
 
-## Metadata  
+### ENCODE metadata  
 
 ```{r ENCODE metadata, eval=F}
 # contains links and metadata for all ENCODE files, but the format is not very readable...
@@ -113,7 +117,7 @@ suppressWarnings(GenomeInfoDb::seqlevelsStyle(gr.dat) <- "UCSC")
 ```
 
 
-## Import peaks
+## Import peaks  
 
 * Naming conventions for broadPeak come from [UCSC](https://genome.ucsc.edu/FAQ/FAQformat.html#format13). 
 * IMPORTANT!: Note that "pValue" and "qValue" are actually the -log() of these metrics. Additionally, -1 means that this metric is not available (instead of NA?....)
@@ -140,19 +144,19 @@ head(ENCODE.broadPeaks)
 
 * However, we can still recover the independent assays from the *mergedLibrary* since each assay only had one sample. In this case, use these keys:
   - control_R1 = H3k27ac  
-  - control_R2 = H3k27ame3
+  - control_R2 = H3k27ame3  
+  
+**File types**:  
+The nf-core/atacseq pipeline produces of number of peaks-related files.  
+  - bigwig  
+  - summits  
+  - annotatePeaks
+  - narrowPeaks and/or broadPeaks  
 
-
-```{r Gather CT dirs} 
-CT.dir <- file.path(root.dir,"processed_data/HK5M2BBXY_merged")
-CT.peaks_dir <- file.path(CT.dir,"bwa/mergedLibrary/macs/narrowPeak")
-CT.bw_dir <- file.path(CT.dir,"bwa/mergedLibrary/bigwig")
-```
-
-
-## Query CUT&TAG bigwig  
+### bigwig
 
 * Import a subset of a bigwig file based on the coordinates in the `GRanges` object (ENCODE broadPeaks`).  
+
 * **WARNING!**: If you're querying many regions, this can take a long time.   
 
 ```{r Query CUT&TAG bigwig, eval=F} 
@@ -163,7 +167,7 @@ CT.bw_filt <- import.bw.parallel(bw.file = file.path(CT.bw_dir,
 head(CT.bw_filt)
 ```
 
-## Import CUT&TAG summits
+### .summits
 
 Summits are especially the peaks of the peaks (1bp/peak). 
 
@@ -174,9 +178,6 @@ CT.summits$width <- GenomicRanges::width(CT.summits)
 summary(CT.summits$width)
 ```
 
-## Import CUT&TAG peaks  
-
-* The nf-core/atacseq pipeline produces of number of peaks-related files.
 
 ### .annotatePeaks  
 
@@ -220,8 +221,8 @@ ChIPseeker::covplot(peak = CT.narrowPeaks,
 
 ```{r Prepare peaks lists}
 suppressWarnings(GenomeInfoDb::seqlevelsStyle(CT.narrowPeaks) <- "UCSC")
-peaks_list <- list(CT=CT.narrowPeaks, 
-                   ENCODE=ENCODE.broadPeaks)
+peaks_list <- list("ICL CUT&TAG"=CT.narrowPeaks, 
+                   "ENCODE ChIP-seq"=ENCODE.broadPeaks)
 
 tagMatrix_list <- prepare_tagMatrix(peaks_list=peaks_list)
 annotatePeak_list <- prepare_annotatePeak(peaks_list = peaks_list)
@@ -247,10 +248,10 @@ ChIPseeker::tagHeatmap(tagMatrix_list,
 ### plotAvgProf
 
 ```{r plotAvgProf}
-plotAvgProf(tagMatrix_list,
-            conf = 0.95, resample = 100,
-            xlim=c(-3000, 3000), 
-            facet="row")
+ChIPseeker::plotAvgProf(tagMatrix_list,
+                        conf = 0.95, resample = 100,
+                        xlim=c(-3000, 3000), 
+                        facet="row")
 ```
 
 ### plotAnnoBar
@@ -284,17 +285,18 @@ Use [clusterProfiler](http://bioconductor.org/packages/release/bioc/html/cluster
 res_clusterProfiler <- enrich_clusterProfiler(annotatePeak_list,
                                               fun="enrichKEGG",
                                               pvalueCutoff  = 0.05,
-                                              pAdjustMethod = "BH")
+                                              pAdjustMethod = "BH", 
+                                              use_seq2gene = F, 
+                                              show_plot = T)
 ```
 
-#### ReactomePA enrichment
+#### ReactomePA enrichment  
 
-*under construction *
-
-```{r ReactomePA, eval=F}
+```{r ReactomePA}
 res_ReactomePA <- enrich_ReactomePA(annotatePeak_list,
                                     pvalueCutoff  = 0.05,
-                                    pAdjustMethod = "BH")
+                                    pAdjustMethod = "BH", 
+                                    use_seq2gene = T)
 ```
 
 ### Overlap of peaks and annotated genes

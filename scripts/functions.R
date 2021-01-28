@@ -235,20 +235,41 @@ compare_peak_overlap <- function(gr.query,
 
 
 
+
+extract_gene_lists <- function(annotatePeak_list,
+                               use_seq2gene=F){
+  TxDb <- TxDb.Hsapiens.UCSC.hg19.knownGene::TxDb.Hsapiens.UCSC.hg19.knownGene
+  gene_lists <- lapply(names(annotatePeak_list), function(x,
+                                                          .use_seq2gene=use_seq2gene){ 
+    if(.use_seq2gene){
+      genes <- ChIPseeker::seq2gene(annotatePeak_list[[x]]@anno, 
+                                    tssRegion = c(-1000, 1000), 
+                                    flankDistance = 3000,
+                                    TxDb=TxDb) 
+    } else{ genes <- annotatePeak_list[[x]]@anno$geneId } 
+    return(genes)
+  }) %>% `names<-`(names(annotatePeak_list))
+  return(gene_lists)
+}
+
+
+
 enrich_clusterProfiler <- function(annotatePeak_list,
                                    fun="enrichKEGG",
                                    pvalueCutoff  = 0.05,
                                    pAdjustMethod = "BH",
+                                   use_seq2gene=F,
                                    show_plot=T){ 
-  genes = lapply(annotatePeak_list, function(i) as.data.frame(i)$geneId)
-  names(genes) = sub("_", "\n", names(genes))
-  pathways <- clusterProfiler::compareCluster(geneCluster   = genes,
+  gene_lists <- extract_gene_lists(annotatePeak_list, 
+                                   use_seq2gene = use_seq2gene) 
+  pathways <- clusterProfiler::compareCluster(geneCluster   = gene_lists,
                                               fun = fun,
                                               pvalueCutoff  = pvalueCutoff,
                                               pAdjustMethod = pAdjustMethod)
   .plot <- clusterProfiler::dotplot(pathways, 
                                     showCategory = 15, 
-                                    title = paste(gsub("^enrich","",fun),"pathway enrichment"))
+                                    title = paste(if(use_seq2gene)"seq2gene +",
+                                                  gsub("^enrich","",fun),"pathway enrichment"))
   if(show_plot)print(.plot)
   return(list(pathways=pathways,
               dotplot=.plot ) )
@@ -260,43 +281,29 @@ enrich_clusterProfiler <- function(annotatePeak_list,
 enrich_ReactomePA <- function(annotatePeak_list,
                               pvalueCutoff  = 0.05,
                               pAdjustMethod = "BH",
-                              show_plot=T){
-  TxDb <- TxDb.Hsapiens.UCSC.hg19.knownGene::TxDb.Hsapiens.UCSC.hg19.knownGene
-  res <- lapply(names(annotatePeak_list), function(x){ 
-    print(x)
-    peakAnnot <- annotatePeak_list[[x]]
-    # Construct gene list
-    genes1 <- as.data.frame(peakAnnot)$geneId
-    names(genes1) = sub("_", "\n", names(genes1))
-    # Enrich pathway
-    pathway1 <- ReactomePA::enrichPathway(genes1)
-    dotplot1 <- ReactomePA::dotplot(pathway1,
-                                    title=paste(x,":\nReactomePA pathway enrichment"))
-    if(show_plot) print(dotplot1)
-    
-    # Enrich pathway after seq2gene 
-    genes2 <- ChIPseeker::seq2gene(peakAnnot@anno, 
-                                   tssRegion = c(-1000, 1000), 
-                                   flankDistance = 3000,
-                                   TxDb=TxDb) 
-    # Enrich pathway
-    pathway2 <- ReactomePA::enrichPathway(genes2, 
-                                          pvalueCutoff  = pvalueCutoff,
-                                          pAdjustMethod = pAdjustMethod) 
-    dotplot2 <- ReactomePA::dotplot(pathway2,
-                                    title=paste(x,":\nseq2gene + ReactomePA pathway enrichment"))
-    if(show_plot) print(dotplot2) 
-    return(list(pathways=pathway1,
-                pathways_seq2gene=pathway2,
-                dotplot=dotplot1,
-                dotplot_seq2gene=dotplot2 ) )
+                              use_seq2gene=F,
+                              show_plot=T){ 
+  # ReactomePA::enrichPathway can only take one gene list at once for you have to iterate
+  res <- lapply(names(annotatePeak_list), function(x,
+                                                   .use_seq2gene=use_seq2gene,
+                                                   .pvalueCutoff=pvalueCutoff,
+                                                   .pAdjustMethod=pAdjustMethod){ 
+    print(x)  
+    genes <- extract_gene_lists(annotatePeak_list[x], 
+                                use_seq2gene = .use_seq2gene)[[1]] 
+    pathways <- ReactomePA::enrichPathway(genes, 
+                                          pvalueCutoff=.pvalueCutoff,
+                                          pAdjustMethod=.pAdjustMethod)
+    .plot <- ReactomePA::dotplot(pathways,
+                                 title=paste(x,":\n",
+                                             if(.use_seq2gene)"seq2gene +",
+                                             "ReactomePA pathway enrichment"))
+    if(show_plot) print(.plot) 
+    return(list(pathways=pathways, 
+                dotplot=.plot) )
   }) %>% `names<-`(names(annotatePeak_list))
-  
   return(res)
 }
-
-
-
 
 
 
@@ -304,17 +311,8 @@ gene_vennplot <- function(annotatePeak_list,
                           use_seq2gene=F,
                           show_plot=T){
   TxDb <- TxDb.Hsapiens.UCSC.hg19.knownGene::TxDb.Hsapiens.UCSC.hg19.knownGene
-  gene_lists <- lapply(names(annotatePeak_list), function(x,
-                                                          .use_seq2gene=use_seq2gene){
-    print(x)  
-    if(.use_seq2gene){
-      genes <- ChIPseeker::seq2gene(annotatePeak_list[[x]]@anno, 
-                                    tssRegion = c(-1000, 1000), 
-                                    flankDistance = 3000,
-                                    TxDb=TxDb) 
-    } else{ genes <- annotatePeak_list[[x]]@anno$geneId } 
-    return(genes)
-  }) %>% `names<-`(names(peaks_list))
+  gene_lists <- extract_gene_lists(annotatePeak_list,
+                                   use_seq2gene=use_seq2gene)
   # Plot
   vp <- ChIPseeker::vennplot(gene_lists)
   if(show_plot)print(vp)
