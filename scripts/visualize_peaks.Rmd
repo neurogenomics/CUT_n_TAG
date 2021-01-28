@@ -13,7 +13,7 @@ output:
     number_sections: false 
     self_contained: true  
 ---
-```{r setup, include=T, message=F, root.dir="/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG"}
+```{r setup, include=T, message=F, dpi=300,  root.dir="/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG"}
 # root.dir <- "/rds/general/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG"
 # root.dir <- "/Volumes/RDS/project/neurogenomics-lab/live/GitRepos/CUT_n_TAG" 
 root.dir <- "/Volumes/bms20/projects/neurogenomics-lab/live/GitRepos/CUT_n_TAG"
@@ -61,7 +61,7 @@ library(GenomicRanges)
 All ENCODE peak/bigwig/bam/fastq.gz files can be found [here on UCSC](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeBroadHistone/). 
 
 
-For general info on file formats (BED, narrowPeak, broadPeak) see UCSC Genome Browser documentation, specifically there are [3 ENCODE histone datasets](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC/):  
+For general info on file formats (BED, narrowPeak, broadPeak) see [UCSC Genome Browser documentation](https://genome.ucsc.edu/FAQ/FAQformat.html). Specifically, there are [3 ENCODE histone datasets](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC/):  
 
 * [wgEncode Broad Histone](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeBroadHistone/)
   - *broadPeak*: Yes  
@@ -85,7 +85,7 @@ Peak files are also available for all three datasets in [.bb format on UCSC](ttp
 **TF-specific** ChIP-seq ENCODE (narrow) peak files can again be found [here](http://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/peaks/june2012/spp/optimal/). 
 
   
-Several other datasets of potential interest for comparisons to CUT&TAG (though they only contain bigwig files, not peak files):  
+Several other datasets of potential interest for comparisons to CUT&TAG (though they only contain bigWig files, not peak files):  
 
 * wgEncodeRegMarkH3k4me1/  
 * wgEncodeRegMarkH3k4me3/  
@@ -116,8 +116,9 @@ gr.dat <- GenomicRanges::makeGRangesFromDataFrame(data.table::fread(file_names),
 suppressWarnings(GenomeInfoDb::seqlevelsStyle(gr.dat) <- "UCSC")
 ```
 
+# ENCODE  
 
-## Import peaks  
+## .broadPeak  
 
 * Naming conventions for broadPeak come from [UCSC](https://genome.ucsc.edu/FAQ/FAQformat.html#format13). 
 * IMPORTANT!: Note that "pValue" and "qValue" are actually the -log() of these metrics. Additionally, -1 means that this metric is not available (instead of NA?....)
@@ -126,9 +127,9 @@ suppressWarnings(GenomeInfoDb::seqlevelsStyle(gr.dat) <- "UCSC")
 ENCODE.broadPeaks <- rtracklayer::import("http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeBroadHistone/wgEncodeBroadHistoneK562H3k27acStdPk.broadPeak.gz")  
 ```
 
-## Query ENCODE bigwig
+## .bigWig
 
-* ENCODE bigwig and peaks data is hosted on the [UCSC Genome Browser here](http://genome.ucsc.edu/cgi-bin/hgTracks?tsCurTab=advancedTab&tsGroup=Any&tsType=Any&hgt_mdbVar1=dccAccession&hgt_tSearch=search&hgt_tsDelRow=&hgt_tsAddRow=&hgt_tsPage=&tsSimple=&tsName=&tsDescr=&db=hg19&hgt_mdbVal1=wgEncodeEH000043). 
+* ENCODE bigWig and peaks data is hosted on the [UCSC Genome Browser here](http://genome.ucsc.edu/cgi-bin/hgTracks?tsCurTab=advancedTab&tsGroup=Any&tsType=Any&hgt_mdbVar1=dccAccession&hgt_tSearch=search&hgt_tsDelRow=&hgt_tsAddRow=&hgt_tsPage=&tsSimple=&tsName=&tsDescr=&db=hg19&hgt_mdbVal1=wgEncodeEH000043). 
 * Specifcally, we'll be querying the H3K27ac ChIP-seq data from K562 cell-lines, to best match up with the CUT&TAG assay being used here. 
 
 ```{r Query ENCODE bigwig, eval=F}
@@ -148,18 +149,16 @@ head(ENCODE.broadPeaks)
   
 **File types**:  
 The nf-core/atacseq pipeline produces of number of peaks-related files.  
-  - bigwig  
-  - summits  
-  - annotatePeaks
-  - narrowPeaks and/or broadPeaks  
+- bigwig  
+- summits  
+- annotatePeaks  
+- narrowPeaks and/or broadPeaks  
 
-### bigwig
+## .bigWig
 
-* Import a subset of a bigwig file based on the coordinates in the `GRanges` object (ENCODE broadPeaks`).  
+* Import a subset of a bigWig file based on the coordinates in the `GRanges` object (ENCODE broadPeaks).  
 
-* **WARNING!**: If you're querying many regions, this can take a long time.   
-
-```{r Query CUT&TAG bigwig, eval=F} 
+```{r .bigwig, eval=F} 
 CT.bw_filt <- import.bw.parallel(bw.file = file.path(CT.bw_dir,
                                                      "control_R1.mLb.clN.bigWig"),
                           gr.dat = ENCODE.broadPeaks, 
@@ -167,11 +166,11 @@ CT.bw_filt <- import.bw.parallel(bw.file = file.path(CT.bw_dir,
 head(CT.bw_filt)
 ```
 
-### .summits
+## .summits
 
 Summits are especially the peaks of the peaks (1bp/peak). 
 
-```{r Import CUT&TAG summits}
+```{r .summits}
 CT.summits <- rtracklayer::import(file.path(CT.peaks_dir,
                                             "control_R1.mLb.clN_summits.bed")) 
 CT.summits$width <- GenomicRanges::width(CT.summits)
@@ -179,7 +178,7 @@ summary(CT.summits$width)
 ```
 
 
-### .annotatePeaks  
+## .annotatePeaks  
 
 This previously annotated file contains additional information like which gene each peak is closest to.  
 
@@ -194,7 +193,7 @@ CT.annotatePeaks$width <- GenomicRanges::width(CT.annotatePeaks)
 summary(CT.annotatePeaks$width) 
 ```
 
-### .narrowPeaks  
+## .narrowPeak  
 
 * Column names derived from [UCSC documentation](https://genome.ucsc.edu/FAQ/FAQformat.html#format12).  
 
@@ -202,7 +201,7 @@ summary(CT.annotatePeaks$width)
 
 * *NOTE!*:`rtracklayer::import` will get confused by a narrowPeak file that is missing the extra stats columns, which are missing here because it's not a *mergedReplicates* file. Instead, just read it in as a regular bed file for now.
 
-```{r .narrowPeaks}
+```{r .narrowPeak}
 CT.narrowPeaks <- rtracklayer::import.bed(file.path(CT.peaks_dir,
                                                 "control_R1.mLb.clN_peaks.narrowPeak")) 
 CT.narrowPeaks$width <- GenomicRanges::width(CT.narrowPeaks)  
@@ -215,7 +214,7 @@ ChIPseeker::covplot(peak = CT.narrowPeaks,
 
 
 
-# ENCODE vs. CUT&TAG
+# CUT&TAG vs. ENCODE  
 
 ## Prepare peaks lists  
 

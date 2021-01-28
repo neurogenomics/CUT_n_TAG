@@ -111,7 +111,7 @@ import.bw.parallel <- function(bw.file,
   if(parallel_chrom){ 
     # It's muuuch faster to just iterate over each chromosome, 
     ## Get all ranges within min/max POS, 
-    #and then filter to just the relevant ranges within your ranges.
+    # and then filter to just the relevant ranges within your ranges.
     if(nThread>1) print(paste("Parallelizing queries across",nThread,"cores"))
     chroms <- unique(GenomicRanges::seqnames(gr.dat))
     gr.list <- parallel::mclapply(chroms, function(chr){
@@ -269,7 +269,7 @@ enrich_clusterProfiler <- function(annotatePeak_list,
   .plot <- clusterProfiler::dotplot(pathways, 
                                     showCategory = 15, 
                                     title = paste(if(use_seq2gene)"seq2gene +",
-                                                  gsub("^enrich","",fun),"pathway enrichment"))
+                                                  gsub("^enrich","",fun)))
   if(show_plot)print(.plot)
   return(list(pathways=pathways,
               dotplot=.plot ) )
@@ -297,7 +297,7 @@ enrich_ReactomePA <- function(annotatePeak_list,
     .plot <- ReactomePA::dotplot(pathways,
                                  title=paste(x,":\n",
                                              if(.use_seq2gene)"seq2gene +",
-                                             "ReactomePA pathway enrichment"))
+                                             "ReactomePA"))
     if(show_plot) print(.plot) 
     return(list(pathways=pathways, 
                 dotplot=.plot) )
