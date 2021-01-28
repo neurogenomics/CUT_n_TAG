@@ -274,9 +274,13 @@ ChIPseeker::plotDistToTSS(annotatePeak_list)
 # ChIPseeker::vennpie(peakAnno)
 lapply(annotatePeak_list, function(x){ChIPseeker::upsetplot(x, vennpie=T)})
 ```
-### Gene profile enrichment  
+## Gene enrichment  
 
-#### clusterProfiler  
+There are different strategies for assigning each peak to a gene. ChIPseeker provides two main alternatives:  
+1. `annotatePeak()`: Default method, used by `prepare_annotatePeak()`. 
+2. `seq2gene()`: Alternative method, can be used with `use_seq2gene=T` argument where applicable.  
+
+### clusterProfiler  
 
 Use [clusterProfiler](http://bioconductor.org/packages/release/bioc/html/clusterProfiler.html) to compare functional profiles across datasets.  
 
@@ -289,7 +293,7 @@ res_clusterProfiler <- enrich_clusterProfiler(annotatePeak_list,
                                               show_plot = T)
 ```
 
-#### ReactomePA enrichment  
+### ReactomePA enrichment  
 
 ```{r ReactomePA}
 res_ReactomePA <- enrich_ReactomePA(annotatePeak_list,
@@ -298,7 +302,7 @@ res_ReactomePA <- enrich_ReactomePA(annotatePeak_list,
                                     use_seq2gene = T)
 ```
 
-### Overlap of peaks and annotated genes
+### Gene overlap  
 
 ```{r Overlap of peaks and annotated genes}
 vp_res <- gene_vennplot(annotatePeak_list = annotatePeak_list, 
@@ -308,12 +312,12 @@ vp_res.seq2gene <- gene_vennplot(annotatePeak_list = annotatePeak_list,
                         use_seq2gene = T)
 ```
 
-### Statistical testing of peak overlap
+## Statistical testing of peak overlap
 
 * Calculate whether overlap is statistically significant between two datasets of peaks.  
 * In this case, we're comparing CUT&TAG peaks to ENCODE ChiP-seq peaks.
 
-#### Convert to UCSC format  
+### Convert to UCSC format  
 
 ```{r Convert to UCSC format}
 CT.UCSC_path <- file.path(CT.peaks_dir,"control_R1.mLb.clN_peaks.narrowPeak")
