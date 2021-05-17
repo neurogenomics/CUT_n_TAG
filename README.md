@@ -34,7 +34,7 @@ Analyses comparing CUT&TAG H3k27ac data (Imperial) vs. ChIP-seq H3k27ac data (EN
 
 ## Downloading new samples
 
-When [BRC](https://imperial-genomics-facility.github.io/igf-pipeline-help/index.html) sends you an email letting you know they've finished sequencing your samples, follow these steps to download prepare the data. 
+When [BRC](https://imperial-genomics-facility.github.io/igf-pipeline-help/index.html) sends you an email letting you know they've finished sequencing your samples, follow these steps to download and prepare the data. 
 
 **Note**: File and folder names are just used as examples here. You'll need to adapt these to match your particular file/folder names.
 
