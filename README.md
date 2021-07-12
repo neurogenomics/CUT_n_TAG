@@ -27,9 +27,7 @@ Analyses comparing CUT&TAG H3k27ac data (Imperial) vs. ChIP-seq H3k27ac data (EN
 
 ### All samples
 
-[Analysis](https://neurogenomics.github.io/CUT_n_TAG/processed_data/analysis/CnT_analysis.html)
-
-[Additional QC](https://neurogenomics.github.io/CUT_n_TAG/processed_data/analysis/CnT_extra_QC.html)
+[Analysis](https://neurogenomics.github.io/CUT_n_TAG/processed_data/analysis/CnT_analysis_all.html)
 
 
 ## Downloading new samples
