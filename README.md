@@ -25,6 +25,42 @@ Each subheader is the unique ID of a given sequencing batch, assigned by the [Im
 Analyses comparing CUT&TAG H3k27ac data (Imperial) vs. ChIP-seq H3k27ac data (ENCODE), both in K562 cell-lines.  
 
 
+### All samples
+
+[Analysis](https://neurogenomics.github.io/CUT_n_TAG/processed_data/analysis/CnT_analysis.html)
+
+[Additional QC](https://neurogenomics.github.io/CUT_n_TAG/processed_data/analysis/CnT_extra_QC.html)
+
+
+## Downloading new samples
+
+When [BRC](https://imperial-genomics-facility.github.io/igf-pipeline-help/index.html) sends you an email letting you know they've finished sequencing your samples, follow these steps to download and prepare the data. 
+
+**Note**: File and folder names are just used as examples here. You'll need to adapt these to match your particular file/folder names.
+
+1. Log onto HPC.
+2. If you haven't done so already, set up your irods credentials [(instructions here)](https://imperial-genomics-facility.github.io/igf-pipeline-help/data_access.html). You only need to do this once.
+3. Move into the folder where you want to store your data.
+4. Download the data with `irods`:  
+```
+module load irods/4.2.0
+iget -Pr /igfZone/home/di.hu/IGFQ001187_hu_10-5-2021_scCutandTag/fastq/2021-05-11/HL25VBBXY
+cd HL25VBBXY
+```
+5. Unpack each `.tar` file: 
+``` 
+tar -xvf IGFQ001187_hu_10-5-2021_scCutandTag_4_16_2021-05-11.tar 
+tar -xvf IGFQ001187_hu_10-5-2021_scCutandTag_6_16_2021-05-11.tar 
+```  
+6. Remove the old files (once you're sure the previous step worked):
+```
+rm IGFQ001187_hu_10-5-2021_scCutandTag_4_16_2021-05-11.tar
+rm IGFQ001187_hu_10-5-2021_scCutandTag_6_16_2021-05-11.tar 
+```
+7. *Optional*: [Change permissions recursively](https://linuxize.com/post/chmod-recursive/) so that other members of your team can access and manipulate the files. Make sure to adapt the scope of the permissions however is appropriate for your case. 
+``` 
+chmod -R u=rwx,go=rx ../HL25VBBXY/
+```
 
 ## Pipelines
 
