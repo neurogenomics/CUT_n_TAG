@@ -29,7 +29,7 @@ names(peaklist) <- c("H3K27ac_CnT_ActiveMotif_MACS2", "H3K27ac_CnT_ActiveMotif_S
                      "H3K27ac_TIP_Abcam.phase_1_05_jan_2022.S_1_R1", "H3K27ac_TIP_Abcam.phase_1_05_jan_2022.S_1_R2",
                      "H3K27ac_TIP_Abcam.phase_2_03_feb_2022.S_4_R1")
 
-# reference
+# reference peakfile: ENCODE H3K27ac (data accession: ENCFF044JNJ)
 reference <- encode_H3K27ac_full
 names(reference) <- "ENCODE_H3K27ac"
 # blacklist
