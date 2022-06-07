@@ -1,0 +1,110 @@
+---
+title: "nf-core_atacseq_results"
+author: "Brian M. Schilder"
+date: "Most recent update:<br> `r Sys.Date()`"
+output: 
+  rmarkdown::html_document: 
+    theme: spacelab
+    highlight: zenburn 
+    code_folding: hide 
+    toc: true 
+    toc_float: true
+    smooth_scroll: true
+    number_sections: false 
+    self_contained: true  
+---
+
+```{r setup}
+library(PeakyFinders)
+library(EpiCompare)
+```
+
+
+## Gather files
+
+### Native CHIp-seq
+
+[GSE66023](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE66023&s=09)
+
+All data was aligned to hg19 in the [original study](https://www.nature.com/articles/ng.3550).
+
+```{r} 
+peaks_native <- PeakyFinders::import_peaks(ids = "GSE66023",
+                                           builds = "hg19",
+                                           searches = list(genericPeak=".bed.gz"))
+unique(peaks_native$GEO$GSE66023$source)
+
+peakfiles <- peaks_native$GEO[["GSE66023"]]
+peakfiles$qValue <- peakfiles$V7
+peakfiles <- list("GSE66023_46C_H3K27ac.merged"=peakfiles[grepl("H3K27ac",peakfiles$source), ])
+```
+
+### ENCODE
+
+After confirming on the ENCODE website, ENCODE does not contain any data for
+the marks H3K122 and H3K64ac (only H3K27ac). 
+
+```{r} 
+marks <- c("H3K122","H3K27ac","H3K64ac")
+meta <- search_encode(target =  c("H3K122","H3K27ac","H3K64ac"),
+                      biosample_name = "K562",
+                      organism = "Homo sapiens",
+                      assembly = "GRCh38",
+                      file_type = "narrowPeak",
+                      output_type=c("replicated peaks","^peaks$"),
+                      peaks_only = TRUE) 
+meta <- meta[grepl(paste(marks,collapse = "|"), target, ignore.case = TRUE),]
+
+reference <- PeakyFinders::import_peaks(ids = meta$file_accession,  # "ENCSR000AKP" 
+                                        builds = "GRCh38")
+```
+
+#### CUT&Tag
+
+Our data from the CUT&Tag preprint: 
+[GSE199611](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE199611)
+
+```{r}
+# peaks_ct <- PeakyFinders::import_peaks(ids = "GSE199611",
+#                                         builds = "hg19", 
+#                                        searches = list(genericPeak=".bed.gz"))  
+```
+
+## Run EpiCompare
+
+```{r}
+library(EpiCompare)
+data("hg19_blacklist")
+
+res <- EpiCompare::EpiCompare(peakfiles = peakfiles,
+                              genome_build = list(peakfiles="hg19",
+                                                  reference="hg38",
+                                                  blacklist="hg19"), 
+                              blacklist = hg19_blacklist,
+                              genome_build_output = "hg19",
+                              reference = list(ENCODE_H3K27ac_ENCFF038DDS=reference$ENCODE[["ENCFF038DDS"]]), 
+                              chromHMM_plot = TRUE,
+                              chromHMM_annotation = "K562",
+                              chipseeker_plot = TRUE,
+                              enrichment_plot = TRUE,
+                              tss_plot = TRUE, 
+                              stat_plot = TRUE,
+                              upset_plot = TRUE,
+                              precision_recall_plot = TRUE,
+                              interact = TRUE,
+                              save_output = TRUE,
+                              output_dir = here::here("EpiCompare"))
+```   
+
+
+# Session info
+
+<details>
+
+```{r}
+utils::sessionInfo()
+```
+
+</details>
+
+<br>

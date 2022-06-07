@@ -123,7 +123,7 @@ suppressWarnings(GenomeInfoDb::seqlevelsStyle(gr.dat) <- "UCSC")
 * Naming conventions for broadPeak come from [UCSC](https://genome.ucsc.edu/FAQ/FAQformat.html#format13). 
 * IMPORTANT!: Note that "pValue" and "qValue" are actually the -log() of these metrics. Additionally, -1 means that this metric is not available (instead of NA?....)
 
-```{r Import peaks} 
+```{r Import peaks}  
 ENCODE.broadPeaks <- rtracklayer::import("http://hgdownload.soe.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeBroadHistone/wgEncodeBroadHistoneK562H3k27acStdPk.broadPeak.gz")  
 ```
 
@@ -347,7 +347,8 @@ print(peak_enrich)
 *under construction*  
 
 * From the genomatic [documentation](https://compgenomr.github.io/book/motif-discovery.html#motif-comparison). 
-* Motif discovery step uses [`rGADEM` R package](https://bioconductor.org/packages/release/bioc/vignettes/rGADEM/inst/doc/rGADEM.pdf).
+* Motif discovery step uses [`rGADEM` R package](https://bioconductor.org/packages/release/bioc/vignettes/rGADEM/inst/doc/rGADEM.pdf). 
+
 * [MotifbreakR](http://bioconductor.org/packages/release/bioc/html/motifbreakR.html) could also be used, but is more designed for individual SNPs rather than genomic ranges (to know knowledge). See `echolocatoR::MOTIFBREAKR()` for a convenience wrapper of this package.
 
 ```{r Discover CUT&TAG motifs, eval=F}
