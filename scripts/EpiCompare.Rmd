@@ -22,7 +22,7 @@ library(EpiCompare)
 
 ## Gather files
 
-### Native CHIp-seq
+### Native CHiP-seq
 
 [GSE66023](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE66023&s=09)
 
@@ -36,7 +36,7 @@ unique(peaks_native$GEO$GSE66023$source)
 
 peakfiles <- peaks_native$GEO[["GSE66023"]]
 peakfiles$qValue <- peakfiles$V7
-peakfiles <- list("GSE66023_46C_H3K27ac.merged"=peakfiles[grepl("H3K27ac",peakfiles$source), ])
+peakfiles <- list("GSE66023_46C_H3K27ac.nativeCHiPseq"=peakfiles[grepl("H3K27ac",peakfiles$source), ])
 ```
 
 ### ENCODE
@@ -51,7 +51,7 @@ meta <- search_encode(target =  c("H3K122","H3K27ac","H3K64ac"),
                       organism = "Homo sapiens",
                       assembly = "GRCh38",
                       file_type = "narrowPeak",
-                      output_type=c("replicated peaks","^peaks$"),
+                      output_type=c("replicated peaks"), # "^peaks$"
                       peaks_only = TRUE) 
 meta <- meta[grepl(paste(marks,collapse = "|"), target, ignore.case = TRUE),]
 
@@ -72,12 +72,11 @@ Our data from the CUT&Tag preprint:
 
 ## Run EpiCompare
 
-```{r}
-library(EpiCompare)
+```{r} 
 data("hg19_blacklist")
 
 res <- EpiCompare::EpiCompare(peakfiles = peakfiles,
-                              genome_build = list(peakfiles="hg19",
+                              genome_build = list(peakfiles="mm9",
                                                   reference="hg38",
                                                   blacklist="hg19"), 
                               blacklist = hg19_blacklist,
@@ -93,7 +92,7 @@ res <- EpiCompare::EpiCompare(peakfiles = peakfiles,
                               precision_recall_plot = TRUE,
                               interact = TRUE,
                               save_output = TRUE,
-                              output_dir = here::here("EpiCompare"))
+                              output_dir = here::here("EpiCompare_nativeCHiPseq"))
 ```   
 
 

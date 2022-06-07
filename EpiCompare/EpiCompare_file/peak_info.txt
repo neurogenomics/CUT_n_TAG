@@ -1,2 +1,0 @@
-PeakN Before Tidy	Blacklisted Peaks Removed (%)	Non-standard Peaks Removed (%)	PeakN After Tidy
-122097	0.358	0	121660
