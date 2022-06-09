@@ -29,14 +29,16 @@ library(EpiCompare)
 All data was aligned to hg19 in the [original study](https://www.nature.com/articles/ng.3550).
 
 ```{r} 
-peaks_native <- PeakyFinders::import_peaks(ids = "GSE66023",
+grl_native <- PeakyFinders::import_peaks(ids = "GSE66023",
                                            builds = "hg19",
                                            searches = list(genericPeak=".bed.gz"))
-unique(peaks_native$GEO$GSE66023$source)
+unique(grl_native$GEO$GSE66023$source)
 
-peakfiles <- peaks_native$GEO[["GSE66023"]]
-peakfiles$qValue <- peakfiles$V7
-peakfiles <- list("GSE66023_46C_H3K27ac.nativeCHiPseq"=peakfiles[grepl("H3K27ac",peakfiles$source), ])
+peaks_native <- grl_native$GEO[["GSE66023"]]
+peaks_native$qValue <- peaks_native$V7
+peaks_native <- list(
+  "GSE66023_46C_H3K27ac.nativeCHiPseq"=peaks_native[grepl("H3K27ac",peaks_native$source), ]
+)
 ```
 
 ### ENCODE
@@ -45,8 +47,8 @@ After confirming on the ENCODE website, ENCODE does not contain any data for
 the marks H3K122 and H3K64ac (only H3K27ac). 
 
 ```{r} 
-marks <- c("H3K122","H3K27ac","H3K64ac")
-meta <- search_encode(target =  c("H3K122","H3K27ac","H3K64ac"),
+marks <- c("H3K122","H3K27ac","H3K64ac","H3K27me3")
+meta <- search_encode(target =  c("H3K122","H3K27ac","H3K64ac","H3K27me3"),
                       biosample_name = "K562",
                       organism = "Homo sapiens",
                       assembly = "GRCh38",
@@ -65,23 +67,44 @@ Our data from the CUT&Tag preprint:
 [GSE199611](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE199611)
 
 ```{r}
-# peaks_ct <- PeakyFinders::import_peaks(ids = "GSE199611",
-#                                         builds = "hg19", 
-#                                        searches = list(genericPeak=".bed.gz"))  
+peaks_ct <- PeakyFinders::import_peaks(ids = "GSE199611",
+                                       builds = "hg19",
+                                       searches = list(genericPeak=".bed.gz"))
+peaks_ct2 <- peaks_ct$GEO
+names(peaks_ct2) <- gsub(".rmDup|.bed|.gz", "",unlist(lapply(peaks_ct2, function(x){x$source[1]})))
+names(peaks_ct2) <- paste(
+  "C&T/R",
+  ifelse(grepl("CST9733",names(peaks_ct2)),"H3k27me3","H3K27ac"),
+  names(peaks_ct2),
+  sep = ".")
 ```
+
+### TIP-seq
+
+```{r}
+peaks_tip <- readRDS("~/Downloads/peaks_tip_hg38.rds")
+peaks_tip <- EpiCompare::liftover_grlist(grlist = peaks_tip,
+                                         input_build = "hg38",
+                                         output_build = "hg19")
+names(peaks_tip) <- paste("TIP-seq",names(peaks_tip),sep=".")
+```
+
 
 ## Run EpiCompare
 
 ```{r} 
-data("hg19_blacklist")
+data("hg19_blacklist") 
 
-res <- EpiCompare::EpiCompare(peakfiles = peakfiles,
-                              genome_build = list(peakfiles="mm9",
+peakfiles_all <- c(peaks_ct2,peaks_tip)
+
+res <- EpiCompare::EpiCompare(peakfiles = peakfiles_all,
+                              genome_build = list(peakfiles="hg19",
                                                   reference="hg38",
                                                   blacklist="hg19"), 
                               blacklist = hg19_blacklist,
                               genome_build_output = "hg19",
-                              reference = list(ENCODE_H3K27ac_ENCFF038DDS=reference$ENCODE[["ENCFF038DDS"]]), 
+                              reference = list(ENCODE_H3K27ac_ENCFF038DDS=reference$ENCODE$ENCFF038DDS,
+                                               ENCODE_H3K27me3_ENCFF049HUP=reference$ENCODE$ENCFF049HUP),
                               chromHMM_plot = TRUE,
                               chromHMM_annotation = "K562",
                               chipseeker_plot = TRUE,
@@ -92,8 +115,28 @@ res <- EpiCompare::EpiCompare(peakfiles = peakfiles,
                               precision_recall_plot = TRUE,
                               interact = TRUE,
                               save_output = TRUE,
-                              output_dir = here::here("EpiCompare_nativeCHiPseq"))
+                              output_dir = here::here("EpiCompare_CnT_CnR_TIP"))
 ```   
+
+## Precision-recall curves
+
+### H3K27ac
+
+```{r}
+peakfiles_ac <- peakfiles_all[grepl("H3K27ac",names(peakfiles_all), ignore.case = TRUE)]
+pr_ac <- EpiCompare::plot_precision_recall(
+  peakfiles = peakfiles_ac,
+  reference = list(ENCODE_H3K27ac_ENCFF038DDS=reference$ENCODE$ENCFF038DDS))
+```
+
+### H3K27me3
+
+```{r}
+peakfiles_me3 <- peakfiles_all[grepl("H3K27me3",names(peakfiles_all), ignore.case = TRUE)]
+pr_me3 <- EpiCompare::plot_precision_recall(
+  peakfiles = peakfiles_me3,
+  reference = list(ENCODE_H3K27me3_ENCFF049HUP=reference$ENCODE$ENCFF049HUP))
+```
 
 
 # Session info
