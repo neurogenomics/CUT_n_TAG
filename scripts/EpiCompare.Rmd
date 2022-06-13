@@ -32,8 +32,8 @@ All data was aligned to either mm9 or hg19 in the [original study](https://www.n
 
 ```{r} 
 grl_native <- PeakyFinders::import_peaks(ids = "GSM2054696",
-                                           builds = "hg19",
-                                           searches = list(genericPeak=".bed.gz"))
+                                         builds = "hg19",
+                                         searches = list(genericPeak=".bed.gz"))
 unique(grl_native$GEO[[1]]$source)
 
 peaks_native <- grl_native$GEO[[1]]
@@ -50,7 +50,8 @@ the marks H3K122 and H3K64ac (only H3K27ac).
 
 ```{r} 
 marks <- c("H3K122","H3K27ac","H3K64ac","H3K27me3")
-meta <- search_encode(target =  c("H3K122","H3K27ac","H3K64ac","H3K27me3"),
+meta <- PeakyFinders::search_encode(target =  c("H3K122","H3K27ac",
+                                                "H3K64ac","H3K27me3"),
                       biosample_name = "K562",
                       organism = "Homo sapiens",
                       assembly = "GRCh38",
@@ -69,18 +70,35 @@ Our data from the CUT&Tag preprint:
 [GSE199611](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE199611)
 
 ```{r}
-peaks_ct <- PeakyFinders::import_peaks(ids = "GSE199611",
-                                       builds = "hg19",
-                                       searches = list(genericPeak=".bed.gz"))
+#### Import peak files from GEO ####
+peaks_ct <- PeakyFinders::import_peaks(
+  ids = "GSE199611",
+  builds = "hg19",
+  searches = list(genericPeak=".bed.gz"))
+#### Name peak files #####
 peaks_ct2 <- peaks_ct$GEO
 names(peaks_ct2) <- gsub(".rmDup|.bed|.gz", "",unlist(lapply(peaks_ct2, function(x){x$source[1]})))
 names(peaks_ct2) <- paste(
-  "C&T/R",
+  "C&T",
   ifelse(grepl("CST9733",names(peaks_ct2)),"H3k27me3","H3K27ac"),
   names(peaks_ct2),
   sep = ".")
 
-peaks_ct2 <- EpiCompare::liftover_grlist(grlist = peaks_ct2,
+#### Create peak file groups #####
+peaks_grouped <- group_files(peakfiles = peaks_ct2, 
+                             searches = list(assay="CUT&Tag",
+                                             histone=c("H3k27me3","H3K27ac"),
+                                             peak_caller=c("MACS2","SEACR")))
+
+consensus_peaks_ct <- EpiCompare::compute_consensus_peaks(
+  grlist = peaks_ct2, 
+  groups = peaks_grouped[names(peaks_ct2)], 
+  genome_build = "hg19", 
+  method = "consensusseeker",
+  nbrThreads = 10)
+# saveRDS(consensus_peaks_ct,"consensus_peaks.GSE199611.rds")
+# consensus_peaks_ct <- readRDS("consensus_peaks.GSE199611.rds")
+consensus_peaks_ct <- EpiCompare::liftover_grlist(grlist = consensus_peaks_ct,
                                          input_build = "hg19",
                                          output_build = "hg38")
 ```
@@ -90,22 +108,35 @@ peaks_ct2 <- EpiCompare::liftover_grlist(grlist = peaks_ct2,
 ```{r}
 peaks_tip <- readRDS("~/Downloads/peaks_tip_hg38.rds")
 names(peaks_tip) <- paste("TIP-seq",names(peaks_tip),sep=".")
+
+peaks_grouped_tip <- EpiCompare::group_files(
+  peakfiles = peaks_tip,
+  searches = list(assay=c("TIP-seq"),
+                  histone=c("H3k27me3","H3K27ac")) 
+  )
+consensus_peaks_tip <- EpiCompare::compute_consensus_peaks(
+  grlist = peaks_tip, 
+  groups = peaks_grouped_tip[names(peaks_tip)], 
+  genome_build = "hg38", 
+  method = "consensusseeker",
+  nbrThreads = 10)
+saveRDS(consensus_peaks_tip,"consensus_peaks_tip.rds")
 ```
 
 
-## Run EpiCompare: C&T, C&R, TIP-seq vs. ENCODE
+## Run EpiCompare: CUT&Tag / TIP-seq vs. ENCODE
 
 ```{r} 
 data("hg38_blacklist") 
 
-peakfiles_all <- c(peaks_ct2,peaks_tip)
+peakfiles_all <- c(consensus_peaks_ct,consensus_peaks_tip)
 
 res <- EpiCompare::EpiCompare(peakfiles = peakfiles_all,
                               genome_build = list(peakfiles="hg38",
                                                   reference="hg38",
                                                   blacklist="hg38"), 
                               blacklist = hg38_blacklist,
-                              genome_build_output = "hg19",
+                              genome_build_output = "hg38",
                               reference = list(ENCODE_H3K27ac_ENCFF038DDS=reference$ENCODE$ENCFF038DDS,
                                                ENCODE_H3K27me3_ENCFF049HUP=reference$ENCODE$ENCFF049HUP),
                               chromHMM_plot = TRUE,
@@ -115,10 +146,11 @@ res <- EpiCompare::EpiCompare(peakfiles = peakfiles_all,
                               tss_plot = TRUE, 
                               stat_plot = TRUE,
                               upset_plot = TRUE,
-                              precision_recall_plot = TRUE,
+                              # precision_recall_plot = TRUE,
+                              # corr_plot = TRUE,
                               interact = TRUE,
                               save_output = TRUE,
-                              output_dir = here::here("EpiCompare_CnT_CnR_TIP"))
+                              output_dir = here::here("EpiCompare_CnT_TIP_consensus"))
 ```   
 
 ### Precision-recall curves

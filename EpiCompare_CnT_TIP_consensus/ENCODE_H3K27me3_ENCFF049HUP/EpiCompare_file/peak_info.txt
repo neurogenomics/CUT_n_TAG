@@ -1,0 +1,7 @@
+PeakN Before Tidy	Blacklisted Peaks Removed (%)	Non-standard Peaks Removed (%)	PeakN After Tidy
+36281	0.915	0	35949
+203073	0.25	0	202565
+35532	1.31	0	35068
+134082	0.264	0	133728
+189581	0.136	0	189323
+104797	0.151	0	104639
