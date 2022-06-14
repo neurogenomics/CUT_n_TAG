@@ -20,7 +20,7 @@ Each subheader is the unique ID of a given sequencing batch, assigned by the [Im
 ##### Brian's reports
   - [Individual peak files, Reference=ENCODE_H3K27ac](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_CnT_TIP/ENCODE_H3K27ac_ENCFF038DDS/EpiCompare.html)
   - [Individual peak files, Reference=ENCODE_H3K27me3](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_CnT_TIP/ENCODE_H3K27me3_ENCFF049HUP/EpiCompare.html) 
-    - [Consensus peak files, Reference=ENCODE_H3K27ac](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_CnT_TIP_consensus/ENCODE_H3K27ac_ENCFF038DDS/EpiCompare.html)
+  - [Consensus peak files, Reference=ENCODE_H3K27ac](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_CnT_TIP_consensus/ENCODE_H3K27ac_ENCFF038DDS/EpiCompare.html)
   - [Consensus peak files, Reference=ENCODE_H3K27me3](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_CnT_TIP_consensus/ENCODE_H3K27me3_ENCFF049HUP/EpiCompare.html) 
 
 ##### Sera's reports
@@ -37,11 +37,7 @@ Each subheader is the unique ID of a given sequencing batch, assigned by the [Im
 
 #### [NF execution report](https://neurogenomics.github.io/CUT_n_TAG/web/processed_data/HK5M2BBXY/pipeline_info/execution_report.html)  
 
-#### [NF execution timeline](https://neurogenomics.github.io/CUT_n_TAG/web/processed_data/HK5M2BBXY/pipeline_info/execution_timeline.html)  
-
-#### [CUT&TAG vs. ENCODE](https://neurogenomics.github.io/CUT_n_TAG/scripts/visualize_peaks.html)  
-
-Analyses comparing CUT&TAG H3k27ac data (Imperial) vs. ChIP-seq H3k27ac data (ENCODE), both in K562 cell-lines.  
+#### [NF execution timeline](https://neurogenomics.github.io/CUT_n_TAG/web/processed_data/HK5M2BBXY/pipeline_info/execution_timeline.html)   
 
 
 ### All samples
