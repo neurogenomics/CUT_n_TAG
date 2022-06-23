@@ -20,9 +20,9 @@ library(EpiCompare)
 ```
 
 
-## Gather files
+# Gather files
 
-### Native CHiP-seq
+## Native CHiP-seq
 
 [GSE66023](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE66023&s=09)
 
@@ -37,13 +37,24 @@ grl_native <- PeakyFinders::import_peaks(ids = "GSM2054696",
 unique(grl_native$GEO[[1]]$source)
 
 peaks_native <- grl_native$GEO[[1]]
+
 peaks_native$qValue <- peaks_native$V7
 peaks_native <- list(
   "GSM2054696_K562_H3K27ac"=peaks_native[grepl("H3K27ac",peaks_native$source), ]
 )
 ```
 
-### ENCODE
+Data was reprocessed from fastsq by Leyla Abbasova to make consistent with our CUT&Tag analysis pipeline. All data was aligned to hg19.
+
+```{r}
+
+peaks_native <- rtracklayer::import("/Volumes/bms20/projects/neurogenomics-lab/live/Projects/CUT_n_TAG/native_ChIP/K562_H3K27ac_native_ChIP_SRR3144862.srt.nodup_x_K562_input_native_ChIP_SRR3144864.srt.nodup.pval0.01.500K.bfilt.narrowPeak.gz",
+                                    format="narrowPeak")
+peaks_native <- list("GSM2054696_K562_H3K27ac"=peaks_native) 
+```
+
+
+## ENCODE
 
 After confirming on the ENCODE website, ENCODE does not contain any data for
 the marks H3K122 and H3K64ac (only H3K27ac). 
@@ -64,7 +75,7 @@ reference <- PeakyFinders::import_peaks(ids = meta$file_accession,  # "ENCSR000A
                                         builds = "GRCh38")
 ```
 
-#### CUT&Tag
+## CUT&Tag
 
 Our data from the CUT&Tag preprint: 
 [GSE199611](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE199611)
@@ -103,7 +114,7 @@ consensus_peaks_ct <- EpiCompare::liftover_grlist(grlist = consensus_peaks_ct,
                                          output_build = "hg38")
 ```
 
-### TIP-seq
+## TIP-seq
 
 ```{r}
 peaks_tip <- readRDS("~/Downloads/peaks_tip_hg38.rds")
@@ -121,15 +132,18 @@ consensus_peaks_tip <- EpiCompare::compute_consensus_peaks(
   method = "consensusseeker",
   nbrThreads = 10)
 saveRDS(consensus_peaks_tip,"consensus_peaks_tip.rds")
+consensus_peaks_tip <- readRDS("consensus_peaks_tip.rds")
 ```
 
+# Run EpiCompare
 
-## Run EpiCompare: CUT&Tag / TIP-seq vs. ENCODE
+## CUT&Tag / TIP-seq vs. ENCODE
 
 ```{r} 
 data("hg38_blacklist") 
 
 peakfiles_all <- c(consensus_peaks_ct,consensus_peaks_tip)
+peakfiles_all <- peakfiles_all[sort(names(peakfiles_all))]
 
 res <- EpiCompare::EpiCompare(peakfiles = peakfiles_all,
                               genome_build = list(peakfiles="hg38",
@@ -165,13 +179,7 @@ pr_ac <- EpiCompare::plot_precision_recall(
   reference = 
     list(ENCODE_H3K27ac_ENCFF038DDS=reference$ENCODE$ENCFF038DDS),
   subtitle = "H3K27ac"
-  )
-
-pr_ac$precision_recall_plot + 
-  theme(legend.title = element_text(size=7),
-        legend.spacing.y = unit(.001, units = "npc"),
-        legend.text=element_text(size=7))
-
+  ) 
 ```
 
 #### H3K27me3
@@ -182,15 +190,9 @@ pr_me3 <- EpiCompare::plot_precision_recall(
   peakfiles = peakfiles_me3,
   reference =
     list(ENCODE_H3K27me3_ENCFF049HUP=reference$ENCODE$ENCFF049HUP),
- subtitle = "H3K27me3")
-
-pr_me3$precision_recall_plot + 
-  theme(legend.title = element_text(size=7),
-        legend.spacing.y = unit(.001, units = "npc"),
-        legend.text=element_text(size=7))
-
+ subtitle = "H3K27me3") 
 ```
-## Run EpiCompare: Native CHiP-seq vs. ENCODE
+## Native CHiP-seq vs. ENCODE
 
 ```{r} 
 data("hg38_blacklist")  

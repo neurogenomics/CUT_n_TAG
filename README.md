@@ -11,9 +11,9 @@ Each subheader is the unique ID of a given sequencing batch, assigned by the [Im
 
 ### EpiCompare
 
-#### [Native ChIP-seq vs. ENCODE ChIP-seq: ](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_nativeCHiPseq/EpiCompare.html)
-  - Native ChIP-seq: [GSE66023](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE66023&s=09)
-  - ENCODE ChIP-seq: [ENCSR000AKP-ENCFF038DDS](https://www.encodeproject.org/experiments/ENCSR000AKP/)
+#### Native ChIP-seq [(GSE66023)](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE66023&s=09) vs. ENCODE ChIP-seq [(ENCSR000AKP-ENCFF038DDS)](https://www.encodeproject.org/experiments/ENCSR000AKP/)
+  - [Using peak files from GEO supp files provided by original authors](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_nativeCHiPseq/EpiCompare.html).
+  - [Standardised peaks after reprocessing the data from fastq files by Leyla Abbasova.](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_nativeCHiPseq/EpiCompare_standardised.html) 
 
 #### CUT&Tag/CUT&Run/TIP-seq vs. ENCODE  
 
