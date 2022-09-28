@@ -21,7 +21,8 @@ Each subheader is the unique ID of a given sequencing batch, assigned by the [Im
   - [Individual peak files, Reference=ENCODE_H3K27ac](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_CnT_TIP/ENCODE_H3K27ac_ENCFF038DDS/EpiCompare.html)
   - [Individual peak files, Reference=ENCODE_H3K27me3](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_CnT_TIP/ENCODE_H3K27me3_ENCFF049HUP/EpiCompare.html) 
   - [Consensus peak files, Reference=ENCODE_H3K27ac](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_CnT_TIP_consensus/ENCODE_H3K27ac_ENCFF038DDS/EpiCompare.html)
-  - [Consensus peak files, Reference=ENCODE_H3K27me3](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_CnT_TIP_consensus/ENCODE_H3K27me3_ENCFF049HUP/EpiCompare.html) 
+  - [Consensus peak files (from C&T peak files), Reference=ENCODE_H3K27me3](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_CnT_TIP_consensus/ENCODE_H3K27me3_ENCFF049HUP/EpiCompare.html) 
+  - [Pooled peak files (from C&T BAM files), Reference=ENCODE_H3K27ac](https://neurogenomics.github.io/CUT_n_TAG/EpiCompare_pooled_peaks/EpiCompare.html) 
 
 ##### Sera's reports
 
