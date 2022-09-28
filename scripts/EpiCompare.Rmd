@@ -96,10 +96,11 @@ names(peaks_ct2) <- paste(
   sep = ".")
 
 #### Create peak file groups #####
-peaks_grouped <- group_files(peakfiles = peaks_ct2, 
-                             searches = list(assay="CUT&Tag",
-                                             histone=c("H3k27me3","H3K27ac"),
-                                             peak_caller=c("MACS2","SEACR")))
+peaks_grouped <- EpiCompare::group_files(
+  peakfiles = peaks_ct2, 
+  searches = list(assay="CUT&Tag",
+                  histone=c("H3k27me3","H3K27ac"),
+                  peak_caller=c("MACS2","SEACR")))
 
 consensus_peaks_ct <- EpiCompare::compute_consensus_peaks(
   grlist = peaks_ct2, 
