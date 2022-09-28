@@ -3,5 +3,8 @@ work/
 .DS_Store
 processed_data/**/bwa/*
 processed_data/**/genome/*
+processed_data/**/genome/*
+processed_data/**/merged.all*
+processed_data/**/merged.all_CnT.bedGraph
 .nextflow/*
 .Rproj.user

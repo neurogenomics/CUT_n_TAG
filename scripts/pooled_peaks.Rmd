@@ -1,0 +1,148 @@
+---
+title: "Pooled peaks analysis"
+author: "Brian M. Schilder"
+output:
+  rmarkdown::html_document:
+    theme: flatly
+    highlight: breezedark
+    code_folding: show
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+    number_sections: no
+    self_contained: yes
+    df_print: paged
+---
+
+```{r setup, include=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+pkgs <- c("here","stringr")
+for(p in pkgs){
+    if(!require(p,character.only = TRUE)){
+        install.packages(p)
+    }
+    library(p,character.only = TRUE)
+}
+if(!require("PeakyFinders")){
+    remotes::install_github("neurogenomics/PeakyFinders")
+}
+library(PeakyFinders) 
+
+if(!require("EpiCompare")){
+    remotes::install_github("neurogenomics/EpiCompare")
+}
+library(EpiCompare) 
+datadir <- "/home/bms20/RDS/project/neurogenomics-lab/live/Projects/CUT_n_TAG/CUTnTag_analysis" 
+```
+
+# Import data
+
+## ENCODE
+
+```{r}
+meta <- PeakyFinders::search_encode(target =  "H3K27ac",
+                      biosample_name = "K562",
+                      organism = "Homo sapiens",
+                      assembly = "GRCh38",
+                      file_type = "narrowPeak",
+                      output_type = c("replicated peaks"),
+                      peaks_only = TRUE)
+reference <- PeakyFinders::import_peaks(ids = meta$file_accession,  # "ENCSR000AKP"
+                                        builds = "GRCh38",)[[1]][[1]]
+
+# ref3 <- rtracklayer::import(file.path("/home/bms20/RDS/project/neurogenomics-lab/live/Projects/CUT_n_TAG/CUTnTag_analysis/ENCODE_files/peaks/H3K27ac_ENCFF044JNJ.bed"))
+```
+
+
+## CUT&Tag
+
+### Metadata
+
+```{r}
+meta_path <- here::here("samples_key.xlsx")
+# m <- googledrive::drive_download(file = "https://docs.google.com/spreadsheets/d/1O-Mmsdi51XsNuoWSkMjY0kWRKZn1oD7dmkn3TkRz19M",
+#                                  path = meta_path,
+#                                  overwrite = TRUE)
+meta <- readxl::read_excel(meta_path) 
+meta <- data.table::data.table(meta, key = "name")[
+    histone_mark=="H3K27ac" & assay=="CUT&Tag",]
+map <- c(
+   "Abcam-ab177178"="Abcam-ab177178",
+   "Abcam-ab177178_TSA"=NULL,
+   "Abcam-ab4729"="Abcam-ab4729",
+   "Abcam-ab4729_TSA"=NULL,
+   "ActiveMotif"="ActiveMotif",
+   # Ignore this, it's the sample from the company Activate Motif
+   "ActiveMotif_H3K27ac"=NULL, 
+   "Diagenode_100x"="Diagenode 1:100",
+   "Diagenode_100x_TSA"=NULL,
+   "Diagenode_50x"="Diagenode 1:50",
+   "Diagenode_50x_sub"=NULL,
+   "Diagenode_50x_TSA"=NULL,
+   "H3K27ac_SRR8383507"="H3K27ac Kaya-Okur SRR8383507 (C&T)",
+   "H3K27ac_SRR8383508"="H3K27ac Kaya-Okur SRR8383508 (C&T)",
+   "H3K27ac_SRR8581604_CnR"="H3K27ac Meers SRR8581604 (C&R)",
+   "H3K27me3"="H3K27me3",
+   "H3K27me3_SRR11074238"="H3K27me3 Kaya-Okur SRR11074238 (C&T)",
+   "H3K27me3_SRR11074239"="H3K27me3 Kaya-Okur SRR11074239 (C&T)",
+   "H3K27me3_SRR9073702_CnR"="H3K27me3 Meers SRR9073702 (C&R)",
+   "scCT_H3K27me3"=NULL
+)
+```
+
+## BAM files
+
+```{r} 
+bam_files <- list.files(file.path(datadir,"/bam/rmDup"),"\\.bam$",
+                        full.names = TRUE)
+names(bam_files) <- gsub("_bowtie2_rmDup.mapped.bam","",basename(bam_files))
+bam_files <- bam_files[names(map[map %in% meta$name])]
+```
+
+
+```{r}
+peaks <- PeakyFinders::pooled_peaks(bam_files = bam_files,
+                                    groups = NULL,
+                                    method = "SEACR",
+                                    outdir = here::here("processed_data/pooled_peaks"),
+                                    cutoff = 0.01)
+# peaks <- PeakyFinders:::import_peaks_seacr(paths = here::here("processed_data/pooled_peaks/consensus.all.stringent.bed"), control = NULL)
+```
+# Run EpiCompare
+
+```{r}
+library(EpiCompare)
+data("hg19_blacklist")
+
+res <- EpiCompare::EpiCompare(peakfiles = peaks, 
+                              reference = reference, 
+                              genome_build = list(peakfiles="hg19",
+                                                  reference="hg38",
+                                                  blacklist="hg19"),
+                              blacklist = hg19_blacklist,
+                              chromHMM_plot = TRUE,
+                              chromHMM_annotation = "K562",
+                              chipseeker_plot = TRUE,
+                              enrichment_plot = TRUE,
+                              tss_plot = TRUE, 
+                              stat_plot = TRUE,
+                              upset_plot = TRUE,
+                              # precision_recall_plot = TRUE,
+                              # corr_plot = TRUE,
+                              interact = TRUE,
+                              save_output = TRUE,
+                              output_dir = here::here("EpiCompare_pooled_peaks"))
+```
+
+
+
+# Session info
+
+<details>
+
+```{r}
+
+```
+
+</details>
+<br>
