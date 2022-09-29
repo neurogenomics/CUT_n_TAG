@@ -92,7 +92,42 @@ map <- c(
 
 ## BAM files
 
-```{r} 
+```{r}  
+bam_files_cnt <- list.files(file.path(datadir,"/bam/rmDup"),
+                        pattern = "\\.bam$",
+                        full.names = TRUE)
+names(bam_files_cnt) <- gsub("_bowtie2_rmDup.mapped.bam","",basename(bam_files_cnt))
+bam_files_cnt <- bam_files_cnt[names(map[map %in% meta$name])] 
+```
+
+
+## TIP-seq
+
+### Metadata 
+
+```{r}
+meta_tip <- readxl::read_excel("/home/bms20/RDS/project/neurogenomics-lab/live/Data/tip_seq/epigenomic_sample_tracking.xlsx") |> data.table::data.table(key = "batch_name")
+meta_tip <- meta_tip[assay_name=="TIP-seq" & 
+                     assay_type=="bulk" & 
+                     grepl("H3K27ac",assay_subtype),]
+```
+
+### BAM files
+
+```{r}
+bam_files_tip <- list.files("/home/bms20/RDS/project/neurogenomics-lab/live/Data/tip_seq/processed_data/without_duplicates/", 
+                            pattern = "\\.dedup\\.bam$",
+                            recursive = TRUE, full.names = TRUE)
+names(bam_files_tip) <- basename(dirname(dirname(dirname(dirname(bam_files_tip)))))
+# bam_files_tip <- bam_files_tip[meta_tip$batch_name]
+
+```
+
+# Call pool peaks
+
+```{r}
+bam_files <- c(`names<-`(bam_files_cnt,rep("CnT",length(bam_files_cnt))),
+              `names<-`(bam_files_tip,rep("TIPseq",length(bam_files_tip))))
 bam_files <- list.files(file.path(datadir,"/bam/rmDup"),"\\.bam$",
                         full.names = TRUE)
 names(bam_files) <- gsub("_bowtie2_rmDup.mapped.bam","",basename(bam_files))
@@ -100,7 +135,7 @@ bam_files <- bam_files[names(map[map %in% meta$name])]
 ```
 
 
-```{r}
+```{r} 
 peaks <- PeakyFinders::pooled_peaks(bam_files = bam_files,
                                     groups = NULL,
                                     method = "SEACR",
@@ -108,6 +143,7 @@ peaks <- PeakyFinders::pooled_peaks(bam_files = bam_files,
                                     cutoff = 0.1)
 # peaks <- PeakyFinders:::import_peaks_seacr(paths = here::here("processed_data/pooled_peaks/pooled_peaks.all.stringent.bed"), control = NULL)
 ```
+
 # Run EpiCompare
 
 ```{r}
@@ -134,8 +170,6 @@ res <- EpiCompare::EpiCompare(peakfiles = peaks,
                               display = "browser",
                               output_dir = here::here("EpiCompare_pooled_peaks"))
 ```
-
-
 
 # Session info
 
