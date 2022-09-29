@@ -106,7 +106,7 @@ peaks <- PeakyFinders::pooled_peaks(bam_files = bam_files,
                                     method = "SEACR",
                                     outdir = here::here("processed_data/pooled_peaks"),
                                     cutoff = 0.01)
-# peaks <- PeakyFinders:::import_peaks_seacr(paths = here::here("processed_data/pooled_peaks/consensus.all.stringent.bed"), control = NULL)
+# peaks <- PeakyFinders:::import_peaks_seacr(paths = here::here("processed_data/pooled_peaks/pooled_peaks.all.stringent.bed"), control = NULL)
 ```
 # Run EpiCompare
 
@@ -127,10 +127,11 @@ res <- EpiCompare::EpiCompare(peakfiles = peaks,
                               tss_plot = TRUE, 
                               stat_plot = TRUE,
                               upset_plot = TRUE,
-                              # precision_recall_plot = TRUE,
-                              # corr_plot = TRUE,
+                              precision_recall_plot = TRUE,
+                              corr_plot = TRUE,
                               interact = TRUE,
                               save_output = TRUE,
+                              display = "browser",
                               output_dir = here::here("EpiCompare_pooled_peaks"))
 ```
 
@@ -141,7 +142,7 @@ res <- EpiCompare::EpiCompare(peakfiles = peaks,
 <details>
 
 ```{r}
-
+utils::sessionInfo()
 ```
 
 </details>

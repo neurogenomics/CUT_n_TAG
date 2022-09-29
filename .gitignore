@@ -4,7 +4,7 @@ work/
 processed_data/**/bwa/*
 processed_data/**/genome/*
 processed_data/**/genome/*
-processed_data/**/merged.all*
-processed_data/**/merged.all_CnT.bedGraph
+processed_data/**/*.bam
+processed_data/**/*.bedGraph
 .nextflow/*
 .Rproj.user
